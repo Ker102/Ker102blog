@@ -8,7 +8,7 @@
 
 A personal technical blog and minimalistic portfolio by **Kristofer Jussmann** — covering AI Engineering, DevOps, and Full-Stack Development.
 
-🔗 **Live site:** [ker102.github.io/Astroblogauto](https://ker102.github.io/Astroblogauto/)
+🔗 **Live site:** [https://astroblogauto.vercel.app/)
 
 ---
 
