@@ -1,0 +1,128 @@
+KRISTOFER JUSSMANN
+Agentic AI Engineer & Cloud Developer
+
+Location: Tallinn, Estonia
+Phone: (+372) 53006315
+Email: kristoferjussmann@gmail.com
+LinkedIn: linkedin.com/in/kristofer-jussmann-ker102
+GitHub: github.com/Ker102
+Portfolio: kaelux.dev
+
+================================================================================
+PROFESSIONAL SUMMARY
+================================================================================
+
+Agentic AI Engineer and Cloud Developer with 5+ years of Python development experience, specializing in LLM-powered applications, RAG pipelines, and workflow automation systems. Founder of Kaelux.dev, a B2B AI engineering consultancy delivering production-ready agentic systems. Built and deployed multi-agent orchestration platforms processing 120+ real-time API integrations with 60% latency reduction. Created the largest synthetic n8n workflow dataset (131,648 workflows) for fine-tuning vertical LLMs. Proven track record of scaling technical products to 300K+ social impressions and hundreds of monthly active users.
+
+================================================================================
+PROFESSIONAL EXPERIENCE
+================================================================================
+
+KAELUX.DEV — Tallinn, Estonia
+Founder & Lead AI Engineer
+October 2024 – Present (1 year 3 months)
+
+• Architected and deployed Crosswind Console, a multi-agent AI orchestration platform integrating 120+ real-time tools (Amadeus, Flights Sky, Booking.com APIs) using LangChain 1.x and Google Gemini 2.0 Flash
+• Engineered custom HTTP MCP (Model Context Protocol) client achieving 60% reduction in API latency through persistent connection pooling
+• Built production B2B consultancy platform (kaelux.dev) with Lighthouse scores of 95+ Performance, 100 Accessibility, 100 Best Practices, and 100 SEO
+• Designed and implemented RAG pipelines using vector databases (Qdrant, Pinecone, Supabase pgvector) for semantic search and context retrieval
+• Generated 131,648 synthetic n8n workflows (36,985 importable) for fine-tuning vertical LLMs, published on Hugging Face
+• Scaled marketing efforts to 300K+ Instagram impressions and hundreds of monthly active users on PromptTriage project
+• Orchestrated Docker Compose environments for multi-service deployments across GCP Spot VMs and DigitalOcean infrastructure
+
+ESTONIAN DEFENCE FORCES — Võru, Estonia
+Military Service
+October 2024 – May 2025 (7 months)
+
+• Completed mandatory military service while maintaining technical skill development and project portfolio
+• Developed critical thinking, operational discipline, and cross-functional team collaboration skills
+• Demonstrated resilience and ability to perform under high-pressure training environments
+
+================================================================================
+TECHNICAL SKILLS
+================================================================================
+
+AGENTIC AI & LLM ENGINEERING
+LangChain 1.x, LangGraph, Vercel AI SDK, Google Gemini SDK, RAG Pipelines, Vector Embeddings, Prompt Engineering (Chain-of-Thought, Few-shot, Zero-shot), LLMOps, Model Fine-tuning, Synthetic Dataset Generation, Hugging Face Integration
+
+CLOUD & DEVOPS
+Docker (Multi-stage Builds, Compose Orchestration), Kubernetes Fundamentals, GitHub Actions CI/CD, GCP (Vertex AI, Compute Engine), Azure (VMs, VNets, Blob Storage), DigitalOcean, Cloudflare Tunnels
+
+PROGRAMMING LANGUAGES
+Python (Advanced), TypeScript (Advanced), JavaScript, Bash, PowerShell
+
+FULL-STACK DEVELOPMENT
+React, Next.js 16, Vue.js 3, Svelte 5, Astro, FastAPI, Node.js, Express, PostgreSQL, Redis, Supabase, Prisma ORM
+
+VECTOR DATABASES
+Pinecone, Qdrant, Redis, Supabase pgvector
+
+SYSTEMS & SECURITY
+Linux Administration (Debian, Ubuntu), Windows Server, SSH/RDP Remote Management, PAT/SSH/Secrets Management
+
+================================================================================
+KEY PROJECTS
+================================================================================
+
+CROSSWIND CONSOLE | github.com/Ker102/Crosswind-Console
+Next-generation AI Orchestration Platform with hybrid RAG + MCP architecture
+• Deployed multi-agent system (Travel IQ, Career Scout, Trends agents) with 120+ real-time API tools
+• Achieved 60% latency reduction through custom HTTP MCP client with persistent connection pooling
+• Tech: Svelte 5, FastAPI, LangChain 1.x, Google Gemini 2.0 Flash, Supabase pgvector
+
+N8N AUTOMATION ATLAS | github.com/Ker102/n8n-workflows-36k
+Largest synthetic n8n workflow dataset for fine-tuning vertical LLMs
+• Generated 131,648 total workflows (36,985 importable, 36,166 RAG vectors)
+• Published on Hugging Face with archetype-based generation and semantic labels
+• Tech: Python 3.12, Node.js 22, Vue.js 3, Qdrant Cloud, Gemini 3 Pro Preview, Together AI M2-BERT
+
+KAELUX.DEV PLATFORM | kaelux.dev
+Production B2B AI engineering consultancy with Neural Agent chatbot
+• Built semantic caching RAG system for AI diagnostic chatbot
+• Achieved Lighthouse scores: Performance 95+, Accessibility 100, Best Practices 100, SEO 100
+• Tech: Next.js 16, TypeScript 5, TailwindCSS 3.4, Groq (Llama 3.3), Qdrant, Redis, PostgreSQL
+
+PROMPTTRIAGE | github.com/Ker102/PromptTriage
+Vertical AI model training on frontier model system prompts
+• Attracted hundreds of monthly active users for prompt analysis and refinement
+• Infrastructure: GCP, Google Colab, NVIDIA Spot VMs
+
+================================================================================
+CERTIFICATIONS
+================================================================================
+
+• Docker Foundations Professional Certificate — Docker Inc.
+• GitHub Administration (GH-900) — Microsoft
+• AI Engineering Associate — DataCamp
+• ML Foundations Professional Certificate — Anaconda & Python Institute
+• Azure Administration Applied Skills — Microsoft
+• Linux Fundamentals — Hack The Box Academy
+• Windows Fundamentals — Hack The Box Academy
+• Cambridge C1 English Certificate
+• Drone Pilot A1/A3 License
+
+================================================================================
+EDUCATION
+================================================================================
+
+HIGH SCHOOL DIPLOMA
+Jaan Poska Gümnaasium — Tartu, Estonia
+September 2021 – June 2024
+
+================================================================================
+LANGUAGES
+================================================================================
+
+• Estonian: Native
+• English: Professional Working Proficiency (C1/C2)
+
+================================================================================
+ONLINE PRESENCE
+================================================================================
+
+Portfolio: kaelux.dev
+GitHub: github.com/Ker102 (22+ public repositories)
+Hugging Face: huggingface.co/Ker102
+LinkedIn: linkedin.com/in/kristofer-jussmann-ker102
+
+================================================================================

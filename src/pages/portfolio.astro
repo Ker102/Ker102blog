@@ -146,6 +146,22 @@ import Footer from '../components/Footer.astro';
 			.btn-linkedin { color: #0077b5; }
 			.btn-hf { color: #F59E0B; } /* Darker yellow/orange for legibility */
 			.btn-kaelux { color: #333; }
+
+			/* CV Download Section */
+			.cv-download-section { margin-bottom: 1rem; }
+			.cv-description { font-size: 0.95rem; color: #777; max-width: 600px; margin: 0 0 1.5rem 0; line-height: 1.7; }
+			.cv-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+			.cv-btn {
+				background: #1a1a1a !important;
+				color: #fff !important;
+				border: 1px solid rgba(255,255,255,0.1);
+			}
+			.cv-btn:hover {
+				background: #333 !important;
+				color: #fff !important;
+				box-shadow: 0 4px 16px rgba(0,0,0,0.2) !important;
+			}
+			.cv-btn svg { stroke: #fff; flex-shrink: 0; }
 			
 			/* Hover effects: slightly brighter or interactions */
 			.social-btn:hover { 
@@ -282,6 +298,22 @@ import Footer from '../components/Footer.astro';
 					</a>
 				</div>
 			</div>
+
+			<!-- CV Download Section -->
+			<section class="cv-download-section">
+				<h2>Download CV</h2>
+				<p class="cv-description">Up-to-date resume available in two formats — plain text optimized for ATS screening, or Harvard-style markdown for reading.</p>
+				<div class="cv-buttons">
+					<a href="/kristofer_jussmann_resume.txt" download class="social-btn cv-btn">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Plain Text (ATS-Optimized)
+					</a>
+					<a href="/kristofer_jussmann_resume_harvard.md" download class="social-btn cv-btn">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+						Harvard Style (Markdown)
+					</a>
+				</div>
+			</section>
 
 			<!-- Certifications Section -->
 			<section>
