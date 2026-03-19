@@ -1,0 +1,56 @@
+---
+title: 'Building StoryForge at the Gemini Live Hackathon: Agentic AI, Mentorship & Open Source'
+description: 'How our team of five built StoryForge—a live conversational storytelling agent—at the Gemini Live Hackathon, while mentoring a 2nd-year student on agentic AI observability and helping him land his first Matplotlib contribution for GSoC 2026.'
+pubDate: 'Mar 19 2026'
+---
+
+Hackathons are often associated with sleepless nights, countless cups of coffee, and a frantic sprint to the finish line. But my experience at the **Gemini Live Hackathon** was about much more than just shipping code—it was about building something genuinely innovative, mentoring the next generation of developers, and extending that impact into the open-source world.
+
+## StoryForge: A Live AI Storytelling Agent
+
+Our team of five set out to build **StoryForge**—an interactive, real-time storytelling agent that you could *speak* to. The core idea was simple but ambitious: a user starts a conversation, and the AI dynamically generates a rich, illustrated story in real time. At any point, the user can steer the narrative in a completely new direction just by talking.
+
+### The Architecture
+
+Under the hood, StoryForge was powered entirely by the **Google ecosystem**:
+
+- **Google ADK (Agent Development Kit)** served as the central orchestration layer for our live agent.
+- **Gemini Live Models** handled the real-time voice conversation with the user.
+- **Gemini 2.5 Flash Preview** was used as a *tool* by the live agent, responsible for generating the story text dynamically on each turn.
+- **Imagen 4** was called as a second tool to generate vivid illustrations for each scene on the fly.
+
+One of the key architectural challenges we tackled was **context management**. A live conversational agent has a limited context window, and you absolutely cannot fill it with an ever-growing story. Our solution was a **metadata-snippet architecture**: instead of feeding the full narrative back into the live agent, we generated concise metadata summaries of the story's current state—characters, plot points, emotional tone—and fed *those* to the agent. This kept the live agent lightweight and responsive while still maintaining perfect narrative coherence, even across long, winding stories.
+
+## Mentoring Aman: Agentic AI Observability
+
+Beyond the project itself, the hackathon became a platform for mentorship. I had the privilege of working closely with **Aman**, a 2nd-year IT bachelor's student, throughout the event. Together, we focused on one of the most critical—and often overlooked—aspects of agentic AI systems: **observability**.
+
+When AI agents make autonomous decisions, chain tool calls, and dynamically route between models, you *need* to see what's happening inside the pipeline. We built an **observability pipeline** for StoryForge using Google's tooling, covering:
+
+- **Agent state tracking** — monitoring how the live agent's internal state evolved across conversation turns.
+- **Tool-calling telemetry** — logging every invocation of Gemini Flash and Imagen 4, including latency, token usage, and response metadata.
+- **Pipeline tracing** — end-to-end visibility into the flow from user speech → live agent → story generation → image generation → response.
+
+Watching Aman go from grappling with these concepts to confidently instrumenting the pipeline was one of the most rewarding parts of the entire hackathon.
+
+## From Hackathon to Open Source: Aman's First Matplotlib Contribution
+
+The mentorship didn't end when the hackathon wrapped up. I firmly believe that contributing to open source is one of the best accelerators for a developer's growth, and with **Google Summer of Code (GSoC) 2026** on the horizon, I wanted to help Aman build a track record of meaningful contributions.
+
+We targeted **Matplotlib**—one of the most widely-used scientific visualization libraries in the Python ecosystem, with over 20k GitHub stars and a massive, active community. Navigating a codebase of that scale can be intimidating for any developer, let alone a 2nd-year student.
+
+We worked through the process together:
+
+1. **Finding the right issue** — We identified [Issue #17479](https://github.com/matplotlib/matplotlib/issues/17479), a long-standing documentation gap where the `multipage_pdf` gallery example had no thumbnail because it uses `pdf.savefig()` instead of `plt.savefig()`, preventing Sphinx Gallery from auto-generating one.
+2. **Understanding the fix** — The solution required creating a custom static SVG thumbnail and wiring it up via the `sphinx_gallery_thumbnail_path` directive.
+3. **Crafting the PR** — Aman wrote a clean, well-documented PR with a clear problem statement, root cause analysis, and fix description.
+
+The result? **[PR #31308](https://github.com/matplotlib/matplotlib/pull/31308) was merged into Matplotlib's main branch.** 🎉
+
+Seeing that purple "Merged" badge appear was a massive milestone for Aman, and it sets a strong foundation for his GSoC 2026 application. Since then, we've continued collaborating on additional open-source contributions together, and the growth I've seen in just a few weeks has been incredible.
+
+## Why Mentorship Matters
+
+The Gemini Live Hackathon gave our team of five a platform to build a cutting-edge agentic AI application, but the impact went far beyond the event itself. It created a mentorship pipeline that connected real-world AI engineering with open-source contribution and career development.
+
+If you're an experienced developer, I'd encourage you to take a junior developer or student under your wing. Find an open-source project, pair through a tough issue, and help them land that first PR. The compound returns—for them, for you, and for the community—are immeasurable.
