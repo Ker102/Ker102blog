@@ -11,6 +11,10 @@ const blog = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: image().optional(),
+			// External article link (for Hashnode-synced posts)
+			externalUrl: z.string().url().optional(),
+			// Source badge label (e.g. "hashnode")
+			source: z.string().optional(),
 		}),
 });
 

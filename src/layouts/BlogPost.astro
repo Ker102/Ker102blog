@@ -8,7 +8,7 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, externalUrl, source } = Astro.props;
 ---
 
 <html lang="en">
@@ -76,6 +76,42 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+			/* External source banner */
+			.external-banner {
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+				padding: 0.875rem 1.25rem;
+				margin: 1.5rem 0;
+				background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(99, 102, 241, 0.08));
+				border: 1px solid rgba(99, 102, 241, 0.2);
+				border-radius: 10px;
+				font-size: 0.95rem;
+			}
+			.external-banner .source-badge {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.35rem;
+				padding: 0.25rem 0.65rem;
+				background: linear-gradient(135deg, #2563eb, #6366f1);
+				color: white;
+				border-radius: 20px;
+				font-size: 0.8rem;
+				font-weight: 600;
+				text-transform: capitalize;
+				letter-spacing: 0.02em;
+				white-space: nowrap;
+			}
+			.external-banner a {
+				color: #2563eb;
+				font-weight: 600;
+				text-decoration: none;
+				transition: color 0.2s;
+			}
+			.external-banner a:hover {
+				color: #6366f1;
+				text-decoration: underline;
+			}
 		</style>
 	</head>
 
@@ -101,6 +137,14 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 						<h1>{title}</h1>
 						<hr />
 					</div>
+					{externalUrl && (
+						<div class="external-banner">
+							{source && <span class="source-badge">📝 {source}</span>}
+							<span>
+								Originally published on <a href={externalUrl} target="_blank" rel="noopener noreferrer">{source || 'external site'}</a> — <a href={externalUrl} target="_blank" rel="noopener noreferrer">Read the full article →</a>
+							</span>
+						</div>
+					)}
 					<slot />
 				</div>
 			</article>
@@ -108,3 +152,4 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<Footer />
 	</body>
 </html>
+
