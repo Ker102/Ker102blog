@@ -1,19 +1,21 @@
 # Project Progress
 
 ## Current Objective
-Overhaul the professional resume (v3.0) incorporating recent AI models, Cloud/ML training workflows, and solo-author context while correctly branding Kaelux.dev, and establishing the final Hashnode build-time integration.
+Overhaul the professional resume (v3.0 -> v3.1 corrections) incorporating deeper context around A100/T4 AI model research, CRAG architectures, and redefining the Kaelux.dev brand as an intelligent ecosystem engineering agency.
 
 ## Progress Summary
-- Mapped Vercel build command to `npm run sync:hashnode && astro build` to automatically pull Hashnode posts at build time, replacing the cron-based commits.
-- Generated Plain Text Resume 3.0 updating front-end, backend, RAG pipeline, and cloud architecture experience, including Azure ML, Unsloth QLoRA, and modern LLM APIs (Gemini 3.1 Pro, Claude 4.6).
-- Authored professional Harvard-style HTML templates for both English and Estonian.
-- Generated Harvard-style PDF resumes cleanly using headless Microsoft Edge rendering.
-- Handled complete English to Estonian translation of technical terms and accomplishments.
+- Redefined Kaelux.dev's description to accurately represent its mission of bridging cutting-edge AI (LLM retrieval pipelines, workflow agents) and practical business applications.
+- Removed generic tech stack listings and instead contextualized skills around empirical research: e.g., 1,080 structured evaluations across frontier models, utilizing T4/A100 compute.
+- Clarified the application of CRAG architectures with smaller reranker and judge models.
+- Reordered projects to feature ViperMesh (and its custom Blender-Python AI addon) at the top.
+- Integrated the Cambridge C1 Advanced English Certification.
+- Regenerated all HTML templates and plain text files in both English and Estonian.
+- Produced pristine, Harvard-style ATS-compatible PDFs using Microsoft Edge headless rendering.
 
 ## Blockers and Decisions
-- **Decision:** Used a headless Edge browser to print high-quality, ATS-friendly `resume.pdf` from standard HTML templates rather than wrangling LaTeX binaries on Windows.
-- **Decision:** Removed "Solo Developer" references across the portfolio entries to streamline formatting per user feedback.
+- **Decision:** Contextualized technical skills explicitly around previous rigorous research findings (Format Wars, 28k System Prompts analysis) to demonstrate *applied* expertise rather than just listing technologies.
+- **Decision:** Separated hackathon mentorship from the professional agency section to highlight independent technical leadership.
 
 ## Next Steps
-- User to review the 3.0 output artifacts (`docs/kristofer_jussmann_harvard_resume_3.0.pdf` and its `_EE` counterpart).
-- Standby for further content pushes or additional blog synchronization needs.
+- Deliver final updated Resume 3.1 artifacts for final review.
+- Proceed to any remaining content deployments or blog synchronization optimizations.

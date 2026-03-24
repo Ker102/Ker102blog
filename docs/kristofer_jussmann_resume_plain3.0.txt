@@ -12,7 +12,7 @@ Portfolio: ker102blog.vercel.app
 PROFESSIONAL SUMMARY
 ================================================================================
 
-Agentic AI Engineer and Cloud Developer with 5+ years of Python development experience, specializing in LLM-powered applications, RAG pipelines, and workflow automation. Founder of Kaelux.dev, a B2B AI engineering consultancy delivering production-ready agentic systems. Experienced in orchestrating multi-agent platforms integrating 120+ real-time API tools with custom MCP routing. Proficient in training, benchmarking, and evaluating frontier models (Qwen, Nemotron) across Azure ML clusters and Google Colab using Unsloth QLoRA. Passionate open-source contributor, creating the world's largest synthetic n8n workflow dataset (131,648 workflows) for vertical LLM fine-tuning.
+Agentic AI Engineer and Cloud Developer with 5+ years of Python development experience, specializing in LLM-powered applications, RAG pipelines, and workflow automation. Founder of Kaelux.dev, a premier AI engineering agency dedicated to bridging the gap between cutting-edge artificial intelligence and practical business applications. Experienced in orchestrating multi-agent platforms integrating 120+ real-time API tools with custom MCP routing. Proficient in training, benchmarking, and evaluating frontier models across T4 and A100 GPU computing clusters. Creator of the world's largest synthetic n8n workflow dataset (131,648 workflows) for vertical LLM fine-tuning.
 
 ================================================================================
 PROFESSIONAL EXPERIENCE
@@ -22,10 +22,10 @@ KAELUX.DEV — Tallinn, Estonia
 Founder & Lead AI Engineer
 October 2024 – Present
 
-• Built production B2B AI consultancy platform (kaelux.dev) with semantic caching RAG system for an AI diagnostic chatbot, achieving Lighthouse scores of 95+ Performance, 100 Accessibility, 100 Best Practices, and 100 SEO.
-• Orchestrated Docker Compose environments for multi-service deployments across GCP Spot VMs and DigitalOcean infrastructure.
+• Kaelux is a premier AI engineering agency dedicated to bridging the gap between cutting-edge artificial intelligence and practical business applications. We don't just build software; we engineer intelligent ecosystems.
+• From custom LLM retrieval pipelines to automated workflow agents, our mission is to empower creators and enterprises with infrastructure that thinks, adapts, and scales.
+• We combine robust full-stack engineering with state-of-the-art AI research to deliver solutions that are not only powerful but also reliable and production-ready.
 • Scaled marketing efforts to 300K+ Instagram impressions and hundreds of monthly active users.
-• Mentored a junior developer at the Gemini Live Hackathon mapping agentic AI observability pipelines, systematically guiding them to successfully merge PR #31308 in the `matplotlib` core library.
 
 ESTONIAN DEFENCE FORCES — Võru, Estonia
 Military Service
@@ -35,23 +35,20 @@ October 2024 – May 2025
 • Developed critical thinking, operational discipline, and cross-functional team collaboration skills in high-pressure training environments.
 
 ================================================================================
-TECHNICAL SKILLS
+TECHNICAL SKILLS & EXPERTISE
 ================================================================================
 
-AGENTIC AI & LLM ENGINEERING
-Gemini 3.1 Pro, Claude Opus 4.6, GPT-5.4, Llama 4, Mistral, Qwen 3, Nemotron, LangChain 1.x, LangGraph, Model Context Protocol (MCP), Vercel AI SDK, RAG Pipelines, Prompt Engineering, LLMOps, Unsloth QLoRA
+MODEL EVALUATION & CLOUD COMPUTE
+Evaluated, benchmarked, and fine-tuned frontier models (GPT-5.4, Qwen 3, Nemotron, Claude) leveraging T4 and A100 GPUs for rigorous empirical studies (e.g., executing 1,080 structured model evaluations for Study E, spending ~$200 on dedicated cloud compute across major prompt/UI studies).
 
-MODEL TRAINING & CLOUD INFRASTRUCTURE
-Azure ML Clusters, Google Colab, Hugging Face Integration, Synthetic Dataset Generation, Docker (Multi-stage Builds, Compose), Kubernetes Fundamentals, GitHub Actions CI/CD, GCP (Vertex AI, Compute Engine), Azure (VMs, Blob Storage)
+ADVANCED RAG ARCHITECTURES
+Engineered Corrective RAG (CRAG) pipelines integrating smaller reranker and judge models for intelligent filtering and context validation across applications like ViperMesh and PromptTriage.
 
-PROGRAMMING LANGUAGES
-Python 3.12 (Advanced), TypeScript (Advanced), JavaScript, Bash, PowerShell
+VECTOR DATABASE ECOSYSTEMS
+Designed contextually rich vector databases (Pinecone, Qdrant Cloud, Supabase pgvector) across various production applications, handling multimodal retrieval and semantic search at scale.
 
-FULL-STACK DEVELOPMENT
-Next.js 16, React 19, Vue.js 3, Svelte 5 (Runes), Astro, FastAPI, Node.js, Express, Tailwind CSS, Supabase, Prisma ORM
-
-VECTOR DATABASES
-Pinecone, Qdrant Cloud, Redis, Supabase pgvector
+PROGRAMMING & FULL-STACK DEVELOPMENT
+Python 3.12 (Advanced), TypeScript (Advanced), Bash, Next.js 16, React 19, Svelte 5 (Runes), Astro, FastAPI, Node.js, Tailwind CSS, Supabase, Prisma ORM, Docker, Kubernetes.
 
 ================================================================================
 KEY PROJECTS
@@ -60,41 +57,42 @@ KEY PROJECTS
 VIPERMESH / MODELFORGE | github.com/Ker102/ModelForge
 AI-Powered Blender Assistant & Neural 3D Hub
 • Architected a LangChain v1 ReAct loop with 22 native Blender manipulation tools and dynamic addon detection via socket-bridged execution.
+• Developed a custom addon for an AI agent to execute Python calls through the addon and interact directly with the Blender scene.
 • Built a 3-tier Hybrid Neural 3D Pipeline integrating Fal.ai, proprietary YVO3D, and serverless RunPod deployments for generating assets at scale.
-• Designed a premium dashboard UI (Next.js 16) with Supabase Auth, Stripe billing, and a dual-mode workflow (Autopilot vs. Studio).
-
-CROSSWIND CONSOLE | github.com/Ker102/Crosswind-Console
-High-Performance AI Orchestrator for Travel and Career Intelligence
-• Deployed a multi-agent orchestration system (Travel, Career, Trends) coordinating 120+ real-time tools via an execution pool.
-• Engineered a custom HTTP MCP client reducing API execution latency to <3s through persistent connection pooling.
-• Built lightning-fast reactive UI with Svelte 5 (Runes), backed by FastAPI, LangChain, Gemini 3 Pro, and Supabase pgvector.
-
-N8N AUTOMATION ATLAS | github.com/Ker102/n8n-workflows-36k
-World's Largest Open-Source n8n Workflow Dataset for ML Training
-• Generated 131,648 total synthetic workflows (36,985 importable) for fine-tuning vertical LLMs, published on Hugging Face.
-• Built a Pinecone RAG system querying over 36,166 vectorized workflows with semantic search capabilities in ~50ms.
-• Fine-tuned a Qwen 3 Coder 14B model using 21K+ cleaned instruction pairs trained via Unsloth on Azure ML.
 
 PROMPTTRIAGE | github.com/Ker102/PromptTriage
 Modality-Specific Prompt Engineering Platform
 • Created a dedicated Pinecone RAG architecture retrieving from a 28,000+ empirical system prompt corpus.
 • Implemented modality-specific metaprompts (Text, Image, Video) via Corrective RAG (CRAG) augmented with Context7 MCP docs integration.
-• Tech: Next.js 15, FastAPI, Pinecone, Context7 MCP.
+
+N8N AUTOMATION ATLAS | github.com/Ker102/n8n-workflows-36k
+World's Largest Open-Source n8n Workflow Dataset for ML Training
+• Generated 131,648 total synthetic workflows (36,985 importable) for fine-tuning vertical LLMs, published on Hugging Face.
+• Fine-tuned a Qwen 3 Coder 14B model using 21K+ cleaned instruction pairs trained via Unsloth on Azure ML.
+
+CROSSWIND CONSOLE | github.com/Ker102/Crosswind-Console
+High-Performance AI Orchestrator for Travel and Career Intelligence
+• Deployed a multi-agent orchestration system (Travel, Career, Trends) coordinating 120+ real-time tools via an execution pool.
+• Engineered a custom HTTP MCP client reducing API execution latency to <3s through persistent connection pooling.
+
+================================================================================
+HACKATHONS & MENTORSHIP
+================================================================================
 
 STORYFORGE (Gemini Live Hackathon)
-Real-Time Conversational Storytelling Agent
 • Built an interactive storytelling agent utilizing Google ADK, Gemini Live Models, and Imagen 4 on a metadata-snippet architecture for continuous context management.
+• Mentored a junior developer at the hackathon by mapping agentic AI observability pipelines, systematically guiding them to successfully merge PR #31308 in the `matplotlib` core library.
 
 ================================================================================
 CERTIFICATIONS
 ================================================================================
 
+• Cambridge C1 Advanced English Certification
 • GitHub Administration (GH-900) — Microsoft
 • AI Engineering Associate — DataCamp
 • Docker Foundations Professional Certificate — Docker Inc.
 • ML Foundations Professional Certificate — Anaconda & Python Institute
 • Azure Administration Applied Skills — Microsoft
-• Linux Fundamentals / Windows Fundamentals — Hack The Box Academy
 
 ================================================================================
 EDUCATION
@@ -109,7 +107,7 @@ LANGUAGES
 ================================================================================
 
 • Estonian: Native
-• English: Professional Working Proficiency (C1/C2)
+• English: Cambridge C1 Advanced Certification
 
 ================================================================================
 ONLINE PRESENCE

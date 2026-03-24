@@ -61,12 +61,14 @@
         }
         li { 
             margin-bottom: 4px; 
+            text-align: justify;
         }
         .skills-list { 
             margin-bottom: 10px; 
         }
         .skills-list div { 
             margin-bottom: 4px; 
+            text-align: justify;
         }
     </style>
 </head>
@@ -78,55 +80,52 @@
     </div>
 
     <h2>Professional Summary</h2>
-    <p style="margin-top: 4px; margin-bottom: 0px; text-align: justify;">Agentic AI Engineer and Cloud Developer with 5+ years of Python development experience, specializing in LLM-powered applications, RAG pipelines, and workflow automation. Founder of Kaelux.dev, a B2B AI engineering consultancy delivering production-ready agentic systems. Experienced in orchestrating multi-agent platforms integrating 120+ real-time API tools with custom MCP routing. Proficient in training, benchmarking, and evaluating frontier models (Qwen, Nemotron) across Azure ML clusters and Google Colab using Unsloth QLoRA. Creator of the world's largest synthetic n8n workflow dataset (131,648 workflows) for vertical LLM fine-tuning.</p>
+    <p style="margin-top: 4px; margin-bottom: 0px; text-align: justify;">Agentic AI Engineer and Cloud Developer with 5+ years of Python development experience, specializing in LLM-powered applications, RAG pipelines, and workflow automation. Founder of Kaelux.dev, a premier AI engineering agency dedicated to bridging the gap between cutting-edge artificial intelligence and practical business applications. Experienced in orchestrating multi-agent platforms integrating 120+ real-time API tools with custom MCP routing. Proficient in training, benchmarking, and evaluating frontier models across T4 and A100 GPU computing clusters. Creator of the world's largest synthetic n8n workflow dataset (131,648 workflows) for vertical LLM fine-tuning.</p>
 
     <h2>Professional Experience</h2>
     <div class="job">
         <div class="job-header"><span>KAELUX.DEV</span> <span>Tallinn, Estonia</span></div>
         <div class="job-title"><span>Founder & Lead AI Engineer</span> <span>October 2024 – Present</span></div>
         <ul>
-            <li>Built production B2B AI consultancy platform (kaelux.dev) with semantic caching RAG system for an AI diagnostic chatbot, achieving Lighthouse scores of 95+ Performance, 100 Accessibility, 100 Best Practices, and 100 SEO.</li>
-            <li>Orchestrated Docker Compose environments for multi-service deployments across GCP Spot VMs and DigitalOcean infrastructure.</li>
-            <li>Scaled marketing efforts to 300K+ Instagram impressions and hundreds of monthly active users.</li>
-            <li>Mentored a junior developer at the Gemini Live Hackathon mapping agentic AI observability pipelines, systematically guiding them to merge PR #31308 in the <code>matplotlib</code> core library.</li>
+            <li>Kaelux is a premier AI engineering agency dedicated to bridging the gap between cutting-edge artificial intelligence and practical business applications. We don't just build software; we engineer intelligent ecosystems.</li>
+            <li>From custom LLM retrieval pipelines to automated workflow agents, our mission is to empower creators and enterprises with infrastructure that thinks, adapts, and scales.</li>
+            <li>We combine robust full-stack engineering with state-of-the-art AI research to deliver solutions that are not only powerful but also reliable and production-ready.</li>
         </ul>
     </div>
     
-    <div class="job">
+    <div class="job" style="margin-bottom: 0px;">
         <div class="job-header"><span>ESTONIAN DEFENCE FORCES</span> <span>Võru, Estonia</span></div>
         <div class="job-title"><span>Military Service</span> <span>October 2024 – May 2025</span></div>
-        <ul>
-            <li>Completed mandatory military service while maintaining technical skill development and project portfolio.</li>
-            <li>Developed critical thinking, operational discipline, and cross-functional team collaboration skills in high-pressure training environments.</li>
+        <ul style="margin-bottom: 0px;">
+            <li>Developed critical thinking, operational discipline, and cross-functional team collaboration skills in high-pressure training environments while actively developing AI projects.</li>
         </ul>
     </div>
 
-    <h2>Technical Skills</h2>
+    <h2>Technical Skills & Expertise</h2>
     <div class="skills-list">
-        <div><strong>Agentic AI & LLMs:</strong> Gemini 3.1 Pro, Claude Opus 4.6, GPT-5.4, Llama 4, Mistral, Qwen 3, Nemotron, LangChain 1.x, LangGraph, Model Context Protocol (MCP), Vercel AI SDK, RAG Pipelines, LLMOps, Unsloth QLoRA</div>
-        <div><strong>Model Training & Cloud Infra:</strong> Azure ML Clusters, Google Colab, Hugging Face Integration, Synthetic Dataset Generation, Docker, Kubernetes Fundamentals, GitHub Actions CI/CD, GCP, Azure (VMs, Blob Storage)</div>
-        <div><strong>Programming Languages:</strong> Python 3.12 (Advanced), TypeScript (Advanced), JavaScript, Bash, PowerShell</div>
-        <div><strong>Full-Stack Development:</strong> Next.js 16, React 19, Vue.js 3, Svelte 5 (Runes), Astro, FastAPI, Node.js, Tailwind CSS, Supabase, Prisma ORM</div>
+        <div><strong>Model Evaluation & Cloud Compute:</strong> Evaluated, benchmarked, and fine-tuned frontier models (GPT-5.4, Qwen 3, Nemotron, Claude) leveraging T4 and A100 GPUs for rigorous empirical studies (e.g., executing 1,080 structured model evaluations for Study E, spending ~$200 on dedicated cloud compute).</div>
+        <div><strong>Advanced RAG Architectures:</strong> Engineered Corrective RAG (CRAG) pipelines integrating smaller reranker and judge models for intelligent filtering and context validation across applications like ViperMesh and PromptTriage.</div>
+        <div><strong>Vector Database Ecosystems:</strong> Designed contextually rich vector databases (Pinecone, Qdrant Cloud, pgvector) across various production applications, handling multimodal retrieval and semantic search at scale.</div>
+        <div><strong>Programming & Full-Stack Development:</strong> Python 3.12 (Advanced), TypeScript (Advanced), Bash, Next.js 16, React 19, Svelte 5, Astro, FastAPI, Node.js, Tailwind CSS, Supabase, Prisma ORM, Docker.</div>
     </div>
 
     <h2>Key Projects</h2>
-    
     <div class="job">
         <div class="job-header"><span>ViperMesh / ModelForge</span> <span><a href="https://github.com/Ker102/ModelForge">github.com/Ker102/ModelForge</a></span></div>
         <div class="job-title"><span>AI-Powered Blender Assistant & Neural 3D Hub</span> <span>Next.js, LangChain, Python</span></div>
         <ul>
+            <li>Developed a custom addon for an AI agent to execute Python calls through the addon and interact directly with the Blender scene.</li>
             <li>Architected a LangChain v1 ReAct loop with 22 native Blender manipulation tools and dynamic addon detection via socket-bridged execution.</li>
             <li>Built a 3-tier Hybrid Neural 3D Pipeline integrating Fal.ai, proprietary YVO3D, and serverless RunPod deployments for generating assets at scale.</li>
-            <li>Designed a premium dashboard UI (Next.js 16) with Supabase Auth, Stripe billing, and a dual-mode workflow (Autopilot vs. Studio).</li>
         </ul>
     </div>
-    
+
     <div class="job">
-        <div class="job-header"><span>Crosswind Console</span> <span><a href="https://github.com/Ker102/Crosswind-Console">github.com/Ker102/Crosswind-Console</a></span></div>
-        <div class="job-title"><span>High-Performance AI Orchestrator</span> <span>Svelte 5, FastAPI, Gemini 3</span></div>
+        <div class="job-header"><span>PromptTriage</span> <span><a href="https://github.com/Ker102/PromptTriage">github.com/Ker102/PromptTriage</a></span></div>
+        <div class="job-title"><span>Modality-Specific Prompt Engineering Platform</span> <span>Next.js 15, Pinecone, Context7</span></div>
         <ul>
-            <li>Deployed a multi-agent orchestration system (Travel, Career, Trends) coordinating 120+ real-time tools via an execution pool.</li>
-            <li>Engineered a custom HTTP MCP client reducing API execution latency to &lt;3s through persistent connection pooling.</li>
+            <li>Created a dedicated Pinecone RAG architecture retrieving from a 28,000+ empirical system prompt corpus.</li>
+            <li>Implemented modality-specific metaprompts (Text, Image, Video) via Corrective RAG (CRAG) augmented with Context7 MCP docs integration.</li>
         </ul>
     </div>
 
@@ -140,26 +139,37 @@
     </div>
 
     <div class="job">
-        <div class="job-header"><span>PromptTriage</span> <span><a href="https://github.com/Ker102/PromptTriage">github.com/Ker102/PromptTriage</a></span></div>
-        <div class="job-title"><span>Modality-Specific Prompt Engineering Platform</span> <span>Next.js 15, Pinecone, Context7</span></div>
+        <div class="job-header"><span>Crosswind Console</span> <span><a href="https://github.com/Ker102/Crosswind-Console">github.com/Ker102/Crosswind-Console</a></span></div>
+        <div class="job-title"><span>High-Performance AI Orchestrator</span> <span>Svelte 5, FastAPI, Gemini 3</span></div>
         <ul>
-            <li>Created a dedicated Pinecone RAG architecture retrieving from a 28,000+ empirical system prompt corpus.</li>
-            <li>Implemented modality-specific metaprompts (Text, Image, Video) via Corrective RAG (CRAG) augmented with Context7 MCP docs integration.</li>
+            <li>Deployed a multi-agent orchestration system (Travel, Career, Trends) coordinating 120+ real-time tools via an execution pool.</li>
+            <li>Engineered a custom HTTP MCP client reducing API execution latency to &lt;3s through persistent connection pooling.</li>
+        </ul>
+    </div>
+
+    <h2>Hackathons & Mentorship</h2>
+    <div class="job" style="margin-bottom: 0px;">
+        <div class="job-header"><span>StoryForge (Gemini Live Hackathon)</span> <span></span></div>
+        <ul>
+            <li>Built an interactive storytelling agent utilizing Google ADK, Gemini Live Models, and Imagen 4 on a metadata-snippet architecture for continuous context management.</li>
+            <li>Mentored a junior developer at the hackathon by mapping agentic AI observability pipelines, systematically guiding them to successfully merge PR #31308 in the <code>matplotlib</code> core library.</li>
         </ul>
     </div>
 
     <h2>Certifications</h2>
-    <ul style="column-count: 2; column-gap: 40px; list-style-type: disc;">
+    <ul style="column-count: 2; column-gap: 20px; list-style-type: disc;">
+        <li>Cambridge C1 Advanced English Certification</li>
         <li>GitHub Administration (GH-900) — Microsoft</li>
         <li>AI Engineering Associate — DataCamp</li>
         <li>Docker Foundations Professional Cert — Docker Inc.</li>
         <li>ML Foundations Professional Cert — Anaconda</li>
+        <li>Azure Administration Applied Skills — Microsoft</li>
     </ul>
 
     <h2>Education & Languages</h2>
     <div class="job" style="margin-bottom: 0;">
-        <div class="job-header" style="font-weight: normal;"><strong>High School Diploma</strong>, Jaan Poska Gümnaasium — Tartu, Estonia <em>(September 2021 – June 2024)</em></div>
-        <div style="margin-top: 4px;"><strong>Languages:</strong> Estonian (Native), English (Professional Working Proficiency - C1/C2)</div>
+        <div class="job-header" style="font-weight: normal;"><strong>High School Diploma</strong>, Jaan Poska Gümnaasium — Tartu, Estonia <em>(Sept 2021 – June 2024)</em></div>
+        <div style="margin-top: 4px;"><strong>Languages:</strong> Estonian (Native), English (Cambridge C1 Advanced Certification)</div>
     </div>
 </body>
 </html>
