@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Kristofer Jussmann - CV</title>
+    <style>
+        @page {
+            margin: 0.5in;
+        }
+        body { 
+            font-family: "Times New Roman", Times, serif; 
+            font-size: 11pt; 
+            line-height: 1.25; 
+            margin: 0; 
+            padding: 0; 
+            color: #000; 
+        }
+        h1 { 
+            text-align: center; 
+            text-transform: uppercase; 
+            font-size: 16pt; 
+            margin-bottom: 5px; 
+            font-weight: normal; 
+        }
+        .contact-info { 
+            text-align: center; 
+            margin-bottom: 15px; 
+            font-size: 10pt; 
+        }
+        .contact-info a { 
+            color: #000; 
+            text-decoration: none; 
+        }
+        h2 { 
+            text-transform: uppercase; 
+            font-size: 11.5pt; 
+            border-bottom: 1px solid #000; 
+            margin-top: 15px; 
+            margin-bottom: 8px; 
+            padding-bottom: 2px; 
+            font-weight: bold; 
+        }
+        .job { 
+            margin-bottom: 10px; 
+        }
+        .job-header { 
+            display: flex; 
+            justify-content: space-between; 
+            font-weight: bold; 
+        }
+        .job-title { 
+            display: flex; 
+            justify-content: space-between; 
+            font-style: italic; 
+            margin-bottom: 4px; 
+        }
+        ul { 
+            margin-top: 4px; 
+            margin-bottom: 10px; 
+            padding-left: 20px; 
+        }
+        li { 
+            margin-bottom: 4px; 
+        }
+        .skills-list { 
+            margin-bottom: 10px; 
+        }
+        .skills-list div { 
+            margin-bottom: 4px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Kristofer Jussmann</h1>
+    <div class="contact-info">
+        Tallinn, Eesti • (+372) 53006315 • kristoferjussmann@gmail.com<br>
+        <a href="https://linkedin.com/in/kristofer-jussmann-ker102">linkedin.com/in/kristofer-jussmann-ker102</a> • <a href="https://github.com/Ker102">github.com/Ker102</a> • <a href="https://ker102blog.vercel.app">ker102blog.vercel.app</a>
+    </div>
+
+    <h2>Professionaalne Kokkuvõte</h2>
+    <p style="margin-top: 4px; margin-bottom: 0px; text-align: justify;">Agentse AI insener ja pilvearendaja, 5+ aastat Pythoni arenduskogemust, spetsialiseerudes LLM-põhistele rakendustele, RAG lahendustele ja töövoogude automatiseerimisele. Kaelux.dev asutaja, mis on tooteküpseid agentseid süsteeme loov B2B AI insenerikonsultatsioon. Kogenud 120+ API-t ja kohandatud MCP (Mudeli Konteksti Protokoll) marsruutimist integreerivate multi-agendi platvormide orkestreerimisel. Vilunud tipptasemel mudelite (Qwen, Nemotron) treenimisel, võrdlustestimisel ja hindamisel Azure ML klastrites ja Google Colab'is Unsloth QLoRA-ga. Maailma suurima sünteetilise n8n töövoo andmestiku (131 648 töövoogu) looja vertikaalsete LLM-ide peenhäälestamiseks.</p>
+
+    <h2>Töökogemus</h2>
+    <div class="job">
+        <div class="job-header"><span>KAELUX.DEV</span> <span>Tallinn, Eesti</span></div>
+        <div class="job-title"><span>Asutaja ja Juhtiv AI Insener</span> <span>Oktoober 2024 – Praeguseni</span></div>
+        <ul>
+            <li>Lõi B2B AI konsultatsioonide tootmisplatvormi (kaelux.dev) semantilise vahemäluga RAG-süsteemiga tehisintellekti diagnostika vestlusroboti jaoks, saavutades Lighthouse'i skooriks 95+ Performance, 100 Accessibility, 100 Best Practices ja 100 SEO.</li>
+            <li>Orkestreeris Docker Compose'i põhiseid mitme teenusega lahendusi GCP Spot virtuaalmasinatel ja DigitalOcean infrastruktuuril.</li>
+            <li>Skaleeris turundustegevust, jõudes üle 300 000 Instagrami vaatamiseni ja sadade igakuiste aktiivsete kasutajateni.</li>
+            <li>Juhendas nooremtarkvaraarendajat Gemini Live Hackathonil agentse AI jälgitavuse lahenduste loomisel, aidates neil edukalt ühendada PR #31308 <code>matplotlib</code> tuumikteeki.</li>
+        </ul>
+    </div>
+    
+    <div class="job">
+        <div class="job-header"><span>EESTI KAITSEVÄGI</span> <span>Võru, Eesti</span></div>
+        <div class="job-title"><span>Ajateenistus</span> <span>Oktoober 2024 – Mai 2025</span></div>
+        <ul>
+            <li>Läbis kohustusliku ajateenistuse, hoides samaaegselt aktiivsena tehniliste oskuste arendamist ja projektide portfelli.</li>
+            <li>Arendas kriitilist mõtlemist, operatiivset distsipliini ja ristfunktsionaalset meeskonnatööd kõrge pingega väljaõppekeskkondades.</li>
+        </ul>
+    </div>
+
+    <h2>Tehnilised Oskused</h2>
+    <div class="skills-list">
+        <div><strong>Agentne AI & LLM Inseneeria:</strong> Gemini 3.1 Pro, Claude Opus 4.6, GPT-5.4, Llama 4, Mistral, Qwen 3, Nemotron, LangChain 1.x, LangGraph, Model Context Protocol (MCP), Vercel AI SDK, RAG Pipelines, LLMOps, Unsloth QLoRA</div>
+        <div><strong>Mudelite Treenimine & Pilveinfra:</strong> Azure ML Klastrid, Google Colab, Hugging Face Integratsioon, Sünteetiline Andmestiku Genereerimine, Docker, Kubernetes Alused, GitHub Actions CI/CD, GCP, Azure (VMs, Blob Storage)</div>
+        <div><strong>Programmeerimiskeeled:</strong> Python 3.12 (Edasijõudnud), TypeScript (Edasijõudnud), JavaScript, Bash, PowerShell</div>
+        <div><strong>Full-Stack Arendus:</strong> Next.js 16, React 19, Vue.js 3, Svelte 5 (Runes), Astro, FastAPI, Node.js, Tailwind CSS, Supabase, Prisma ORM</div>
+    </div>
+
+    <h2>Võtmeprojektid</h2>
+    
+    <div class="job">
+        <div class="job-header"><span>ViperMesh / ModelForge</span> <span><a href="https://github.com/Ker102/ModelForge">github.com/Ker102/ModelForge</a></span></div>
+        <div class="job-title"><span>AI-põhine Blenderi Assistent & Neuraalne 3D Platvorm</span> <span>Next.js, LangChain, Python</span></div>
+        <ul>
+            <li>Arhitektuuris LangChain v1 ReAct tsükli 22 natiivse Blenderi tööriista ja dünaamilise lisandmoodulite tuvastamisega läbi soklite (sockets) silla.</li>
+            <li>Lõi 3-tasandilise hübriidse neuraalse 3D töövoo, integreerides Fal.ai, YVO3D ja serverless RunPod võimsuse massiliseks varade genereerimiseks.</li>
+            <li>Kujundas luksusliku kasutajaliidese (Next.js 16) Supabase Auth ja Stripe'i arvete haldusega ning kahe režiimiga süsteemi (Autopilot vs. Studio).</li>
+        </ul>
+    </div>
+    
+    <div class="job">
+        <div class="job-header"><span>Crosswind Console</span> <span><a href="https://github.com/Ker102/Crosswind-Console">github.com/Ker102/Crosswind-Console</a></span></div>
+        <div class="job-title"><span>Suure Jõudlusega AI Orkestraator</span> <span>Svelte 5, FastAPI, Gemini 3</span></div>
+        <ul>
+            <li>Juurutas mitme agendiga orkestratsioonisüsteemi (Reisimine, Karjäär, Trendid), koordineerides 120+ reaalajas API-t läbi täitmisbasseini.</li>
+            <li>Konstrueeris kohandatud HTTP MCP kliendi, vähendades API latentsust alla 3 sekundi tänu püsivale ühenduste koondamisele.</li>
+        </ul>
+    </div>
+
+    <div class="job">
+        <div class="job-header"><span>n8n Automation Atlas</span> <span><a href="https://github.com/Ker102/n8n-workflows-36k">github.com/Ker102/n8n-workflows-36k</a></span></div>
+        <div class="job-title"><span>Maailma Suurim Sünteetiline n8n Töövoo Andmestik</span> <span>Python, Qdrant, Azure ML</span></div>
+        <ul>
+            <li>Genereeris kokku 131 648 sünteetilist töövoogu (36 985 otse imporditavat) vertikaalsete LLM-ide peenhäälestamiseks, jagatud Hugging Face'is.</li>
+            <li>Peenhäälestas Qwen 3 Coder 14B mudeli 21 000+ puhastatud juhiste paariga läbi Unsloth meetodi Azure ML platvormil.</li>
+        </ul>
+    </div>
+
+    <div class="job">
+        <div class="job-header"><span>PromptTriage</span> <span><a href="https://github.com/Ker102/PromptTriage">github.com/Ker102/PromptTriage</a></span></div>
+        <div class="job-title"><span>Modaalsuse-spetsiifiline Viipetehnoloogia Platvorm</span> <span>Next.js 15, Pinecone, Context7</span></div>
+        <ul>
+            <li>Lõi spetsiaalse Pinecone RAG arhitektuuri ligi 28 000+ empiirilise süsteemiviiba kogust andmete hankimiseks.</li>
+            <li>Implementeeris modaalsuspõhised metaviibad (Tekst, Pilt, Video) CRAG (Corrective RAG) ning Context7 MCP integratsiooniga.</li>
+        </ul>
+    </div>
+
+    <h2>Sertifikaadid</h2>
+    <ul style="column-count: 2; column-gap: 40px; list-style-type: disc;">
+        <li>GitHub Administration (GH-900) — Microsoft</li>
+        <li>AI Engineering Associate — DataCamp</li>
+        <li>Docker Foundations Professional Cert — Docker Inc.</li>
+        <li>ML Foundations Professional Cert — Anaconda</li>
+    </ul>
+
+    <h2>Haridus & Keeled</h2>
+    <div class="job" style="margin-bottom: 0;">
+        <div class="job-header" style="font-weight: normal;"><strong>Keskharidus</strong>, Jaan Poska Gümnaasium — Tartu, Eesti <em>(September 2021 – Juuni 2024)</em></div>
+        <div style="margin-top: 4px;"><strong>Keeled:</strong> Eesti keel (Emakeel), Inglise keel (Professionaalne Tööalane Oskus - C1/C2)</div>
+    </div>
+</body>
+</html>

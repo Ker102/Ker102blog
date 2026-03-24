@@ -1,0 +1,122 @@
+KRISTOFER JUSSMANN
+Agentse Tehisintellekti Insener ja Pilvearendaja
+
+Asukoht: Tallinn, Eesti
+Telefon: (+372) 53006315
+E-post: kristoferjussmann@gmail.com
+LinkedIn: linkedin.com/in/kristofer-jussmann-ker102
+GitHub: github.com/Ker102
+Portfoolio: ker102blog.vercel.app
+
+================================================================================
+PROFESSIONAALNE KOKKUVÕTE
+================================================================================
+
+Agentse AI insener ja pilvearendaja, 5+ aastat Pythoni arenduskogemust, spetsialiseerudes LLM-põhistele rakendustele, RAG lahendustele ja töövoogude automatiseerimisele. Kaelux.dev asutaja, mis on tooteküpseid agentseid süsteeme loov B2B AI insenerikonsultatsioon. Kogenud 120+ API-t ja kohandatud MCP (Mudeli Konteksti Protokoll) marsruutimist integreerivate multi-agendi platvormide orkestreerimisel. Vilunud tipptasemel mudelite (Qwen, Nemotron) treenimisel, võrdlustestimisel ja hindamisel Azure ML klastrites ning Google Colab'is Unsloth QLoRA-ga. Kirglik avatud lähtekoodiga panustaja, olles loonud maailma suurima sünteetilise n8n töövoo andmestiku (131 648 töövoogu) vertikaalsete LLM-ide peenhäälestamiseks.
+
+================================================================================
+TÖÖKOGEMUS
+================================================================================
+
+KAELUX.DEV — Tallinn, Eesti
+Asutaja ja Juhtiv AI Insener
+Oktoober 2024 – Praeguseni
+
+• Lõi B2B AI konsultatsioonide tootmisplatvormi (kaelux.dev) semantilise vahemäluga RAG-süsteemiga tehisintellekti diagnostika vestlusroboti jaoks, saavutades Lighthouse'i skooriks 95+ Performance, 100 Accessibility, 100 Best Practices ja 100 SEO.
+• Orkestreeris Docker Compose'i põhiseid mitme teenusega lahendusi GCP Spot virtuaalmasinatel ja DigitalOcean infrastruktuuril.
+• Skaleeris turundustegevust, jõudes üle 300 000 Instagrami vaatamiseni ja sadade igakuiste aktiivsete kasutajateni.
+• Juhendas nooremtarkvaraarendajat Gemini Live Hackathonil agentse AI jälgitavuse lahenduste loomisel, aidates neil edukalt ühendada PR #31308 `matplotlib` tuumikteeki.
+
+EESTI KAITSEVÄGI — Võru, Eesti
+Ajateenistus
+Oktoober 2024 – Mai 2025
+
+• Läbis kohustusliku ajateenistuse, hoides samaaegselt aktiivsena tehniliste oskuste arendamist ja projektide portfelli.
+• Arendas kriitilist mõtlemist, operatiivset distsipliini ja ristfunktsionaalset meeskonnatööd kõrge pingega väljaõppekeskkondades.
+
+================================================================================
+TEHNILISED OSKUSED
+================================================================================
+
+AGENTNE TEHISINTELLEKT & LLM INSENEERIA
+Gemini 3.1 Pro, Claude Opus 4.6, GPT-5.4, Llama 4, Mistral, Qwen 3, Nemotron, LangChain 1.x, LangGraph, Model Context Protocol (MCP), Vercel AI SDK, RAG (Retrieval-Augmented Generation), Prompt Engineering, LLMOps, Unsloth QLoRA
+
+MUDELITE TREENIMINE & PILVEINFRASTRUKTUUR
+Azure ML Klastrid, Google Colab, Hugging Face Integratsioon, Sünteetiline Andmestiku Genereerimine, Docker (Multi-stage Builds, Compose), Kubernetes Alused, GitHub Actions CI/CD, GCP (Vertex AI, Compute Engine), Azure (VMs, Blob Storage)
+
+PROGRAMMEERIMISKEELED
+Python 3.12 (Edasijõudnud), TypeScript (Edasijõudnud), JavaScript, Bash, PowerShell
+
+FULL-STACK ARENDUS
+Next.js 16, React 19, Vue.js 3, Svelte 5 (Runes), Astro, FastAPI, Node.js, Express, Tailwind CSS, Supabase, Prisma ORM
+
+VEKTORANDMEBAASID
+Pinecone, Qdrant Cloud, Redis, Supabase pgvector
+
+================================================================================
+VÕTMEPROJEKTID
+================================================================================
+
+VIPERMESH / MODELFORGE | github.com/Ker102/ModelForge
+AI-põhine Blenderi Assistent & Neuraalne 3D Platvorm
+• Arhitektuuris LangChain v1 ReAct tsükli 22 natiivse Blenderi tööriista ja dünaamilise lisandmoodulite tuvastamisega läbi soklite (sockets) silla.
+• Lõi 3-tasandilise hübriidse neuraalse 3D töövoo, integreerides Fal.ai, YVO3D ja serverless RunPod võimsuse massiliseks varade genereerimiseks.
+• Kujundas luksusliku kasutajaliidese (Next.js 16) Supabase Auth ja Stripe'i arvete haldusega ning kahe režiimiga süsteemi (Autopilot vs. Studio).
+
+CROSSWIND CONSOLE | github.com/Ker102/Crosswind-Console
+Suure jõudlusega AI Orkestraator Reisi- ja Karjääriinfo jaoks
+• Juurutas mitme agendiga orkestratsioonisüsteemi (Reisimine, Karjäär, Trendid), koordineerides 120+ reaalajas API-t läbi täitmisbasseini.
+• Konstrueeris kohandatud HTTP MCP kliendi, vähendades API latentsust alla 3 sekundi tänu püsivale ühenduste koondamisele.
+• Lõi ülikiire reaktiivse kasutajaliidese (Svelte 5 Runes) koos FastAPI, LangChain, Gemini 3 Pro ja Supabase pgvector andmebaasiga.
+
+N8N AUTOMATION ATLAS | github.com/Ker102/n8n-workflows-36k
+Maailma suurim avatud lähtekoodiga n8n töövoo andmestik
+• Genereeris kokku 131 648 sünteetilist töövoogu (36 985 otse imporditavat) vertikaalsete LLM-ide peenhäälestamiseks, jagatud Hugging Face keskkonnas.
+• Lõi Pinecone RAG süsteemi ligi 36 166 vektoriseeritud töövoo semantiliseks otsinguks ~50ms latentsusega.
+• Peenhäälestas Qwen 3 Coder 14B mudeli 21 000+ puhastatud juhiste paariga läbi Unsloth meetodi Azure ML platvormil.
+
+PROMPTTRIAGE | github.com/Ker102/PromptTriage
+Modaalsuse-spetsiifiline Viipetehnoloogia (Prompt Engineering) Platvorm
+• Lõi spetsiaalse Pinecone RAG arhitektuuri ligi 28 000+ empiirilise süsteemiviiba kogust andmete hankimiseks.
+• Implementeeris modaalsuspõhised metaviibad (Tekst, Pilt, Video) CRAG (Corrective RAG) ning Context7 MCP integratsiooniga dokumentatsiooni kaasabil.
+• Tehnoloogiad: Next.js 15, FastAPI, Pinecone, Context7 MCP.
+
+STORYFORGE (Gemini Live Hackathon)
+Reaalaja Vestluslik Jutuvestja Agent
+• Lõi interaktiivse jutuvestja agendi kasutades Google ADK-d, Gemini Live mudeleid ja Imagen 4, põhinedes metaandmete fragmentide arhitektuuril sidusa konteksti loomiseks.
+
+================================================================================
+SERTIFIKAADID
+================================================================================
+
+• GitHub Administration (GH-900) — Microsoft
+• AI Engineering Associate — DataCamp
+• Docker Foundations Professional Certificate — Docker Inc.
+• ML Foundations Professional Certificate — Anaconda & Python Institute
+• Azure Administration Applied Skills — Microsoft
+• Linux Fundamentals / Windows Fundamentals — Hack The Box Academy
+
+================================================================================
+HARIDUS
+================================================================================
+
+KESKHARIDUS
+Jaan Poska Gümnaasium — Tartu, Eesti
+September 2021 – Juuni 2024
+
+================================================================================
+KEELED
+================================================================================
+
+• Eesti keel: Emakeel
+• Inglise keel: Professionaalne Tööalane Oskus (C1/C2)
+
+================================================================================
+VEEBIKOHALOLEK
+================================================================================
+
+Portfoolio: ker102blog.vercel.app
+Agentuur: kaelux.dev
+GitHub: github.com/Ker102 (22+ avalikku hoidlat)
+Hugging Face: huggingface.co/Ker102
+LinkedIn: linkedin.com/in/kristofer-jussmann-ker102
