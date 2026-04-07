@@ -1,0 +1,38 @@
+# 👔 LinkedIn Job Post: Systems Integration Engineer (Kaelux)
+
+This role focuses on the "full-stack AI" aspect of Kaelux—the actual delivery of intelligent systems into existing enterprise architectures.
+
+---
+
+## 📝 Job Description (MDX/Plain Text)
+
+**Role**: Systems Integration Engineer  
+**Company**: Kaelux (kaelux.dev)  
+**Location**: Remote / Estonia-friendly  
+**Focus**: API Architecture, LLM Connectivity, and Full-Stack Integration  
+
+### **About the Role**
+At Kaelux, we don't believe in standalone AI. We believe in **Systems Integration**. 
+
+We are looking for a **Systems Integration Engineer** who excels at building the pipes, bridges, and cognitive layers that connect world-class LLMs to the messy, fragmented reality of enterprise data. You will be responsible for the "last mile" of AI deployment—ensuring that our autonomous agents aren't just smart, but functional within our partners' existing tech stacks.
+
+### **What You’ll Be Doing**
+*   **API Orchestration**: Designing and maintaining the integration layers between LLMs, vector databases, and legacy REST/GraphQL APIs.
+*   **Framework Integration**: Working with LangGraph, n8n, and custom Python/TypeScript backends to build resilient autonomous workflows.
+*   **Infrastructure Connectivity**: Deploying and securing our proprietary solutions (**ViperMesh** and **PromptTriage**) within diverse cloud environments (Azure, AWS, and OpenClaw).
+*   **Technical Delivery**: Working directly with clients to map their business logic into technical system requirements.
+
+### **Who You Are**
+*   **Integration Expert**: You have deep experience with API design, authentication (OAuth/JWT), and asynchronous data flows.
+*   **AI-Aware**: You know how LLMs behave in production—you understand token management, rate limiting, and context window optimization.
+*   **Builder Mindset**: You prefer building the "logic bridge" over training the model. You are a systems thinker.
+
+### **Why Join Kaelux?**
+You will be a core member of an agency that is redefining how AI enters the physical and digital infrastructure of the global enterprise. You’ll have a direct hand in shaping the integration patterns for the next decade of business.
+
+---
+
+## 🚀 How to Apply:
+Please reach out directly on LinkedIn or visit [kaelux.dev](https://kaelux.dev) to see our work. 
+
+*Kaelux is an equal-opportunity engineering partner. We value technical excellence above all else.*

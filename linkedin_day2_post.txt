@@ -1,6 +1,6 @@
-# 🚀 LinkedIn Day 2: The "Expertise & Vision" Post
+# 🚀 LinkedIn Day 2: The "Expertise & Vision" Post (WE Voice)
 
-This post follows your "Hello World" launch. Its goal is to establish professional authority and drive traffic to your new Kaelux brand story on the blog.
+This post follows your "Hello World" launch. It is optimized for your Company Page ("We") and points to your official engineering hub on Hashnode.
 
 ---
 
@@ -12,11 +12,11 @@ Most organizations are still stuck in the "chat interface" phase. They ask quest
 
 This is why we built Kaelux (kaelux.dev).
 
-For the past year, my team and I have been heads-down building the foundational technologies that bridge the gap between technical innovation and production-ready systems. 
+For the past year, our team has been heads-down building the foundational technologies that bridge the gap between technical innovation and production-ready systems. 
 
 From our high-availability mesh orchestration platform (**ViperMesh**) to our zero-hallucination retrieval systems (**PromptTriage**), we aren't just using AI—we're engineering it into the core of the enterprise.
 
-I've just published a deep dive into the evolution of Kaelux and our vision for "Future-Proofing" the global enterprise. 
+We've just published a deep dive into the evolution of Kaelux and our vision for "Future-Proofing" the global enterprise on our official Engineering Hub. 
 
 **Read the full brand story below. 👇**
 
@@ -27,10 +27,10 @@ I've just published a deep dive into the evolution of Kaelux and our vision for 
 1.  **Do NOT put the link in the main post.** LinkedIn will hide it from everyone's feed.
 2.  **Post the text above first.**
 3.  **Immediately comment on your own post** with the link:
-    - *"Read the full story: https://kaelux.dev/blog/introducing-kaelux"*
+    - *"Read the full story: https://engineering.kaelux.dev/introducing-kaelux"*
 4.  **"Like" and "Share"** the post from your personal profile (Kristofer Jussmann) to established the founder-entity link.
 
 ---
 
-## 🛡️ LinkedIn Job Posting (Optional but Recommended)
-If you also want to post the "Founding AI Engineer" listing today, it works perfectly alongside this post. It shows that you are not just "talking" about the vision, but actively building the team to execute it.
+## 👔 New Recruitments (Marketing & Engineer)
+I am now drafting the "Growth & Brand Lead" and the "Systems Integration Engineer" roles to support this expansion.
