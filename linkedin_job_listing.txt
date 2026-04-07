@@ -1,38 +1,28 @@
-# 👔 LinkedIn Job Post: Founding AI Engineer (Kaelux)
+ROLE: Founding AI Engineer
+COMPANY: Kaelux (kaelux.dev)
+LOCATION: Remote / Estonia-friendly
+FOCUS: LLM Orchestration, Autonomous Agents (LangGraph), and Systems Integration
 
-This post is designed to attract top-tier talent while signaling scale to your clients. Post this on your LinkedIn Company Page under the "Jobs" section (or as a standard post if you want to save on listing fees).
-
----
-
-## 📝 Job Description (MDX/Plain Text)
-
-**Role**: Founding AI Engineer  
-**Company**: Kaelux (kaelux.dev)  
-**Location**: Remote / Estonia-friendly  
-**Focus**: LLM Orchestration, Autonomous Agents (LangGraph), and Systems Integration  
-
-### **About the Role**
+ABOUT THE ROLE:
 Kaelux is a global AI Engineering & Systems Integration Agency bridging the gap between technical innovation and production-ready infrastructure. We don’t just "use AI"—we engineer it into the core of the enterprise.
 
-We are looking for our first **Founding AI Engineer**—someone who can take our deep technical research and turn it into high-scale, reliable intelligent systems for our global partners.
+We are looking for our first Founding AI Engineer—someone who can take our deep technical research and turn it into high-scale, reliable intelligent systems for our global partners.
 
-### **What You’ll Be Doing**
-*   **Intelligent Orchestration**: Designing and deploying autonomous workflow agents using LangGraph and n8n.
-*   **Advanced RAG Systems**: Engineering production-grade Retrieval-Augmented Generation (CRAG) anchored in proprietary data.
-*   **Infrastructure Management**: Handling the lifecycle, monitoring, and security of AI agents in production (OpenClaw Cloud).
-*   **Collaboration**: Working directly with the founder to shape the engineering roadmap of the agency and its flagship products (**ViperMesh** and **PromptTriage**).
+WHAT YOU’LL BE DOING:
+- Intelligent Orchestration: Designing and deploying autonomous workflow agents using LangGraph and n8n.
+- Advanced RAG Systems: Engineering production-grade Retrieval-Augmented Generation (CRAG) anchored in proprietary data.
+- Infrastructure Management: Handling the lifecycle, monitoring, and security of AI agents in production (OpenClaw Cloud).
+- Collaboration: Working directly with the founder to shape the engineering roadmap of the agency and its flagship products (ViperMesh and PromptTriage).
 
-### **Who You Are**
-*   **Deep Technical Literacy**: You understand the difference between "Naive RAG" and "Agentic RAG." You know what a model router is and why it matters.
-*   **Engineering-First Mindset**: You prioritize reliability, security, and scalability over chat-interface hype. 
-*   **Self-Driven**: You thrive at the intersection of LLM orchestration and systems architecture.
+WHO YOU ARE:
+- Deep Technical Literacy: You understand the difference between "Naive RAG" and "Agentic RAG." You know what a model router is and why it matters.
+- Engineering-First Mindset: You prioritize reliability, security, and scalability over chat-interface hype. 
+- Self-Driven: You thrive at the intersection of LLM orchestration and systems architecture.
 
-### **Why Join Kaelux?**
+WHY JOIN KAELUX?
 You will be the first engineering hire at an agency that is already building state-of-the-art AI. You’ll have a direct hand in shaping the technical identity of the next great European AI powerhouse.
 
----
-
-## 🚀 How to Apply:
-Please reach out directly on LinkedIn or visit [kaelux.dev](https://kaelux.dev) to see our work. 
+HOW TO APPLY:
+Please reach out directly on LinkedIn or visit kaelux.dev to see our work. 
 
 *Kaelux is an equal-opportunity engineering partner. We value technical excellence above all else.*

@@ -1,38 +1,28 @@
-# 👔 LinkedIn Job Post: Growth & Brand Lead (Kaelux)
+ROLE: Growth & Brand Lead
+COMPANY: Kaelux (kaelux.dev)
+LOCATION: Remote / Estonia-friendly
+FOCUS: Technical SEO, Content Strategy, and Brand Authority
 
-This post is designed to attract a high-level marketing talent for the Kaelux agency, focusing on "Engineering Hub" SEO and content distribution.
-
----
-
-## 📝 Job Description (MDX/Plain Text)
-
-**Role**: Growth & Brand Lead  
-**Company**: Kaelux (kaelux.dev)  
-**Location**: Remote / Estonia-friendly  
-**Focus**: Technical SEO, Content Strategy, and Brand Authority  
-
-### **About the Role**
+ABOUT THE ROLE:
 Kaelux is a global AI Engineering & Systems Integration Agency building high-performance autonomous infrastructure. We don’t just "use AI"—we engineer it into the core of the enterprise.
 
-To support our technical leadership, we are looking for a **Growth & Brand Lead** who can translate our deep technical research into a high-authority brand presence across the global market. You will own the content distribution engine that powers our Engineering Hub (`engineering.kaelux.dev`) and our social presence.
+To support our technical leadership, we are looking for a Growth & Brand Lead who can translate our deep technical research into a high-authority brand presence across the global market. You will own the content distribution engine that powers our Engineering Hub (engineering.kaelux.dev) and our social presence.
 
-### **What You’ll Be Doing**
-*   **Authority Distribution**: Managing the "Kaelux Content Engine"—syndicating engineering research across Hashnode, LinkedIn, and specialized developer platforms.
-*   **Technical SEO**: Optimizing our visibility as a "Digitally-native AI Engineering Agency" and bridging the gap between our research and client demand.
-*   **Brand Narrative**: Scaling the "Future-Proofing" and "Engineering-First" story of the agency.
-*   **Collaboration**: Working directly with the founder to define the growth strategy for our flagship products (**ViperMesh** and **PromptTriage**).
+WHAT YOU’LL BE DOING:
+- Authority Distribution: Managing the "Kaelux Content Engine"—syndicating engineering research across Hashnode, LinkedIn, and specialized developer platforms.
+- Technical SEO: Optimizing our visibility as a "Digitally-native AI Engineering Agency" and bridging the gap between our research and client demand.
+- Brand Narrative: Scaling the "Future-Proofing" and "Engineering-First" story of the agency.
+- Collaboration: Working directly with the founder to define the growth strategy for our flagship products (ViperMesh and PromptTriage).
 
-### **Who You Are**
-*   **Technically Literate**: You don't need to write code, but you must understand terms like "RAG," "Orchestration," and "System Integration." You can talk to engineers.
-*   **Data-Driven**: You understand how to turn obscure research metrics into compelling market narratives.
-*   **Self-Driven**: You thrive at the intersection of B2B lead generation and high-tech brand authority.
+WHO YOU ARE:
+- Technically Literate: You don't need to write code, but you must understand terms like RAG, Orchestration, and System Integration. You can talk to engineers.
+- Data-Driven: You understand how to turn obscure research metrics into compelling market narratives.
+- Self-Driven: You thrive at the intersection of B2B lead generation and high-tech brand authority.
 
-### **Why Join Kaelux?**
+WHY JOIN KAELUX?
 You will be the first non-engineering hire at an agency that is already building state-of-the-art AI. You’ll have a direct hand in shaping the identity of a high-growth AI powerhouse.
 
----
-
-## 🚀 How to Apply:
-Please reach out directly on LinkedIn or visit [kaelux.dev](https://kaelux.dev) to see our work. 
+HOW TO APPLY:
+Please reach out directly on LinkedIn or visit kaelux.dev to see our work. 
 
 *Kaelux is an equal-opportunity engineering partner. We value technical excellence above all else.*
