@@ -1,12 +1,12 @@
 KRISTOFER JUSSMANN
-Agentse Tehisintellekti Insener ja Pilvearendaja
+Agentse Tehisintellekti Süsteemide Insener ja Pilvearendaja
 
 Asukoht: Tallinn, Eesti
 Telefon: (+372) 53006315
 E-post: kristoferjussmann@gmail.com
 LinkedIn: linkedin.com/in/kristofer-jussmann-ker102
 GitHub: github.com/Ker102
-Portfoolio: ker102blog.vercel.app
+TehnilinePortfoolio: ker102blog.vercel.app
 
 ================================================================================
 PROFESSIONAALNE KOKKUVÕTE
@@ -19,13 +19,13 @@ TÖÖKOGEMUS
 ================================================================================
 
 KAELUX.DEV — Tallinn, Eesti
-Asutaja ja Juhtiv AI Insener
-Oktoober 2024 – Praeguseni
+Asutaja
+Juuli 2024 – Praeguseni
 
 • Kaelux on esmaklassiline tehisintellekti inseneriagentuur, mis on pühendunud tipptasemel AI ja praktiliste ärirakenduste vahelise lõhe ületamisele. Me ei ehita lihtsalt tarkvara; me konstrueerime intelligentseid ökosüsteeme.
 • Alates kohandatud LLM andmehaldustorudest kuni automatiseeritud töövoo agentideni – meie missioon on võimestada loojaid ja ettevõtteid infrastruktuuriga, mis mõtleb, kohaneb ja skaleerub.
 • Me ühendame tugeva full-stack arenduse tipptasemel AI-uuringutega, et pakkuda lahendusi, mis on mitte ainult võimsad, vaid ka töökindlad ja tooteküpsed.
-• Skaleeris turundustegevust, jõudes üle 300 000 Instagrami vaatamiseni ja sadade igakuiste aktiivsete kasutajateni.
+• Turundustegevuse arendamine, jõudes üle 300 000 Instagrami vaatamiseni ja sadade igakuiste aktiivsete kasutajateni.
 
 EESTI KAITSEVÄGI — Võru, Eesti
 Ajateenistus
@@ -39,7 +39,7 @@ TEHNILISED OSKUSED JA EKSPERTIIS
 ================================================================================
 
 MUDELITE HINDAMINE JA PILVEARVUTUS
-Hindasin, võrdlustestisin ja peenhäälestasin tipptasemel mudeleid (GPT-5.4, Qwen 3, Nemotron, Claude) kasutades T4 ja A100 GPU klastreid rangete empiiriliste uuringute läbiviimisel (nt 1080 struktureeritud mudelihindamise läbiviimine uuringus Study E, investeerides ligi ~$200 pilvearvutusse peamiste uuringute raames).
+Hindasin, võrdlustestisin ja peenhäälestasin tipptasemel mudeleid (GPT-5.4, Qwen 3, Nemotron, Claude) kasutades T4 ja A100 GPU clustereid rangete empiiriliste uuringute läbiviimisel (nt 1080 struktureeritud mudelihindamise läbiviimine uuringus Study E, investeerides ligi ~$200 pilvearvutusse peamiste uuringute raames).
 
 TÄIUSTATUD RAG ARHITEKTUURID
 Konstrueerisin Corrective RAG (CRAG) süsteeme, mis integreerivad väiksemaid reranker ja kohtunik-mudeleid (judge models) intelligentseks filtreerimiseks ja konteksti valideerimiseks rakendustes nagu ViperMesh ja PromptTriage.
@@ -56,32 +56,32 @@ VÕTMEPROJEKTID
 
 VIPERMESH / MODELFORGE | github.com/Ker102/ModelForge
 AI-põhine Blenderi Assistent & Neuraalne 3D Platvorm
-• Arendas tehisintellekti agendile spetsiaalse lisandmooduli, mis võimaldab süsteemil käivitada Pythoni käske ja suhelda otse Blenderi stseeniga.
-• Arhitektuuris LangChain v1 ReAct tsükli 22 natiivse Blenderi tööriista ja dünaamilise lisandmoodulite tuvastamisega.
-• Lõi 3-tasandilise hübriidse neuraalse 3D töövoo, integreerides Fal.ai, YVO3D ja serverless RunPod võimsuse massiliseks varade genereerimiseks.
+• Arendanud tehisintellekti agendile spetsiaalse lisandmooduli, mis võimaldab süsteemil käivitada Pythoni käske ja suhelda otse Blenderi stseeniga.
+• Arhitektuurinud LangChain v1 ReAct tsükli 22 natiivse Blenderi tööriista ja dünaamilise lisandmoodulite tuvastamisega.
+• Loonud 3-tasandilise hübriidse neuraalse 3D töövoo, integreerides Fal.ai, YVO3D ja serverless RunPod võimsuse massiliseks varade genereerimiseks.
 
 PROMPTTRIAGE | github.com/Ker102/PromptTriage
 Modaalsuse-spetsiifiline Viipetehnoloogia Platvorm
-• Lõi spetsiaalse Pinecone RAG arhitektuuri ligi 28 000+ empiirilise süsteemiviiba kogust andmete hankimiseks.
-• Implementeeris modaalsuspõhised metaviibad (Tekst, Pilt, Video) CRAG (Corrective RAG) ning Context7 MCP integratsiooniga.
+• Loonud spetsiaalse Pinecone RAG arhitektuuri ligi 28 000+ empiirilise süsteemiviiba kogust andmete hankimiseks.
+• Implementeerinud modaalsuspõhised metaviibad (Tekst, Pilt, Video) CRAG (Corrective RAG) ning Context7 MCP integratsiooniga.
 
 N8N AUTOMATION ATLAS | github.com/Ker102/n8n-workflows-36k
 Maailma suurim avatud lähtekoodiga n8n töövoo andmestik
-• Genereeris kokku 131 648 sünteetilist töövoogu (36 985 otse imporditavat) vertikaalsete LLM-ide peenhäälestamiseks, jagatud Hugging Face keskkonnas.
-• Peenhäälestas Qwen 3 Coder 14B mudeli 21 000+ puhastatud juhiste paariga läbi Unsloth meetodi Azure ML platvormil.
+• Genereerinud kokku 131 648 sünteetilist töövoogu (36 985 otse imporditavat) vertikaalsete LLM-ide peenhäälestamiseks, jagatud Hugging Face keskkonnas.
+• Peenhäälestanud Qwen 3 Coder 14B mudeli 21 000+ puhastatud juhiste paariga läbi Unsloth meetodi Azure ML platvormil.
 
 CROSSWIND CONSOLE | github.com/Ker102/Crosswind-Console
 Suure Jõudlusega AI Orkestraator Reisi- ja Karjääriinfo jaoks
-• Juurutas mitme agendiga orkestratsioonisüsteemi (Reisimine, Karjäär, Trendid), koordineerides 120+ reaalajas API-t läbi täitmisbasseini.
-• Konstrueeris kohandatud HTTP MCP kliendi, vähendades API latentsust alla 3 sekundi tänu püsivale ühenduste koondamisele.
+• Juurutanud mitme agendiga orkestratsioonisüsteemi (Reisimine, Karjäär, Trendid), koordineerides 120+ reaalajas API-t läbi täitmisbasseini.
+• Konstrueerinud kohandatud HTTP MCP kliendi, vähendades API latentsust alla 3 sekundi tänu püsivale ühenduste koondamisele.
 
 ================================================================================
 HÄKATONID JA JUHENDAMINE
 ================================================================================
 
 STORYFORGE (Gemini Live Hackathon)
-• Lõi interaktiivse jutuvestja agendi kasutades Google ADK-d, Gemini Live mudeleid ja Imagen 4, põhinedes metaandmete fragmentide arhitektuuril.
-• Juhendas The Gemini Live Hackathonil nooremtarkvaraarendajat agentse AI jälgitavuse lahenduste loomisel, aidates neil edukalt ühendada PR #31308 `matplotlib` tuumikteeki.
+• Loonud interaktiivse jutuvestja agendi kasutades Google ADK-d, Gemini Live mudeleid ja Imagen 4, põhinedes metaandmete fragmentide arhitektuuril.
+• Juhendanud The Gemini Live Hackathonil nooremtarkvaraarendajat agentse AI jälgitavuse lahenduste loomisel, aidates neil edukalt ühendada PR #31308 `matplotlib` tuumikteeki.
 
 ================================================================================
 SERTIFIKAADID
