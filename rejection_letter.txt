@@ -1,0 +1,21 @@
+Subject: Your application to Kaelux — Keep building!
+
+Hi [Applicant Name],
+
+Thank you so much for taking the time to share your background with us and for your interest in joining the team at Kaelux. 
+
+We recently received a high volume of applications for the [Role Name] position, and we’ve had to make some incredibly tough decisions. At this time, we have decided to move forward with other candidates whose current experience more closely aligns with the immediate, highly specific needs of this role. 
+
+Please don't take this as a reflection of your overall talent or potential. The AI landscape is moving faster than ever, and the skills you are building today are incredibly valuable. We were genuinely impressed by your profile.
+
+We are growing quickly and our needs are constantly evolving. We would love to keep your resume on file and reach out if a role opens up that feels like a mutual fit. 
+
+In the meantime, keep building, keep experimenting, and definitely keep in touch. You can follow our ongoing research and product launches over at our Engineering Hub (engineering.kaelux.dev) or on our LinkedIn page.
+
+Wishing you nothing but the absolute best in your career journey!
+
+Best regards,
+
+Kristofer Jussmann
+Founder, Kaelux
+kaelux.dev
