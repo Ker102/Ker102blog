@@ -1,28 +1,30 @@
-ROLE: Growth & Brand Lead
+ROLE: Head of Growth & Digital Strategy
 COMPANY: Kaelux (kaelux.dev)
 LOCATION: Remote / Estonia-friendly
-FOCUS: Technical SEO, Content Strategy, and Brand Authority
+FOCUS: Global Brand Authority, Technical Content Syndication, and Multi-Channel Growth
 
 ABOUT THE ROLE:
-Kaelux is a global AI Engineering & Systems Integration Agency building high-performance autonomous infrastructure. We don’t just "use AI"—we engineer it into the core of the enterprise.
+Kaelux is a premier AI Engineering & Systems Integration Agency designing high-performance autonomous infrastructure for global enterprise. We transcend consumer-facing AI applications to engineer robust, production-ready intelligent systems that form the core of modern business operations.
 
-To support our technical leadership, we are looking for a Growth & Brand Lead who can translate our deep technical research into a high-authority brand presence across the global market. You will own the content distribution engine that powers our Engineering Hub (engineering.kaelux.dev) and our social presence.
+We are seeking a sophisticated Head of Growth & Digital Strategy to translate our complex technical capabilities into a compelling, authoritative brand narrative. You will architect and execute the distribution engine that scales our market presence across key technical and professional networks.
 
 WHAT YOU’LL BE DOING:
-- Authority Distribution: Managing the "Kaelux Content Engine"—syndicating engineering research across Hashnode, LinkedIn, and specialized developer platforms.
-- Technical SEO: Optimizing our visibility as a "Digitally-native AI Engineering Agency" and bridging the gap between our research and client demand.
-- Brand Narrative: Scaling the "Future-Proofing" and "Engineering-First" story of the agency.
-- Collaboration: Working directly with the founder to define the growth strategy for our flagship products (ViperMesh and PromptTriage).
+- Multi-Channel Digital Strategy: Orchestrate cohesive, high-impact campaigns across X (Twitter), LinkedIn, Instagram, and Facebook to build sustained brand awareness and drive qualified enterprise leads.
+- Strategic Content Syndication: Manage the "Kaelux Content Engine," distributing deep-dive engineering research and thought leadership across Hashnode, developer platforms, and premium social channels.
+- Brand Narrative & Positioning: Refine and amplify our core messaging emphasizing "Future-Proofing" and "Engineering-First" approaches, ensuring consistency across all touchpoints.
+- Technical SEO & Audience Acquisition: Optimize our digital footprint to capture high-intent search traffic, positioning Kaelux as the definitive authority in "Digitally-native AI Engineering."
+- Executive Collaboration: Partner closely with the founding team to align our digital growth roadmap with the continuous evolution of our flagship products (ViperMesh and PromptTriage).
 
 WHO YOU ARE:
-- Technically Literate: You don't need to write code, but you must understand terms like RAG, Orchestration, and System Integration. You can talk to engineers.
-- Data-Driven: You understand how to turn obscure research metrics into compelling market narratives.
-- Self-Driven: You thrive at the intersection of B2B lead generation and high-tech brand authority.
+- Technically Literate Communicator: You possess the acumen to comprehend concepts like RAG architecure, System Integration, and LLM Orchestration, and the skill to distill them for diverse audiences.
+- Multi-Platform Expert: You have proven experience scaling high-value B2B/tech brands across text-heavy platforms (X, LinkedIn) and visual ecosystems (Instagram, Facebook).
+- Data-Driven Strategist: You leverage analytics to optimize campaigns, transforming raw engagement metrics into actionable growth strategies.
+- Autonomous Executor: You thrive in high-velocity environments, capable of taking conceptual technology and independently building its go-to-market narrative.
 
 WHY JOIN KAELUX?
-You will be the first non-engineering hire at an agency that is already building state-of-the-art AI. You’ll have a direct hand in shaping the identity of a high-growth AI powerhouse.
+You will be the foundational growth hire at an agency building state-of-the-art AI infrastructure. You will command the brand identity of an emerging European AI powerhouse, with the autonomy to shape our digital trajectory.
 
 HOW TO APPLY:
-Please reach out directly on LinkedIn or visit kaelux.dev to see our work. 
+Please reach out directly on LinkedIn or visit kaelux.dev to explore our engineering ecosystem.
 
-*Kaelux is an equal-opportunity engineering partner. We value technical excellence above all else.*
+*Kaelux is an equal-opportunity engineering partner. We prioritize intelligence, execution, and technical excellence.*
