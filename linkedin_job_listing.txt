@@ -1,6 +1,6 @@
 ROLE: Founding AI Engineer
 COMPANY: Kaelux (kaelux.dev)
-LOCATION: Remote / Estonia-friendly
+LOCATION: United States (Remote) / Global
 FOCUS: LLM Orchestration, Autonomous Agents (LangGraph), and Systems Integration
 
 ABOUT THE ROLE:
@@ -20,7 +20,7 @@ WHO YOU ARE:
 - Self-Driven: You thrive at the intersection of LLM orchestration and systems architecture.
 
 WHY JOIN KAELUX?
-You will be the first engineering hire at an agency that is already building state-of-the-art AI. You’ll have a direct hand in shaping the technical identity of the next great European AI powerhouse.
+You will not just be an early employee; you will be our founding engineering hire. You will have a direct hand in shaping the future and technical identity of the next great European AI powerhouse.
 
 HOW TO APPLY:
 Please reach out directly on LinkedIn or visit kaelux.dev to see our work. 

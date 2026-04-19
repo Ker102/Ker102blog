@@ -13,7 +13,7 @@ WHAT YOU’LL BE DOING:
 - Strategic Content Syndication: Manage the "Kaelux Content Engine," distributing deep-dive engineering research and thought leadership across Hashnode, developer platforms, and premium social channels.
 - Brand Narrative & Positioning: Refine and amplify our core messaging emphasizing "Future-Proofing" and "Engineering-First" approaches, ensuring consistency across all touchpoints.
 - Technical SEO & Audience Acquisition: Optimize our digital footprint to capture high-intent search traffic, positioning Kaelux as the definitive authority in "Digitally-native AI Engineering."
-- Executive Collaboration: Partner closely with the founding team to align our digital growth roadmap with the continuous evolution of our flagship products (ViperMesh and PromptTriage).
+- Executive Collaboration: Partner closely with the founding team to align our digital growth roadmap with the continuous evolution of our products including our next product launch regarding ViperMesh.
 
 WHO YOU ARE:
 - Technically Literate Communicator: You possess the acumen to comprehend concepts like RAG architecure, System Integration, and LLM Orchestration, and the skill to distill them for diverse audiences.
