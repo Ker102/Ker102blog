@@ -1,0 +1,54 @@
+KRISTOFER JUSSMANN
+CLOUD PLATFORM & AGENTIC SYSTEMS ENGINEER | DEVSECOPS | AI INFRASTRUCTURE
+Tallinn, Estonia | (+372) 53006315 | kristoferjussmann@gmail.com
+LinkedIn: linkedin.com/in/kristofer-jussmann-ker102 | GitHub: github.com/Ker102 | Portfolio: ker102blog.vercel.app | Agency: kaelux.dev
+
+SUMMARY
+Cloud, DevSecOps, and Agentic systems engineer with 5+ years of Python development and nearly 2 years building production AI, automation, and cloud products through Kaelux. Built and operated 3 live internet-facing products and maintain 30+ public GitHub projects. Comprehensive experience spans cloud infrastructure (Azure, Kubernetes, Docker) and state-of-the-art AI systems (tool-using agents, LangChain, RAG, MCP, model fine-tuning). Target roles include DevSecOps Engineer, Agentic Systems Engineer, Cloud Platform Engineer, Secure Systems Engineer, and AI Infrastructure Engineer.
+
+TECHNICAL SKILLS
+Programming and Scripting: Python, TypeScript, Bash, FastAPI, Node.js
+Cloud, Infrastructure & Containers: Azure, Azure ML, Docker, Kubernetes, Supabase, RunPod, Fal.ai, containerized deployment
+Agentic and LLM Systems: tool-using agents, LangChain, MCP, LLM applications, prompt systems, model evaluation, fine-tuning
+Retrieval and Data Systems: RAG, Corrective RAG, Pinecone, Qdrant, pgvector, semantic search, retrieval pipelines, reranker and judge flows
+Platform and Automation: API services, workflow automation, CI/CD
+
+EXPERIENCE
+KAELUX - Lead Engineer / Founder | Tallinn, Estonia | Oct 2024 - Present
+- Built and operated 3 live internet-facing AI, automation, and cloud products used by real users.
+- Designed multi-agent systems integrating 120+ real-time tools and APIs with custom routing, execution pooling, and persistent HTTP connections; reduced Crosswind Console tool latency to under 3 seconds.
+- Shipped production AI applications and cloud infrastructure using Python, TypeScript, FastAPI, Next.js, Supabase, Docker, and Kubernetes-based environments.
+- Ran 1,080 structured model evaluations across GPT, Qwen 3, Nemotron, and Claude model families on T4 and A100 cloud compute.
+- Created a 131,648-workflow synthetic n8n dataset and fine-tuned Qwen 3 Coder 14B on Azure ML using 21K+ cleaned instruction pairs.
+- Mentored a second-year IT student on building and securing agentic AI systems.
+
+ESTONIAN DEFENCE FORCES - Military Service | Voru, Estonia | Oct 2024 - May 2025
+- Completed mandatory military service while maintaining technical development; strengthened discipline, teamwork, and execution under pressure.
+
+SELECTED PROJECTS
+CROSSWIND CONSOLE | Multi-Agent Orchestration Platform | GitHub: github.com/Ker102/Crosswind-Console
+- Built a multi-agent orchestration platform coordinating 120+ real-time tools via a custom execution pool and persistent HTTP MCP client; reduced API latency to under 3 seconds.
+
+PROMPTTRIAGE | Prompt Engineering and Retrieval System | GitHub: github.com/Ker102/PromptTriage
+- Built a prompt and retrieval system over a 28,000+ empirical system-prompt corpus using Pinecone, modality-specific routing, Corrective RAG, reranker logic, and judge flows.
+
+VIPERMESH / MODELFORGE | Tool-Using 3D AI System | GitHub: github.com/Ker102/ModelForge
+- Architected a Blender-based tool-using system with 22 native tools, socket-bridged execution, and a 3-stage neural 3D pipeline running on Fal.ai and RunPod.
+
+N8N AUTOMATION ATLAS | Workflow Dataset and Fine-Tuning Project | GitHub: github.com/Ker102/n8n-workflows-36k
+- Generated 131,648 synthetic workflows, including 36,985 importable workflows, for vertical model training and experimentation.
+
+CERTIFICATIONS
+Microsoft Certified: Azure Administrator Associate (AZ-104)
+Microsoft Applied Skills: Azure Administration
+DataCamp: AI Engineering for Developers Associate
+Anaconda: Machine Learning Foundations Professional Certificate
+Docker Foundations Professional Certificate
+GitHub Administration
+Cambridge C1 Advanced English
+
+EDUCATION
+High School Diploma - Jaan Poska Gümnaasium, Tartu, Estonia | Sep 2021 - Jun 2024
+
+LANGUAGES
+Estonian (Native) | English (C1, Cambridge Advanced)

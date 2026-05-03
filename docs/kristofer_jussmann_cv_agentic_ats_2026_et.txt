@@ -1,0 +1,48 @@
+KRISTOFER JUSSMANN
+AGENTIC SYSTEMS ENGINEER | AI PLATFORM | AGENT ARCHITECTURE
+Tallinn, Eesti | (+372) 53006315 | kristoferjussmann@gmail.com
+LinkedIn: linkedin.com/in/kristofer-jussmann-ker102 | GitHub: github.com/Ker102 | Portfoolio: ker102blog.vercel.app | Agentuur: kaelux.dev
+
+KOKKUVÕTE
+Agentic systems engineer (agent-süsteemide insener) 5+ aastase Pythoni arenduse kogemusega ja ligi 2-aastase kogemusega toodanguvalmis AI, automatiseerimise ja pilvetoodete ehitamisel Kaeluxi alt. Olen ehitanud ja hallanud 3 reaalsete kasutajatega internetipõhist toodet ning haldan 30+ avalikku GitHubi projekti. Kogemuste hulka kuuluvad tööriistu kasutavad agendid (tool-using agents), LangChain, MCP, RAG, Corrective RAG, vektorandmebaasid, FastAPI, TypeScript, Docker, Kubernetes ja pilve GPU mudelite hindamine. Sihtrollideks on Agentic Systems Engineer, AI Platform Engineer, Secure AI Systems Engineer ja Agentic Systems Architect.
+
+TEHNILISED OSKUSED
+Programmeerimine ja Backend: Python, TypeScript, Bash, FastAPI, Node.js
+Agent- ja LLM Süsteemid: tööriistu kasutavad agendid (tool-using agents), LangChain, MCP, LLM rakendused, viipasüsteemid (prompt systems), mudelite hindamine (model evaluation), peenhäälestus (fine-tuning)
+Otsingu- ja Andmesüsteemid (Retrieval & Data Systems): RAG, Corrective RAG, Pinecone, Qdrant, pgvector, semantiline otsing, otsingutorud (retrieval pipelines), reranker ja judge vood
+Pilv ja Juurutamine (Cloud & Deployment): Azure, Azure ML, Docker, Kubernetes, Supabase, RunPod, Fal.ai, konteineriseeritud juurutamine
+
+KOGEMUS
+KAELUX - Lead Engineer / Asutaja | Tallinn, Eesti | Okt 2024 - Praegu
+- Ehitasin ja haldasin 3 reaalsete kasutajatega toodanguvalmis internetipõhist AI, automatiseerimise ja pilvetoodet.
+- Disainisin multi-agent süsteeme, mis integreerisid 120+ reaalajas tööriista ja API-t kohandatud ruutimise, execution pool'i ja püsivate HTTP ühendustega; vähendasin Crosswind Console'i tööriistade latentsust alla 3 sekundi.
+- Tarnisin toodanguvalmis AI rakendusi kasutades tehnoloogiaid: Python, TypeScript, FastAPI, Next.js, Supabase, Docker ja Kubernetesel põhinevaid keskkondi.
+- Viisin läbi 1 080 struktureeritud mudeli hindamist GPT, Qwen 3, Nemotron ja Claude mudeliperede peal T4 ja A100 pilvearvutuste abil.
+- Lõin 131 648 töövooga sünteetilise n8n andmestiku ja peenhäälestasin Qwen 3 Coder 14B mudeli Azure ML-is, kasutades 21K+ puhastatud instruktsioonipaari.
+- Juhendasin teise aasta IT-tudengit agent-põhiste AI süsteemide ehitamisel ja turvamisel.
+
+EESTI KAITSEVÄGI - Ajateenistus | Võru, Eesti | Okt 2024 - Mai 2025
+- Läbisin kohustusliku ajateenistuse, jätkates samal ajal tehnilist arendustööd; tugevdasin distsipliini, meeskonnatööd ja pinge all tegutsemist.
+
+VALITUD PROJEKTID
+CROSSWIND CONSOLE | Multi-Agent Orchestration Platform | GitHub: github.com/Ker102/Crosswind-Console
+- Ehitasin multi-agent orkestreerimisplatvormi, mis koordineerib 120+ reaalajas tööriista läbi kohandatud execution pool'i ja püsiva HTTP MCP kliendi; vähendasin API latentsust alla 3 sekundi.
+PROMPTTRIAGE | Prompt Engineering and Retrieval System | GitHub: github.com/Ker102/PromptTriage
+- Ehitasin prompt and retrieval süsteemi üle 28 000+ empiirilise süsteemiviipade (system-prompt) korpuse, kasutades Pinecone'i, modaalsusepõhist ruutimist, Corrective RAG-i, reranker loogikat ja judge voogusid.
+VIPERMESH / MODELFORGE | Tool-Using 3D AI System | GitHub: github.com/Ker102/ModelForge
+- Arhitektuurisin Blenderi-põhise tööriistu kasutava süsteemi, millel on 22 natiivset tööriista, socket-sildadega täitmine (socket-bridged execution) ja 3-astmeline neuraalne 3D toru (pipeline), mis jookseb Fal.ai ja RunPod platvormidel.
+N8N AUTOMATION ATLAS | Workflow Dataset and Fine-Tuning Project | GitHub: github.com/Ker102/n8n-workflows-36k
+- Genereerisin 131 648 sünteetilist töövoogu, sealhulgas 36 985 imporditavat töövoogu, vertikaalsete mudelite treenimiseks ja eksperimenteerimiseks.
+
+SERTIFIKAADID
+Microsoft Certified: Azure Administrator Associate (AZ-104)
+Microsoft Applied Skills: Azure Administration
+Docker Foundations Professional Certificate
+GitHub Administration
+Cambridge C1 Advanced English
+
+HARIDUS
+Keskharidus - Jaan Poska Gümnaasium, Tartu, Eesti | Sept 2021 - Juun 2024
+
+KEELED
+Eesti keel (Emakeel) | Inglise keel (C1, Cambridge Advanced)

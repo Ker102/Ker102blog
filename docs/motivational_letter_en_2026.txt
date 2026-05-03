@@ -1,0 +1,18 @@
+Dear Hiring Manager,
+
+I am writing to express my strong interest in joining your team as a [Target Role]. With over five years of Python development experience and a background in building production-grade AI, automation, and cloud products, I am confident in my ability to contribute effectively to your engineering goals.
+
+Throughout my career, particularly as a founder and lead engineer, I have focused on solving complex problems at the intersection of modern cloud infrastructure and agentic AI systems. My experience spans the full lifecycle of software development—from architecting multi-agent platforms and retrieval pipelines to ensuring robust CI/CD and DevSecOps practices. I thrive in environments that demand scalable, secure, and resilient system design.
+
+Beyond technical expertise, my recent military service in the Estonian Defence Forces instilled a rigorous sense of discipline, teamwork, and the ability to execute under pressure. I bring this same level of dedication and ownership to my engineering work, whether I am managing high-stakes cloud infrastructure or collaborating with a team to ship reliable software.
+
+My resume provides a detailed breakdown of my technical projects and stack, but I am eager to discuss how my proactive mindset, adaptability, and hands-on experience align with your organization's current needs.
+
+Thank you for your time and consideration. I look forward to the possibility of speaking with you.
+
+Sincerely,
+
+Kristofer Jussmann
+(+372) 53006315 | kristoferjussmann@gmail.com
+linkedin.com/in/kristofer-jussmann-ker102
+github.com/Ker102
