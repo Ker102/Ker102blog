@@ -24,8 +24,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				justify-content: center;
 				align-items: center;
 				text-align: center;
-				padding-top: 8rem; /* Account for fixed header */
-				padding-bottom: 4rem;
+				padding: 7rem 1rem 7rem; /* Account for fixed header and mobile nav */
 			}
 
 			.hero-title {
@@ -56,18 +55,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			/* iOS 28 Glass Cards Grid */
 			.glass-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-				gap: 2rem;
+				grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+				gap: 1rem;
 				width: 100%;
 				max-width: 1200px;
 				margin: 0 auto;
-				padding: 0 1rem;
 			}
 
 			.glass-card {
 				position: relative;
-				padding: 2.5rem;
-				border-radius: 40px; /* Hyper rounded */
+				padding: clamp(1.4rem, 5vw, 2.5rem);
+				border-radius: 28px;
 				background: rgba(255, 255, 255, 0.65);
 				backdrop-filter: blur(40px);
 				-webkit-backdrop-filter: blur(40px);
@@ -83,12 +81,29 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				transform: translateY(30px);
 				text-decoration: none;
 				color: inherit;
+				outline: none;
 			}
 
-			.glass-card:hover {
+			.glass-card::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				pointer-events: none;
+				background: linear-gradient(135deg, rgba(255,255,255,0.55), transparent 38%);
+				opacity: 0;
+				transition: opacity 0.35s var(--ease-apple);
+			}
+
+			.glass-card:hover,
+			.glass-card:focus-visible {
 				transform: translateY(-8px) scale(1.01);
 				background: rgba(255, 255, 255, 0.85);
 				box-shadow: 0 20px 40px -10px rgba(0,0,0,0.12);
+			}
+
+			.glass-card:hover::after,
+			.glass-card:focus-visible::after {
+				opacity: 1;
 			}
 
 			.card-icon {
@@ -128,6 +143,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				color: #0071e3; /* Apple Blue */
 			}
 
+			.card-arrow span {
+				display: inline-block;
+				transition: transform 0.25s var(--ease-apple);
+			}
+
+			.glass-card:hover .card-arrow span,
+			.glass-card:focus-visible .card-arrow span {
+				transform: translateX(4px);
+			}
+
 			/* Decorative background blobs */
 			.bg-blob {
 				position: fixed;
@@ -145,6 +170,43 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			@keyframes float {
 				0%, 100% { transform: translate(0, 0); }
 				50% { transform: translate(30px, -30px); }
+			}
+
+			@media (min-width: 760px) {
+				.hero-section {
+					padding-top: 8rem;
+					padding-bottom: 5rem;
+				}
+
+				.glass-grid {
+					gap: 1.5rem;
+				}
+			}
+
+			@media (max-width: 640px) {
+				.bg-blob {
+					width: 320px;
+					height: 320px;
+					filter: blur(72px);
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.bg-blob {
+					animation: none;
+				}
+
+				.glass-card,
+				.card-arrow span {
+					transition-duration: 0.01ms !important;
+				}
+
+				.glass-card:hover,
+				.glass-card:focus-visible,
+				.glass-card:hover .card-arrow span,
+				.glass-card:focus-visible .card-arrow span {
+					transform: none;
+				}
 			}
 		</style>
 	</head>
@@ -170,7 +232,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					</div>
 					<div class="card-title">Technical Blog</div>
 					<div class="card-desc">Deep dives into AI Engineering, DevOps pipelines, and modern web infrastructure. Coding without fluff.</div>
-					<div class="card-arrow">Read Articles →</div>
+					<div class="card-arrow">Read Articles <span>&rarr;</span></div>
 				</a>
 
 				<!-- Portfolio Card -->
@@ -180,7 +242,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					</div>
 					<div class="card-title">Minimal Portfolio</div>
 					<div class="card-desc">Showcase of production-grade projects. Focusing on impact, technical complexity, and clean architecture.</div>
-					<div class="card-arrow">View Work →</div>
+					<div class="card-arrow">View Work <span>&rarr;</span></div>
+				</a>
+
+				<!-- Case Studies Card -->
+				<a href="/case-studies" class="glass-card">
+					<div class="card-icon">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M8 7h8"/><path d="M8 11h8"/><path d="M8 15h5"/></svg>
+					</div>
+					<div class="card-title">Case Studies</div>
+					<div class="card-desc">Structured project evidence for PromptTriage, Kaelux.dev, ViperMesh, and n8n automation work.</div>
+					<div class="card-arrow">Review Evidence <span>&rarr;</span></div>
 				</a>
 
 				<!-- Open Source Card -->
@@ -190,7 +262,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					</div>
 					<div class="card-title">Open Source</div>
 					<div class="card-desc">Active improvements to the developer ecosystem. Contributing tools, libraries, and resources.</div>
-					<div class="card-arrow">GitHub Profile →</div>
+					<div class="card-arrow">GitHub Profile <span>&rarr;</span></div>
 				</a>
 			</div>
 		</main>

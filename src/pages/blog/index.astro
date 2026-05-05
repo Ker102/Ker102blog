@@ -28,7 +28,7 @@ const postsWithContent = await Promise.all(
 				gap: 3rem;
 				width: min(1200px, 100%);
 				margin: 0 auto;
-				padding: clamp(1.5rem, 4vw, 3rem);
+				padding: 7rem clamp(1rem, 4vw, 3rem) 3rem;
 				align-items: flex-start;
 			}
 			aside {
@@ -121,18 +121,72 @@ const postsWithContent = await Promise.all(
 			article :global(a:hover) {
 				text-decoration: underline;
 			}
+			article :global(pre) {
+				max-width: 100%;
+				overflow-x: auto;
+			}
+			article :global(code) {
+				overflow-wrap: anywhere;
+				word-break: break-word;
+			}
 			@media (max-width: 900px) {
 				.layout-container {
 					flex-direction: column-reverse; /* Content first on mobile */
-					padding: 1rem;
+					padding: 6rem 1rem 2rem;
+					gap: 1.5rem;
 				}
 				aside {
 					width: 100%;
 					position: static;
 					margin-bottom: 2rem;
+					padding: 1rem;
 				}
 				article {
 					padding: clamp(1.5rem, 8vw, 2.5rem);
+				}
+			}
+
+			@media (max-width: 560px) {
+				.posts {
+					gap: 1.25rem;
+				}
+
+				article {
+					border-radius: 22px;
+					padding: 1.1rem;
+				}
+
+				article h2 {
+					font-size: clamp(1.55rem, 9vw, 2.1rem);
+				}
+
+				.meta {
+					font-size: 0.76rem;
+					letter-spacing: 0.04em;
+				}
+
+				aside a {
+					padding: 0.35rem 0;
+				}
+
+				article :global(pre),
+				article :global(pre code),
+				article :global(pre span) {
+					white-space: pre-wrap !important;
+					word-break: break-all;
+				}
+
+				article :global(pre span.line) {
+					display: block;
+					max-width: 100%;
+				}
+
+				article :global(pre span.line span) {
+					display: inline;
+				}
+
+				article :global(:not(pre) > code) {
+					white-space: normal;
 				}
 			}
 		</style>

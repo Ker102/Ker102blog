@@ -21,6 +21,7 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/portfolio">Portfolio</HeaderLink>
+			<HeaderLink href="/case-studies">Case Studies</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 		</nav>
 
@@ -51,8 +52,9 @@ import HeaderLink from './HeaderLink.astro';
 		left: 0;
 		right: 0;
 		z-index: 1000;
-		padding: 1.5rem 2rem;
-		transition: padding 0.3s ease;
+		padding: 0.9rem 1rem;
+		pointer-events: none;
+		transition: padding 0.3s var(--ease-apple);
 	}
 
 	.header-content {
@@ -61,14 +63,16 @@ import HeaderLink from './HeaderLink.astro';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 1rem;
+		pointer-events: auto;
 	}
 
 	/* Brand Group: KJ + GitHub Pill */
 	.brand-group {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
-		margin-left: -2rem; /* Push even further left to clear sidebar */
+		gap: 0.75rem;
+		min-width: 0;
 	}
 
 	.brand-logo-link {
@@ -102,7 +106,8 @@ import HeaderLink from './HeaderLink.astro';
 		border: 1px solid rgba(255, 255, 255, 0.1);
 	}
 
-	.github-pill:hover {
+	.github-pill:hover,
+	.github-pill:focus-visible {
 		background: #333;
 		transform: translateY(-2px);
 		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
@@ -124,7 +129,10 @@ import HeaderLink from './HeaderLink.astro';
 		border-radius: 999px;
 		border: 1px solid rgba(255, 255, 255, 0.4);
 		box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-		transition: transform 0.2s ease, box-shadow 0.2s ease;
+		transition:
+			transform 0.25s var(--ease-apple),
+			box-shadow 0.25s var(--ease-apple),
+			background 0.25s var(--ease-apple);
 	}
 	
 	.nav-island:hover {
@@ -139,12 +147,20 @@ import HeaderLink from './HeaderLink.astro';
 		font-size: 0.95rem;
 		font-weight: 500;
 		color: #555;
-		transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+		white-space: nowrap;
+		transition:
+			color 0.2s var(--ease-apple),
+			background 0.2s var(--ease-apple),
+			box-shadow 0.2s var(--ease-apple),
+			transform 0.2s var(--ease-apple);
 	}
 
-	.nav-island :global(a:hover) {
+	.nav-island :global(a:hover),
+	.nav-island :global(a:focus-visible) {
 		color: #000;
 		background: rgba(255,255,255,0.8);
+		transform: translateY(-1px);
+		outline: none;
 	}
 
 	.nav-island :global(a.active) {
@@ -172,41 +188,108 @@ import HeaderLink from './HeaderLink.astro';
 		transition: all 0.2s ease;
 	}
 	
-	.social-actions a:hover {
+	.social-actions a:hover,
+	.social-actions a:focus-visible {
 		background: rgba(0,0,0,0.05); /* Very subtle hover bg */
 		color: #000;
 		transform: scale(1.05);
+		outline: none;
 	}
 
 	@media (max-width: 768px) {
+		.ios-header {
+			padding: 0.85rem max(1rem, env(safe-area-inset-left)) 0.85rem max(1rem, env(safe-area-inset-right));
+		}
+
 		.header-content {
-			justify-content: center;
+			justify-content: space-between;
 			position: relative;
 		}
+
+		.brand-logo {
+			font-size: 1.55rem;
+		}
+
+		.github-pill {
+			display: none;
+		}
+
 		.nav-island {
 			position: fixed;
-			bottom: 2rem;
+			bottom: max(1rem, env(safe-area-inset-bottom));
 			left: 50%;
 			transform: translateX(-50%);
 			z-index: 1000;
+			width: min(calc(100vw - 1rem), 34rem);
+			justify-content: flex-start;
+			overflow-x: auto;
+			overscroll-behavior-x: contain;
+			scrollbar-width: none;
+			padding: 0.35rem;
 			background: rgba(255, 255, 255, 0.85); /* More opaque on mobile */
 			box-shadow: 0 10px 40px rgba(0,0,0,0.15);
 		}
+
+		.nav-island::-webkit-scrollbar {
+			display: none;
+		}
+
 		.nav-island:hover {
 			transform: translateX(-50%) translateY(-2px);
 		}
-		
-		.brand-link {
-			position: absolute;
-			left: 0;
-			top: 50%;
-			transform: translateY(-50%);
+
+		.nav-island :global(a) {
+			flex: 0 0 auto;
+			padding: 0.55rem 0.85rem;
+			font-size: 0.82rem;
 		}
+
 		.social-actions {
-			position: absolute;
-			right: 0;
-			top: 50%;
-			transform: translateY(-50%);
+			gap: 0.35rem;
+		}
+
+		.social-actions a {
+			width: 38px;
+			height: 38px;
+		}
+	}
+
+	@media (max-width: 430px) {
+		.nav-island {
+			width: min(calc(100vw - 0.75rem), 32rem);
+			gap: 0.15rem;
+			justify-content: center;
+		}
+
+		.nav-island :global(a) {
+			padding: 0.5rem 0.58rem;
+			font-size: 0.74rem;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.ios-header {
+			padding: 1.5rem 2rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.ios-header,
+		.nav-island,
+		.nav-island :global(a),
+		.github-pill,
+		.social-actions a {
+			transition-duration: 0.01ms !important;
+		}
+
+		.nav-island:hover,
+		.nav-island :global(a:hover),
+		.nav-island :global(a:focus-visible),
+		.github-pill:hover,
+		.github-pill:focus-visible,
+		.social-actions a:hover,
+		.social-actions a:focus-visible {
+			transform: none;
 		}
 	}
 </style>

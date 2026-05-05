@@ -7,7 +7,7 @@ Status: approved for planning
 
 Add a `/case-studies` page that helps hiring managers and technical reviewers quickly understand the strongest project evidence without overstating unfinished case studies. The page should treat PromptTriage as the complete featured case study and present Kaelux.dev, ViperMesh, and n8n Automation Atlas as verified project evidence cards with clear status labels.
 
-Also improve the homepage and navigation with restrained UI/UX polish: smoother navbar behavior, clearer buttons, better hover/focus affordances, and reduced-motion-safe microinteractions.
+Also improve the homepage, navigation, and existing pages with restrained UI/UX polish: smoother navbar behavior, clearer buttons, better hover/focus affordances, and reduced-motion-safe microinteractions. The site should be treated as mobile-first across homepage, portfolio, blog index, blog post pages, about, and the new case studies page.
 
 ## Audience
 
@@ -37,7 +37,7 @@ Use an evidence hub rather than a strict case-study index.
 The page will include:
 - Hero: "Case Studies & Project Evidence" with a concise positioning statement.
 - Trust strip: short evidence categories such as systems, research, deployment, operations, and documentation.
-- Featured case study: PromptTriage, labeled "Complete case study", with metrics and links.
+- Featured case study: PromptTriage, labeled "Complete case study", with metrics, links, and sections mapped to the provided professional case-study template.
 - Project evidence grid: Kaelux.dev, ViperMesh, and n8n Automation Atlas, each with problem, system type, stack, evidence links, and status.
 - Future pipeline: lab projects and upcoming structured studies, clearly marked as planned.
 - CTA band: links to portfolio, GitHub, and contact/social profile.
@@ -52,6 +52,26 @@ Status labels should be explicit:
 
 Do not invent results. Use only claims supported by local docs, project READMEs, public repo links, or existing resume/cv files.
 
+Detailed case studies should follow the structure from `06_case_study_template.md`. For this implementation, PromptTriage should use a condensed page-friendly version of that structure:
+- Executive summary
+- Problem
+- Context and constraints
+- Functional and non-functional requirements
+- Architecture with a diagram
+- Security model
+- Deployment pipeline
+- Operations
+- Cost analysis
+- Results
+- Tradeoffs
+- Failure modes and lessons learned
+- What I would improve next
+- Repository and demo links
+- Interview explanation
+- Resume bullets
+
+Projects that do not yet have enough verified evidence for every template section should not be presented as complete case studies. They should remain project evidence cards with clear status labels and links until their full structured studies are ready.
+
 PromptTriage may include research metrics from local research notes, including the 28K+ prompt corpus, Pinecone RAG pipeline, modality-specific optimization, and completed study results. Where results are nuanced, the copy should preserve the nuance rather than cherry-picking.
 
 Kaelux.dev should be presented as an AI engineering agency/platform site with diagnostic agent, wiki/GEO content, DigitalOcean deployment, CI/CD, and featured project hub, based on its README.
@@ -62,7 +82,7 @@ n8n Automation Atlas should be described as a workflow library/explorer and data
 
 ## Navigation
 
-Add "Case Studies" to the shared header between Portfolio and About. Keep mobile bottom navigation usable by preventing label crowding.
+Add "Case Studies" to the shared header between Portfolio and About. Keep mobile navigation usable by preventing label crowding and by using compact spacing, horizontal overflow where necessary, and touch-friendly targets.
 
 Navbar improvements:
 - Smoother hover and active transitions.
@@ -83,6 +103,19 @@ Improve component interactivity:
 
 Avoid broad redesign. Preserve the current clean glass visual direction.
 
+## Mobile-First Site Pass
+
+Apply a mobile-first review to every existing page in this project:
+- Homepage: cards should fit narrow screens without horizontal overflow; hero spacing should account for fixed top header and bottom mobile nav.
+- Case studies: content should read as stacked sections first, then expand to grids on tablet and desktop.
+- Portfolio: replace desktop-first assumptions with responsive stacking, wrapping navigation, smaller headings, readable cards, and upcoming certification items that wrap cleanly.
+- Blog index: preserve content-first order, reduce card padding on narrow screens, and keep recent-post navigation usable without sticky desktop behavior.
+- Blog post pages: improve prose width, title sizing, hero image spacing, and external source banner wrapping.
+- About: ensure the shared blog layout and lead text remain readable on small screens.
+- Header/Footer: touch targets, focus states, bottom navigation, and social actions should remain accessible and not overlap content.
+
+The mobile-first pass should prioritize layout correctness, readable typography, touch target size, and no horizontal scrolling. Desktop enhancements should layer on top through min-width media queries where practical.
+
 ## Components and Data
 
 Prefer a local data array inside the case studies page for the first pass. If the page grows into individual case-study routes later, extract project metadata into a shared content/data module.
@@ -99,6 +132,7 @@ Manual checks:
 - `/case-studies` is accessible.
 - Header active states work on `/case-studies`.
 - Mobile navigation remains usable.
+- Portfolio, blog index, blog post, about, and case studies pages have no obvious horizontal overflow at phone widths.
 - Reduced-motion styles do not hide content.
 - External links open correctly and internal links route locally.
 
@@ -110,4 +144,4 @@ The largest UI risk is making the glass style feel noisy. Motion and hover effec
 
 ## Out of Scope
 
-This change will not create full long-form individual case-study pages for every project. It will not rewrite the whole portfolio page. It will not inspect every source file in each external project unless a claim requires it.
+This change will not create full long-form individual case-study pages for every project. It will not rewrite the whole portfolio page content model. It will not inspect every source file in each external project unless a claim requires it.
