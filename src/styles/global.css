@@ -6,21 +6,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-	/* 
-	   THEME: COZY (Default/Blog) 
-	   Warm, paper-like tones for reading 
-	*/
-	--theme-bg: #fdfbf7;
-	/* Off-white paper */
-	--theme-text: #333333;
-	--theme-accent: #b06b43;
-	--theme-surface: rgba(255, 255, 255, 0.6);
-	--theme-border: rgba(180, 160, 140, 0.15);
+	color-scheme: light;
+
+	/* Chrome theme tokens */
+	--theme-bg: #f5f5f7;
+	--theme-text: #1d1d1f;
+	--heading-color: #050505;
+	--muted-text: #5f6368;
+	--theme-accent: #111111;
+	--theme-surface: rgba(255, 255, 255, 0.66);
+	--theme-border: rgba(0, 0, 0, 0.08);
+	--chrome-silver: #c7c9ce;
+	--chrome-ink: #050505;
+	--chrome-paper: #f8f8f8;
+	--chrome-glow-a: rgba(255, 255, 255, 0.72);
+	--chrome-glow-b: rgba(0, 0, 0, 0.055);
+	--chrome-gradient: linear-gradient(135deg, #050505 0%, #4c5058 28%, #b9bdc6 52%, #f7f7f8 72%, #26282d 100%);
+	--chrome-dark-gradient: linear-gradient(135deg, #050505 0%, #1a1a1c 36%, #3a3b40 66%, #101012 100%);
 
 	/* Shared Tokens */
 	--primary: #000000;
 	--white: #ffffff;
-	--black: #000000;
 
 	/* Radius Tokens (iOS 28 Style - Hyper Rounded) */
 	--radius-sm: 10px;
@@ -30,9 +36,9 @@
 	--radius-full: 9999px;
 
 	/* Glass Tokens */
-	--glass-surface: rgba(255, 255, 255, 0.65);
-	--glass-surface-hover: rgba(255, 255, 255, 0.85);
-	--glass-border: rgba(255, 255, 255, 0.4);
+	--glass-surface: rgba(255, 255, 255, 0.68);
+	--glass-surface-hover: rgba(255, 255, 255, 0.86);
+	--glass-border: rgba(255, 255, 255, 0.62);
 	--glass-border-subtle: rgba(0, 0, 0, 0.04);
 	--glass-blur: 25px;
 
@@ -49,7 +55,7 @@
 
 	/* Legacy Compatibility (For Blog Pages) */
 	--accent: var(--theme-accent);
-	--accent-dark: #8c4d2b;
+	--accent-dark: #111111;
 	--black: 48, 36, 29;
 	--gray: 130, 108, 92;
 	--gray-light: 242, 233, 222;
@@ -59,17 +65,42 @@
 	--shadow: var(--shadow-md);
 }
 
+[data-mode="dark"] {
+	color-scheme: dark;
+	--theme-bg: #030303;
+	--theme-text: #f3f4f6;
+	--heading-color: #ffffff;
+	--muted-text: #b8bbc1;
+	--theme-accent: #f5f5f5;
+	--theme-surface: rgba(18, 18, 20, 0.72);
+	--theme-border: rgba(255, 255, 255, 0.12);
+	--chrome-silver: #d7d9df;
+	--chrome-ink: #ffffff;
+	--chrome-paper: #080809;
+	--chrome-glow-a: rgba(255, 255, 255, 0.09);
+	--chrome-glow-b: rgba(255, 255, 255, 0.045);
+	--chrome-gradient: linear-gradient(135deg, #ffffff 0%, #d9dbe1 34%, #8f949e 62%, #f8f8f8 100%);
+	--glass-surface: rgba(18, 18, 20, 0.72);
+	--glass-surface-hover: rgba(34, 34, 38, 0.84);
+	--glass-border: rgba(255, 255, 255, 0.16);
+	--glass-border-subtle: rgba(255, 255, 255, 0.08);
+	--shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.28);
+	--shadow-md: 0 18px 48px rgba(0, 0, 0, 0.34);
+	--shadow-lg: 0 28px 70px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.08) inset;
+	--black: 245, 245, 247;
+	--gray: 186, 188, 194;
+	--gray-light: 30, 31, 34;
+	--gray-dark: 232, 233, 236;
+	--paper: 12, 12, 14;
+	--parchment: 8, 8, 10;
+}
+
 /* 
    THEME: CLEAN (Home/Portfolio) 
    Crisp Black & White, Apple Style
    Applied via data-theme="clean" on body or container 
 */
 [data-theme="clean"] {
-	--theme-bg: #f5f5f7;
-	/* Apple light gray background */
-	--theme-text: #1d1d1f;
-	--theme-accent: #0071e3;
-	/* Apple Blue */
 	--theme-surface: rgba(255, 255, 255, 0.7);
 	--theme-border: rgba(0, 0, 0, 0.05);
 }
@@ -90,7 +121,9 @@ body {
 	/* iOS standard text size */
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
-	transition: background-color 0.5s ease;
+	transition:
+		background-color 0.5s ease,
+		color 0.5s ease;
 	overflow-x: hidden;
 }
 
@@ -102,9 +135,8 @@ h4,
 h5,
 h6 {
 	margin: 0 0 0.5em 0;
-	color: var(--black);
-	letter-spacing: -0.025em;
-	/* Tighter tracking for headings */
+	color: var(--heading-color);
+	letter-spacing: 0;
 	font-weight: 700;
 	overflow-wrap: anywhere;
 }
@@ -118,7 +150,7 @@ span {
 
 h1 {
 	font-size: 3.5rem;
-	letter-spacing: -0.035em;
+	letter-spacing: 0;
 	line-height: 1.1;
 }
 
@@ -138,7 +170,7 @@ a {
 
 a:focus-visible,
 button:focus-visible {
-	outline: 2px solid rgba(0, 113, 227, 0.65);
+	outline: 2px solid rgba(156, 163, 175, 0.72);
 	outline-offset: 3px;
 }
 

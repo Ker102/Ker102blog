@@ -1,0 +1,1958 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+
+const title = 'PromptTriage Case Study - Kristofer Jussmann';
+const description =
+	'Full PromptTriage case study covering architecture, Azure ML research, security, deployment, cost, operations, tradeoffs, and evidence.';
+
+const promptTriageArticles = [
+	{
+		title: 'What We Learned From Analyzing 28,000 Production AI System Prompts',
+		date: 'Mar 24, 2026',
+		href: 'https://blog.kaelux.dev/28k-ai-system-prompts-analysis',
+		description:
+			'Hashnode article covering the 28K prompt corpus, production anti-patterns, and why prompt hygiene became the core product thesis.',
+	},
+	{
+		title: 'AI Format Wars: Does the Shape of Your Prompt Matter?',
+		date: 'Mar 22, 2026',
+		href: 'https://blog.kaelux.dev/ai-format-wars',
+		description:
+			'Hashnode article covering the 1,080-eval format study and the measurable impact of prompt structure across models and domains.',
+	},
+];
+
+const researchAssets = [
+	{
+		title: '28K anti-pattern prevalence',
+		label: 'Study 28K',
+		src: 'https://github.com/Ker102/PromptTriage/releases/download/28k-study-system/Bar_chart_anti-pattern_202603241606.jpeg',
+		alt: 'Bar chart showing anti-pattern prevalence from the 28K PromptTriage prompt analysis',
+		href: 'https://github.com/Ker102/PromptTriage/releases/tag/28k-study-system',
+	},
+	{
+		title: 'Enhancement comparison',
+		label: 'Study E',
+		src: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/3-bar_chart_enhancements_202603222343.jpeg',
+		alt: 'Three bar chart enhancement comparison from the PromptTriage format study',
+		href: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/3-bar_chart_enhancements_202603222343.jpeg',
+	},
+	{
+		title: 'Diverging format comparison',
+		label: 'Study E',
+		src: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Diverging_bar_chart_202603222343.jpeg',
+		alt: 'Diverging bar chart from the PromptTriage AI format evaluation study',
+		href: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Diverging_bar_chart_202603222343.jpeg',
+	},
+	{
+		title: 'Dual-color ranking',
+		label: 'Study E',
+		src: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Dual-color_bar_chart_202603222343.jpeg',
+		alt: 'Dual-color bar chart from the PromptTriage format evaluation study',
+		href: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Dual-color_bar_chart_202603222343.jpeg',
+	},
+	{
+		title: 'Horizontal enhancement chart',
+		label: 'Study E',
+		src: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Enhance_horizontal_bar_202603222302.jpeg',
+		alt: 'Enhanced horizontal bar chart from the PromptTriage evaluation study',
+		href: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Enhance_horizontal_bar_202603222302.jpeg',
+	},
+	{
+		title: 'Grouped format comparison',
+		label: 'Study E',
+		src: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Grouped_bar_chart_202603222343.jpeg',
+		alt: 'Grouped bar chart from the PromptTriage format evaluation study',
+		href: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Grouped_bar_chart_202603222343.jpeg',
+	},
+	{
+		title: 'Format and model heatmap',
+		label: 'Study E',
+		src: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Heatmap_chart_with_202603222343.jpeg',
+		alt: 'Heatmap chart from the PromptTriage AI format evaluation study',
+		href: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Heatmap_chart_with_202603222343.jpeg',
+	},
+	{
+		title: 'Length impact',
+		label: 'Study E',
+		src: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Horizontal_bar_chart_202603222343.jpeg',
+		alt: 'Horizontal bar chart from the PromptTriage format and length evaluation study',
+		href: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Horizontal_bar_chart_202603222343.jpeg',
+	},
+	{
+		title: 'Format share view',
+		label: 'Study E',
+		src: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Pie_chart_with_202603222343.jpeg',
+		alt: 'Pie chart from the PromptTriage format evaluation study',
+		href: 'https://github.com/Ker102/PromptTriage/releases/download/Research-chart/Pie_chart_with_202603222343.jpeg',
+	},
+];
+
+const researchProgram = [
+	{
+		kicker: 'Corpus analysis',
+		metric: '28K+',
+		title: 'Production prompt anti-pattern study',
+		detail:
+			'Analyzed a large corpus of production system prompts to identify recurring anti-patterns: persona bloat, contradictory long-prompt clauses, and emotional-pressure scaffolds that distracted from the actual task.',
+		evidence: 'Hashnode 28K writeup, release chart, Pinecone corpus evidence.',
+	},
+	{
+		kicker: 'Reference corpus',
+		metric: '100s',
+		title: 'Leaked frontier system prompts',
+		detail:
+			'Curated publicly leaked system prompts attributed to major AI products and labs, including Anthropic, OpenAI, Google, Perplexity, Cursor, v0, Windsurf, and Gemini CLI, then used them as reference patterns instead of republishing private prompt text on the portfolio page.',
+		evidence: 'Local PromptTriage repo references, training data notes, RAG corpus docs.',
+	},
+	{
+		kicker: 'Study E v2',
+		metric: '1,080',
+		title: 'Format Wars evaluation matrix',
+		detail:
+			'The public writeup describes five frontier models evaluated across 12 task domains, six output formats, and three prompt lengths. The published article says each result was blindly scored by a three-judge LLM panel; local research notes also preserve earlier Study E run details and cross-model judging variants.',
+		evidence: 'Hashnode Format Wars article, release charts, local RESEARCH_PROGRESS.md.',
+	},
+	{
+		kicker: 'Research correction',
+		metric: 'Bias',
+		title: 'Judge-bias and referee lessons',
+		detail:
+			'Several studies exposed judge bias, especially self-preference from the original Gemini judge. Later passes used neutral Llama 4 Maverick judging or cross-model judging, so the case study records both positive results and evaluator limitations.',
+		evidence: 'PromptTriage research progress log and benchmark notes.',
+	},
+];
+
+const benchmarkRuns = [
+	{
+		title: 'Study B: Benchmark (MoE only)',
+		status: 'Completed',
+		compute: 'gpu-a100',
+		duration: '38.19 hours',
+		detail: 'qwen3_30b_a3b benchmark run on Azure ML; this is the main expensive slow-inference evidence.',
+	},
+	{
+		title: 'Study A: RAG Pipeline Comparison',
+		status: 'Completed',
+		compute: 'gpu-a100',
+		duration: '5.35 hours',
+		detail: 'Qwen3-14B run across six RAG levels for 180 prompt-generation combinations.',
+	},
+	{
+		title: 'Study B: qwen3_30b_a3b training',
+		status: 'Completed',
+		compute: 'gpu-a100',
+		duration: '2.19 hours',
+		detail: 'QLoRA fine-tuning run for the dense-vs-MoE comparison.',
+	},
+	{
+		title: 'Study B: all-model benchmark attempts',
+		status: 'Failed / stopped / resumed',
+		compute: 'gpu-a100',
+		duration: '0.13 to 4.05 hours',
+		detail: 'Some runs failed, while others were intentionally stopped and resumed with the next job at the planned continuation point.',
+	},
+];
+
+const mlTechniques = [
+	{
+		name: 'Unsloth',
+		detail:
+			'Used to patch Qwen-family training and inference paths for faster fine-tuning and lower VRAM pressure on Azure ML GPU runs.',
+	},
+	{
+		name: 'QLoRA adapters',
+		detail:
+			'Fine-tuned compact adapters for Qwen variants instead of retraining full base models, keeping experiments feasible on limited credits.',
+	},
+	{
+		name: 'A100 GPU benchmarking',
+		detail:
+			'Ran generation and evaluation workloads on Azure ML gpu-a100 compute, including the long MoE benchmark that exposed inference cost.',
+	},
+	{
+		name: 'RAG ablation study',
+		detail:
+			'Compared six retrieval levels and found simple Pinecone retrieval more useful than heavier orchestration for this prompt-generation path.',
+	},
+	{
+		name: 'LLM-as-judge evaluation',
+		detail:
+			'Used judged outputs and re-judging passes to compare model, prompt format, and strategy quality while tracking judge-bias risks.',
+	},
+	{
+		name: 'Benchmark continuation workflow',
+		detail:
+			'Some Azure ML jobs were stopped intentionally and resumed in follow-up jobs, so not every non-completed job represents a broken experiment.',
+	},
+];
+
+const costEvidence = [
+	{
+		value: 'EUR 178.12',
+		label: 'Azure credits spent',
+		detail: 'Cost screenshot groups spend under Virtual Machines in East US 2 for the qwentrain workspace period.',
+	},
+	{
+		value: '38.19h',
+		label: 'Longest benchmark job',
+		detail: 'MoE-only Study B benchmark, showing why naive inference became the cost lesson.',
+	},
+	{
+		value: 'A100 80GB',
+		label: 'Primary compute',
+		detail: 'Local Azure ML logs show PyTorch, CUDA, and NVIDIA A100 80GB PCIe runtime evidence.',
+	},
+];
+
+const costBreakdown = [
+	{
+		meter: 'NC24ads_A100_v4',
+		amount: 'EUR 177.97',
+		share: '99.92%',
+		width: '99.92%',
+		detail: 'Primary Azure VM meter behind the gpu-a100 benchmark and training work.',
+	},
+	{
+		meter: 'E4ds v4',
+		amount: 'EUR 0.14',
+		share: '0.08%',
+		width: '6%',
+		detail: 'Small supporting VM meter surfaced in the same East US 2 cost query.',
+	},
+];
+
+const platformHistory = [
+	'Research and training primarily ran on Azure ML compute clusters in the qwentrain workspace.',
+	'The app previously ran on Azure Container Apps and Google Cloud Run before the Azure resources, including ACR, were accidentally removed through CLI cleanup.',
+	'The current case study keeps deployment history separate from benchmark evidence so the research claims stay centered on model and prompt-evaluation work.',
+];
+
+const remainingTemplateGaps = [
+	{
+		section: 'Cost analysis',
+		need: 'Job-level Azure ML cost allocation that maps run IDs to billed spend. Current evidence itemizes the EUR 178.12 VM meters, but Azure Cost Management does not directly attach every euro to each ML job.',
+	},
+	{
+		section: 'Operations',
+		need: 'Public-safe screenshots or summaries for monitoring, alerts, rollback, incident response, and restore paths.',
+	},
+	{
+		section: 'Security model',
+		need: 'Screenshots or redacted config evidence for Supabase Auth, Stripe webhook verification, secrets, and deployment identity.',
+	},
+	{
+		section: 'Deployment pipeline',
+		need: 'Visual evidence for Azure Container Apps, ACR, Google Cloud Run history, GitHub Actions runs, image scanning, and rollback.',
+	},
+	{
+		section: 'Architecture',
+		need: 'Exportable SVG is now included; optional PNG, Excalidraw, or Draw.io source can be added if you want a diagram asset that is easier to reuse in decks.',
+	},
+	{
+		section: 'Results',
+		need: 'A compact public table that maps each study to sample size, model set, evaluation method, and final takeaway.',
+	},
+];
+
+const architectureNodes = [
+	{
+		group: 'User layer',
+		items: ['Browser UI', 'Prompt intent', 'Modality selection'],
+	},
+	{
+		group: 'Next.js app',
+		items: ['Analyze/refine routes', 'Supabase Auth', 'Stripe subscription checks'],
+	},
+	{
+		group: 'Retrieval and context',
+		items: ['FastAPI RAG service', 'Pinecone prompt vectors', 'Context7 and Firecrawl enrichment'],
+	},
+	{
+		group: 'Generation and output',
+		items: ['Model provider calls', 'Modality-specific metaprompts', 'Production prompt result'],
+	},
+	{
+		group: 'Delivery',
+		items: ['GitHub Actions', 'Azure Container Registry', 'Azure Container Apps'],
+	},
+];
+
+const securityControls = [
+	{
+		risk: 'Unauthenticated use of paid or rate-limited workflows',
+		control: 'Supabase Auth sessions are checked by server routes before analyze, refine, and system-prompt generation.',
+		evidence: 'Local source: Supabase middleware and API route auth checks.',
+	},
+	{
+		risk: 'Subscription state drift between payment and app access',
+		control: 'Stripe checkout, billing portal, and webhooks write subscription state into Supabase.',
+		evidence: 'Local source: Stripe webhook and subscription routes.',
+	},
+	{
+		risk: 'Secret leakage from deployment pipeline',
+		control: 'Azure OIDC is used for GitHub Actions deployment, with runtime secrets stored outside source code.',
+		evidence: 'Local source: deploy-frontend.yml and deploy-backend.yml.',
+	},
+	{
+		risk: 'Vector database or model provider exposure',
+		control: 'Pinecone and provider keys are server-side environment variables; the browser only talks to application routes.',
+		evidence: 'Local source: backend RAG service and environment examples.',
+	},
+];
+
+const deploymentSteps = [
+	'Push to main when frontend or backend paths change.',
+	'GitHub Actions authenticates to Azure through OIDC.',
+	'Docker image is built for the changed service.',
+	'Image is pushed to Azure Container Registry.',
+	'Azure Container App is updated to the commit-tagged image.',
+	'Health route and analyze/refine smoke tests confirm the service path.',
+];
+
+const evidenceNeeded = [
+	'Job-level Azure ML cost allocation if you want the EUR 178.12 total mapped from VM meters to exact run IDs.',
+	'Deployment screenshots from Azure Container Apps, ACR, Google Cloud Run, and GitHub Actions after redacting identifiers.',
+	'Monitoring evidence: logs, alert rules, health checks, and failure handling examples.',
+	'Public-safe screenshots of Azure ML Studio run pages if you want visual proof beside the CLI-derived runtime table.',
+	'Optional PNG or editable source version of the architecture diagram alongside the included SVG.',
+];
+
+const evidenceCards = [
+	{
+		name: 'Kaelux.dev',
+		status: 'Source verified',
+		type: 'AI engineering agency platform',
+		summary:
+			'Brand and platform site for AI engineering services, featuring a diagnostic agent, technical wiki, featured project hub, SEO/GEO content, and deployment documentation.',
+		stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Vercel AI SDK', 'Groq', 'DigitalOcean'],
+		links: [
+			{ label: 'Live site', href: 'https://kaelux.dev' },
+			{ label: 'Repository', href: 'https://github.com/Ker102/Kaelux-DevPortfolio' },
+		],
+	},
+	{
+		name: 'ViperMesh',
+		status: 'Case study in progress',
+		type: 'AI-powered Blender assistant and neural 3D workflow product',
+		summary:
+			'Renamed from the older ModelForge identity. Local evidence describes an Electron and Blender Python platform with a ViperAgent workflow, RAG-backed generation, addon awareness, and neural 3D service planning.',
+		stack: ['Electron', 'Blender Python API', 'LangChain', 'LangGraph', 'Supabase', 'Docker'],
+		links: [
+			{ label: 'Repository', href: 'https://github.com/Ker102/ViperMesh' },
+		],
+	},
+	{
+		name: 'n8n Automation Atlas',
+		status: 'Source verified',
+		type: 'Workflow library, explorer, and automation evidence base',
+		summary:
+			'Curated workflow library with ready-to-import n8n JSON exports, source license preservation, and an explorer path for builders who need practical automation templates.',
+		stack: ['n8n', 'JSON', 'Vue', 'Vite', 'GitHub Pages'],
+		links: [
+			{ label: 'Atlas repository', href: 'https://github.com/Ker102/n8n-ai-automation-workflow-atlas' },
+			{ label: 'n8n workflows repo', href: 'https://github.com/Ker102/n8n-workflows-36k' },
+		],
+	},
+];
+
+const templateSections = [
+	{
+		title: 'Executive summary',
+		body:
+			'PromptTriage is a RAG-powered prompt engineering platform built to turn rough ideas into production-ready prompts across text, image, video, and system-prompt workflows. The current build combines a Next.js interface, Supabase Auth, Stripe subscription flows, FastAPI retrieval services, Pinecone vector search, modality-specific metaprompts, and Azure Container Apps deployment. The strongest evidence is not only the app surface, but the documented research process behind retrieval strategy, prompt format, model selection, evaluation bias, and cost tradeoffs.',
+	},
+	{
+		title: 'Problem',
+		body:
+			'Most prompt tools behave like thin wrappers over a model API. The project needed to show whether structured prompt generation, retrieval context, and modality-specific templates could produce better, more reliable prompts than generic chat UX. The user problem is practical: builders need reusable prompts that include constraints, output format, assumptions, and evaluation criteria without manually writing every section from scratch.',
+	},
+	{
+		title: 'Context and constraints',
+		body:
+			'The project was developed as a solo engineering effort with limited budget, evolving model availability, provider API instability, GPU quota constraints, and a need to publish evidence without exposing secrets or private datasets. Most benchmark and training work ran on Azure ML compute clusters, while the app moved through Azure Container Apps and Google Cloud Run deployment phases. Research notes show cost-sensitive experimentation across fine-tuned Qwen variants, RAG strategies, and LLM-as-judge workflows.',
+	},
+	{
+		title: 'Requirements',
+		body:
+			'Functional requirements included prompt analysis, dynamic clarification questions, modality routing, retrieval from a prompt corpus, final prompt synthesis, one-click iteration, paid-plan capability checks, and optional current-documentation lookup through MCP tooling. Non-functional requirements included secure authentication, environment-based secrets, responsive UI, reproducible prompt versions, structured logging, and a containerized path from GitHub to Azure runtime. Research requirements included Unsloth-based QLoRA experiments, Azure ML benchmark jobs, and repeatable evaluation outputs.',
+	},
+	{
+		title: 'Architecture',
+		body:
+			'The architecture separates the user-facing workflow from retrieval and prompt-engineering services. The UI collects intent and modality, Next.js API routes enforce Supabase session and subscription context, the backend retrieves relevant examples from Pinecone, and modality-specific metaprompts synthesize the final result. Azure Container Apps hosts the containerized frontend and backend services through images built and pushed by GitHub Actions.',
+	},
+	{
+		title: 'Security model',
+		body:
+			'The current security model centers on Supabase Auth, server-side subscription checks, Stripe webhook verification, environment-based secrets, Azure OIDC deployment, and no publication of private provider keys or vector indexes. The risk/control table below is intentionally evidence-oriented so reviewers can see which controls are implemented and which supporting artifacts still need screenshots.',
+	},
+	{
+		title: 'Deployment pipeline',
+		body:
+			'The local workflows document a frontend and backend Docker deployment path to Azure Container Apps through Azure Container Registry. Historically, PromptTriage also ran on Google Cloud Run. The Azure app runtime and ACR were later accidentally removed during CLI cleanup, which is now part of the operational lessons learned rather than hidden from the case study.',
+	},
+	{
+		title: 'Operations',
+		body:
+			'Operational evidence includes API logging, health routes, error feedback UX, dataset ingestion scripts, research progress notes, and failure tracking around model/provider behavior. The next operational step is to attach Azure Container Apps logs, alert thresholds, incident response notes, rollback proof, and cost-monitoring screenshots to make the operations section audit-ready.',
+	},
+	{
+		title: 'Cost analysis',
+		body:
+			'The Azure cost screenshot shows EUR 178.12 of credits spent for the PromptTriage research period, grouped under Virtual Machines in East US 2 for the qwentrain workspace. Azure ML job metadata shows the longest completed MoE benchmark ran for 38.19 hours on the gpu-a100 compute target, while Study A ran for 5.35 hours. The main cost lesson is that benchmark design, retry behavior, and inference implementation can matter more than raw model size.',
+	},
+	{
+		title: 'Results',
+		body:
+			'Documented results include a 28K+ prompt evidence base, Pinecone retrieval, multiple completed studies, qwen3_14b selected as a production candidate in the research notes, Unsloth/QLoRA model experiments, and a finding that naive RAG performed better than more complex RAG variants for this pipeline. Some downstream benchmark results were nuanced, so the case study should preserve both positive findings and null results instead of overstating uniform gains.',
+	},
+	{
+		title: 'Tradeoffs',
+		body:
+			'The main tradeoff was simplicity versus orchestration complexity. Naive RAG was easier to operate and outperformed more agentic retrieval variants in the documented study, while complex corrective or judge-based RAG added noise. The project also trades broad provider coverage for a more controlled, research-backed prompt workflow.',
+	},
+	{
+		title: 'Failure modes and lessons learned',
+		body:
+			'The research logs are valuable because they document failures and controlled interruptions: judge bias, provider/model availability issues, expensive slow MoE inference, failed Azure ML runs, planned stop/resume benchmark jobs, overfitting on small datasets, prompt strategies that did not move downstream scores, and accidental cloud-resource teardown. These failures make the project stronger as engineering evidence because they show measurement discipline rather than only demo polish.',
+	},
+	{
+		title: 'What I would improve next',
+		body:
+			'Next improvements should include a formal runbook, security model page, threat model, Azure cost report, architecture diagram export stored in the repo, API rate limiting, clearer public benchmark reports, and a more complete deployment checklist. Those additions align directly with the documentation standard from the career execution pack.',
+	},
+	{
+		title: 'Repository and demo links',
+		body:
+			'The public demo has historically been hosted at prompttriage.kaelux.dev and the repository is available on GitHub. The strongest supporting evidence is the README, backend research notes, Azure ML logs, benchmark output JSON, deployment workflows, security policy, release charts, and the marketing-oriented app showcase video.',
+	},
+	{
+		title: 'Interview explanation',
+		body:
+			'I built PromptTriage because prompt quality is usually treated as subjective, but production AI systems need measurable prompt structure, retrieval context, and evaluation discipline. The architecture uses a Next.js interface, Supabase Auth, Stripe billing, API orchestration, FastAPI retrieval, Pinecone vectors, Azure Container Apps, and modality-specific metaprompts. The most important lesson was that more complex RAG is not automatically better: in this project, simple retrieval produced stronger documented results than agentic retrieval traces.',
+	},
+	{
+		title: 'Resume bullets',
+		body:
+			'Designed a RAG-powered prompt engineering platform with modality-specific optimization, Pinecone retrieval, and documented evaluation studies. Built and evaluated prompt-generation workflows across model selection, retrieval strategy, judge bias, and format sensitivity. Documented cost, failure modes, and tradeoffs to make the project inspectable by engineering reviewers.',
+	},
+];
+
+const futureStudies = [
+	'Kaelux.dev platform case study with service architecture, diagnostic agent, deployment, observability, and GEO/wiki strategy.',
+	'ViperMesh case study with Blender integration, agent tool model, neural 3D workflow, and local-to-cloud deployment choices.',
+	'n8n workflow dataset and automation atlas case study with curation pipeline, licensing, import UX, and downstream model-training path.',
+	'Homelab, Azure, and security lab case studies once the repo documentation standard is applied.',
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<style>
+			body {
+				background:
+					radial-gradient(circle at 12% 8%, var(--chrome-glow-a), transparent 34rem),
+					radial-gradient(circle at 92% 18%, var(--chrome-glow-b), transparent 30rem),
+					var(--theme-bg);
+				color: var(--theme-text);
+			}
+
+			main.case-study-page {
+				width: min(100%, 1180px);
+				max-width: none;
+				padding: 7.5rem 1rem 7rem;
+			}
+
+			.eyebrow {
+				display: inline-flex;
+				align-items: center;
+				width: fit-content;
+				padding: 0.35rem 0.7rem;
+				border: 1px solid var(--theme-border);
+				border-radius: 999px;
+				background: var(--glass-surface);
+				color: var(--muted-text);
+				font-size: 0.75rem;
+				font-weight: 700;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+			}
+
+			.hero {
+				display: grid;
+				gap: 1.25rem;
+				padding-bottom: 2.5rem;
+			}
+
+			.hero h1 {
+				max-width: 820px;
+				margin: 0;
+				font-size: clamp(2.45rem, 12vw, 5.25rem);
+				line-height: 0.98;
+				letter-spacing: 0;
+				color: var(--heading-color);
+			}
+
+			.hero p {
+				max-width: 760px;
+				margin: 0;
+				color: var(--muted-text);
+				font-size: clamp(1rem, 4.4vw, 1.25rem);
+				line-height: 1.65;
+			}
+
+			.hero-actions,
+			.card-actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.75rem;
+			}
+
+			.button {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 44px;
+				padding: 0.75rem 1rem;
+				border-radius: 999px;
+				border: 1px solid var(--theme-border);
+				font-weight: 700;
+				font-size: 0.95rem;
+				text-decoration: none;
+				transition:
+					transform 220ms var(--ease-apple),
+					border-color 220ms var(--ease-apple),
+					background 220ms var(--ease-apple),
+					box-shadow 220ms var(--ease-apple);
+			}
+
+			.button.primary {
+				background: var(--chrome-ink);
+				color: var(--chrome-paper);
+				box-shadow: 0 14px 32px rgba(0, 0, 0, 0.16);
+			}
+
+			.button.secondary {
+				background: var(--glass-surface);
+				color: var(--heading-color);
+			}
+
+			.button:hover,
+			.button:focus-visible {
+				transform: translateY(-2px);
+				border-color: var(--theme-border);
+				box-shadow: 0 18px 36px rgba(0, 0, 0, 0.14);
+			}
+
+			.trust-strip {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 0.75rem;
+				margin: 0 0 1.5rem;
+			}
+
+			.trust-item,
+			.project-card,
+			.section-card,
+			.article-card,
+			.research-card,
+			.architecture-lane,
+			.security-panel,
+			.evidence-needed,
+			.pipeline,
+			.cta-panel {
+				border: 1px solid var(--glass-border);
+				background: var(--glass-surface);
+				box-shadow: 0 18px 50px rgba(30, 41, 59, 0.08);
+				backdrop-filter: blur(28px);
+				-webkit-backdrop-filter: blur(28px);
+			}
+
+			.trust-item {
+				padding: 1rem;
+				border-radius: 22px;
+			}
+
+			.trust-item strong {
+				display: block;
+				font-size: 1rem;
+				color: var(--heading-color);
+			}
+
+			.trust-item span {
+				display: block;
+				margin-top: 0.25rem;
+				color: var(--muted-text);
+				font-size: 0.9rem;
+			}
+
+			.section-heading {
+				display: grid;
+				gap: 0.4rem;
+				margin: 3rem 0 1rem;
+			}
+
+			.section-heading h2 {
+				margin: 0;
+				font-size: clamp(1.8rem, 8vw, 3rem);
+				line-height: 1.08;
+				letter-spacing: 0;
+			}
+
+			.section-heading p {
+				max-width: 760px;
+				margin: 0;
+				color: var(--muted-text);
+				line-height: 1.6;
+			}
+
+			.featured {
+				position: relative;
+				overflow: hidden;
+				border-radius: 30px;
+				padding: clamp(1.1rem, 5vw, 2.5rem);
+				background:
+					linear-gradient(145deg, rgba(255, 255, 255, 0.74), rgba(255, 255, 255, 0.2)),
+					var(--glass-surface);
+			}
+
+			:global([data-mode="dark"]) .featured {
+				background:
+					radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.11), transparent 28rem),
+					linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+					#080808;
+				border: 1px solid rgba(255, 255, 255, 0.18);
+			}
+
+			:global([data-mode="dark"]) .metric,
+			:global([data-mode="dark"]) .research-study-card,
+			:global([data-mode="dark"]) .research-source-note,
+			:global([data-mode="dark"]) .article-card,
+			:global([data-mode="dark"]) .research-card,
+			:global([data-mode="dark"]) .cost-card,
+			:global([data-mode="dark"]) .benchmark-card,
+			:global([data-mode="dark"]) .technique-card,
+			:global([data-mode="dark"]) .gap-card,
+			:global([data-mode="dark"]) .section-card,
+			:global([data-mode="dark"]) .security-panel,
+			:global([data-mode="dark"]) .architecture-lane,
+			:global([data-mode="dark"]) .evidence-needed {
+				background: rgba(255, 255, 255, 0.055);
+				border-color: rgba(255, 255, 255, 0.14);
+				box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+			}
+
+			:global([data-mode="dark"]) .featured-summary,
+			:global([data-mode="dark"]) .section-subhead p,
+			:global([data-mode="dark"]) .research-study-card p,
+			:global([data-mode="dark"]) .research-study-card span,
+			:global([data-mode="dark"]) .research-source-note p,
+			:global([data-mode="dark"]) .article-card p,
+			:global([data-mode="dark"]) .research-card p,
+			:global([data-mode="dark"]) .cost-card p,
+			:global([data-mode="dark"]) .benchmark-card p,
+			:global([data-mode="dark"]) .technique-card p,
+			:global([data-mode="dark"]) .gap-card p,
+			:global([data-mode="dark"]) .section-card p,
+			:global([data-mode="dark"]) .metric span {
+				color: rgba(244, 245, 247, 0.78);
+			}
+
+			.featured::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				pointer-events: none;
+				background: linear-gradient(135deg, var(--chrome-glow-a), transparent 44%);
+			}
+
+			.featured > * {
+				position: relative;
+			}
+
+			.featured-header {
+				display: grid;
+				gap: 1rem;
+				margin-bottom: 1.5rem;
+			}
+
+			.status {
+				display: inline-flex;
+				width: fit-content;
+				padding: 0.35rem 0.7rem;
+				border-radius: 999px;
+				background: rgba(0, 0, 0, 0.07);
+				color: var(--heading-color);
+				font-size: 0.78rem;
+				font-weight: 800;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+			}
+
+			.featured h2,
+			.featured h3,
+			.project-card h3 {
+				margin: 0;
+				letter-spacing: 0;
+			}
+
+			.featured h2 {
+				font-size: clamp(2rem, 9vw, 4rem);
+				line-height: 1;
+			}
+
+			.featured-summary {
+				margin: 0;
+				color: var(--muted-text);
+				font-size: clamp(1rem, 4vw, 1.15rem);
+				line-height: 1.65;
+			}
+
+			.metric-grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 0.8rem;
+				margin: 1.5rem 0;
+			}
+
+			.metric {
+				padding: 1rem;
+				border-radius: 20px;
+				background: var(--glass-surface);
+				border: 1px solid var(--theme-border);
+			}
+
+			.metric strong {
+				display: block;
+				color: var(--heading-color);
+				font-size: 1.55rem;
+				line-height: 1;
+			}
+
+			.metric span {
+				display: block;
+				margin-top: 0.35rem;
+				color: var(--muted-text);
+				font-size: 0.88rem;
+				line-height: 1.35;
+			}
+
+			.article-grid,
+			.research-summary-grid,
+			.research-gallery,
+			.technique-grid,
+			.gap-grid,
+			.cost-grid,
+			.architecture-system,
+			.benchmark-grid,
+			.deployment-steps,
+			.evidence-needed ul {
+				display: grid;
+				gap: 0.85rem;
+				margin: 1.5rem 0;
+			}
+
+			.article-card,
+			.research-study-card,
+			.research-source-note,
+			.research-card,
+			.technique-card,
+			.gap-card,
+			.cost-card,
+			.benchmark-card,
+			.media-card,
+			.architecture-lane,
+			.security-panel,
+			.evidence-needed {
+				border-radius: 24px;
+				padding: 1rem;
+			}
+
+			.article-card,
+			.research-study-card,
+			.research-card,
+			.media-card {
+				display: grid;
+				gap: 0.75rem;
+				transition:
+					transform 220ms var(--ease-apple),
+					box-shadow 220ms var(--ease-apple),
+					background 220ms var(--ease-apple);
+			}
+
+			.article-card:hover,
+			.research-study-card:hover,
+			.research-card:hover,
+			.media-card:hover,
+			.article-card:focus-within,
+			.research-study-card:focus-within,
+			.research-card:focus-within,
+			.media-card:focus-within {
+				transform: translateY(-4px);
+				background: var(--glass-surface-hover);
+				box-shadow: 0 22px 56px rgba(30, 41, 59, 0.12);
+			}
+
+			.article-card h3,
+			.research-study-card h3,
+			.research-card h3,
+			.technique-card h3,
+			.gap-card h3,
+			.cost-card h3,
+			.benchmark-card h3,
+			.media-card h3,
+			.architecture-lane h3,
+			.security-panel h3,
+			.evidence-needed h3 {
+				margin: 0;
+				font-size: 1.05rem;
+				letter-spacing: 0;
+			}
+
+			.article-card p,
+			.research-study-card p,
+			.research-card p,
+			.technique-card p,
+			.gap-card p,
+			.cost-card p,
+			.benchmark-card p,
+			.media-card p,
+			.architecture-lane p,
+			.evidence-needed li {
+				margin: 0;
+				color: var(--muted-text);
+				line-height: 1.55;
+			}
+
+			.research-program {
+				display: grid;
+				gap: 1rem;
+				margin: 1.75rem 0;
+			}
+
+			.research-summary-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.research-study-card,
+			.research-source-note {
+				background: var(--glass-surface);
+				border: 1px solid var(--theme-border);
+			}
+
+			.research-study-top {
+				display: flex;
+				align-items: start;
+				justify-content: space-between;
+				gap: 1rem;
+			}
+
+			.research-study-card span {
+				color: var(--muted-text);
+				font-size: 0.72rem;
+				font-weight: 800;
+				letter-spacing: 0.07em;
+				text-transform: uppercase;
+			}
+
+			.research-study-card strong {
+				display: inline-flex;
+				min-width: 3.15rem;
+				justify-content: center;
+				padding: 0.45rem 0.65rem;
+				border-radius: 999px;
+				background: var(--chrome-ink);
+				color: var(--chrome-paper);
+				font-size: 0.85rem;
+			}
+
+			.research-study-card p {
+				margin-top: 0.75rem;
+			}
+
+			.research-evidence {
+				display: block;
+				margin-top: 0.85rem;
+				color: var(--heading-color);
+				font-size: 0.82rem;
+				font-weight: 750;
+				line-height: 1.45;
+			}
+
+			.research-source-note {
+				display: grid;
+				gap: 0.55rem;
+				padding: 1rem;
+			}
+
+			.research-source-note h3 {
+				margin: 0;
+				font-size: 1rem;
+			}
+
+			.research-source-note p {
+				margin: 0;
+				color: var(--muted-text);
+				line-height: 1.55;
+			}
+
+			.article-date,
+			.asset-label {
+				color: var(--muted-text);
+				font-size: 0.82rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+			}
+
+			.cost-card,
+			.benchmark-card,
+			.technique-card,
+			.gap-card {
+				background: var(--glass-surface);
+				border: 1px solid var(--theme-border);
+			}
+
+			.cost-value {
+				display: block;
+				color: var(--heading-color);
+				font-size: clamp(1.75rem, 8vw, 2.6rem);
+				font-weight: 850;
+				line-height: 1;
+			}
+
+			.cost-breakdown {
+				display: grid;
+				gap: 0.8rem;
+				margin: 1rem 0 1.5rem;
+				padding: 1rem;
+				border: 1px solid var(--theme-border);
+				border-radius: 24px;
+				background: rgba(255, 255, 255, 0.48);
+			}
+
+			:global([data-mode="dark"]) .cost-breakdown {
+				background: rgba(255, 255, 255, 0.055);
+				border-color: rgba(255, 255, 255, 0.14);
+			}
+
+			.cost-breakdown h4 {
+				margin: 0;
+				color: var(--heading-color);
+				font-size: 1rem;
+				letter-spacing: 0;
+			}
+
+			.cost-breakdown p {
+				margin: 0;
+				color: var(--muted-text);
+				line-height: 1.55;
+			}
+
+			.cost-row {
+				display: grid;
+				gap: 0.45rem;
+			}
+
+			.cost-row-top {
+				display: flex;
+				align-items: baseline;
+				justify-content: space-between;
+				gap: 1rem;
+				color: var(--heading-color);
+				font-weight: 850;
+			}
+
+			.cost-row-track {
+				height: 0.7rem;
+				overflow: hidden;
+				border-radius: 999px;
+				background: rgba(0, 0, 0, 0.1);
+			}
+
+			:global([data-mode="dark"]) .cost-row-track {
+				background: rgba(255, 255, 255, 0.12);
+			}
+
+			.cost-row-fill {
+				width: var(--bar-width);
+				height: 100%;
+				border-radius: inherit;
+				background: linear-gradient(90deg, #111111, #aeb2ba, #ffffff);
+				box-shadow: 0 0 24px rgba(255, 255, 255, 0.18);
+			}
+
+			.benchmark-meta {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.45rem;
+			}
+
+			.benchmark-meta span {
+				padding: 0.32rem 0.58rem;
+				border-radius: 999px;
+				background: rgba(0, 0, 0, 0.08);
+				color: var(--heading-color);
+				font-size: 0.78rem;
+				font-weight: 800;
+			}
+
+			.media-card {
+				margin: 1.25rem 0;
+				background: var(--chrome-dark-gradient);
+				color: #fff;
+			}
+
+			.media-card h3,
+			.media-card p {
+				color: inherit;
+			}
+
+			.media-card p {
+				color: rgba(255, 255, 255, 0.72);
+			}
+
+			.media-card .text-link {
+				color: #fff;
+			}
+
+			.research-card img {
+				width: 100%;
+				aspect-ratio: 16 / 10;
+				object-fit: cover;
+				border-radius: 16px;
+				border: 1px solid var(--theme-border);
+				background: var(--chrome-paper);
+			}
+
+			.image-open {
+				display: grid;
+				gap: 0.75rem;
+				width: 100%;
+				padding: 0;
+				border: 0;
+				background: transparent;
+				color: inherit;
+				font: inherit;
+				text-align: left;
+				cursor: zoom-in;
+			}
+
+			.image-open:hover img,
+			.image-open:focus-visible img {
+				border-color: rgba(150, 154, 164, 0.52);
+				box-shadow: 0 18px 42px rgba(0, 0, 0, 0.16);
+			}
+
+			.image-open:focus-visible {
+				border-radius: 18px;
+				outline: 2px solid rgba(156, 163, 175, 0.72);
+				outline-offset: 4px;
+			}
+
+			.image-modal {
+				width: min(96vw, 1180px);
+				max-height: min(92vh, 920px);
+				padding: 0;
+				border: 1px solid rgba(255, 255, 255, 0.18);
+				border-radius: 28px;
+				background:
+					linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(235, 236, 240, 0.88)),
+					var(--theme-bg);
+				color: var(--theme-text);
+				box-shadow: 0 32px 100px rgba(0, 0, 0, 0.34);
+				overflow: hidden;
+			}
+
+			.image-modal::backdrop {
+				background: rgba(0, 0, 0, 0.72);
+				backdrop-filter: blur(12px);
+				-webkit-backdrop-filter: blur(12px);
+			}
+
+			:global([data-mode="dark"]) .image-modal {
+				background:
+					linear-gradient(145deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.035)),
+					#050505;
+				border-color: rgba(255, 255, 255, 0.18);
+			}
+
+			.modal-shell {
+				display: grid;
+				gap: 0.8rem;
+				padding: 0.8rem;
+			}
+
+			.modal-bar {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1rem;
+				padding: 0.2rem 0.3rem;
+			}
+
+			.modal-bar h3 {
+				margin: 0;
+				font-size: 1rem;
+				letter-spacing: 0;
+			}
+
+			.modal-close {
+				min-height: 38px;
+				padding: 0.55rem 0.8rem;
+				border-radius: 999px;
+				border: 1px solid var(--theme-border);
+				background: var(--chrome-ink);
+				color: var(--chrome-paper);
+				font: inherit;
+				font-weight: 800;
+				cursor: pointer;
+			}
+
+			:global([data-mode="dark"]) .modal-close {
+				background: #f5f5f5;
+				color: #050505;
+			}
+
+			.modal-image {
+				width: 100%;
+				max-height: 76vh;
+				object-fit: contain;
+				border-radius: 20px;
+				background: #ffffff;
+				border: 1px solid var(--theme-border);
+			}
+
+			.media-note {
+				margin: 1.25rem 0;
+				padding: 1rem;
+				border-radius: 22px;
+				border: 1px dashed rgba(120, 124, 132, 0.34);
+				background: rgba(255, 255, 255, 0.08);
+				color: var(--muted-text);
+				line-height: 1.55;
+			}
+
+			.architecture-system {
+				grid-template-columns: 1fr;
+				align-items: stretch;
+			}
+
+			.PromptTriageArchitecture {
+				position: relative;
+			}
+
+			.architecture-export {
+				display: grid;
+				gap: 0.85rem;
+				margin: 1rem 0 1.5rem;
+				padding: 1rem;
+				border: 1px solid var(--theme-border);
+				border-radius: 24px;
+				background:
+					linear-gradient(145deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.22)),
+					var(--glass-surface);
+			}
+
+			:global([data-mode="dark"]) .architecture-export {
+				background:
+					linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
+					#080808;
+				border-color: rgba(255, 255, 255, 0.14);
+			}
+
+			.architecture-export img {
+				width: 100%;
+				border-radius: 18px;
+				border: 1px solid var(--theme-border);
+				background: #050505;
+			}
+
+			.architecture-export figcaption {
+				color: var(--muted-text);
+				line-height: 1.55;
+			}
+
+			.architecture-lane {
+				display: grid;
+				align-content: start;
+				gap: 0.75rem;
+				min-height: 100%;
+			}
+
+			.architecture-lane h3 {
+				color: var(--heading-color);
+			}
+
+			.architecture-list {
+				display: grid;
+				gap: 0.5rem;
+			}
+
+			.architecture-node {
+				min-height: 44px;
+				padding: 0.72rem 0.8rem;
+				border-radius: 14px;
+				background: rgba(16, 16, 16, 0.92);
+				color: #fff;
+				font-size: 0.86rem;
+				font-weight: 750;
+				line-height: 1.25;
+			}
+
+			.architecture-lane:nth-child(even) .architecture-node {
+				background: rgba(255, 255, 255, 0.16);
+				color: var(--heading-color);
+				border: 1px solid var(--theme-border);
+			}
+
+			.section-subhead {
+				display: grid;
+				gap: 0.35rem;
+				margin: 2rem 0 0.85rem;
+			}
+
+			.section-subhead h3 {
+				margin: 0;
+				font-size: clamp(1.25rem, 5vw, 1.85rem);
+				letter-spacing: 0;
+			}
+
+			.section-subhead p {
+				margin: 0;
+				max-width: 760px;
+				color: var(--muted-text);
+				line-height: 1.6;
+			}
+
+			.security-table-wrap {
+				width: 100%;
+				overflow-x: auto;
+				-webkit-overflow-scrolling: touch;
+			}
+
+			.security-table {
+				width: 100%;
+				min-width: 720px;
+				border-collapse: collapse;
+			}
+
+			.security-table th,
+			.security-table td {
+				padding: 0.85rem;
+				border-bottom: 1px solid var(--theme-border);
+				color: var(--muted-text);
+				font-size: 0.9rem;
+				line-height: 1.45;
+				text-align: left;
+				vertical-align: top;
+			}
+
+			.security-table th {
+				color: var(--heading-color);
+				font-size: 0.78rem;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+
+			.deployment-steps {
+				counter-reset: deploy-step;
+			}
+
+			.deployment-steps li {
+				position: relative;
+				display: grid;
+				gap: 0.2rem;
+				padding: 0.9rem 1rem 0.9rem 3rem;
+				border-radius: 18px;
+				background: var(--glass-surface);
+				border: 1px solid var(--theme-border);
+				color: var(--muted-text);
+				line-height: 1.45;
+			}
+
+			.deployment-steps li::before {
+				counter-increment: deploy-step;
+				content: counter(deploy-step);
+				position: absolute;
+				left: 0.9rem;
+				top: 0.85rem;
+				display: grid;
+				place-items: center;
+				width: 1.5rem;
+				height: 1.5rem;
+				border-radius: 999px;
+				background: #101010;
+				color: #fff;
+				font-size: 0.75rem;
+				font-weight: 800;
+			}
+
+			.evidence-needed {
+				margin: 1.5rem 0 0;
+				border-color: rgba(120, 124, 132, 0.24);
+				background: var(--glass-surface);
+			}
+
+			.evidence-needed summary {
+				cursor: pointer;
+				color: var(--heading-color);
+				font-weight: 800;
+			}
+
+			.evidence-needed summary::marker {
+				color: var(--chrome-silver);
+			}
+
+			.evidence-needed ul {
+				margin-bottom: 0;
+				padding-top: 0.35rem;
+			}
+
+			.evidence-needed li {
+				padding-left: 0.85rem;
+				border-left: 3px solid rgba(120, 124, 132, 0.28);
+			}
+
+			.template-grid,
+			.project-grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 0.9rem;
+			}
+
+			.section-card,
+			.project-card,
+			.pipeline,
+			.cta-panel {
+				border-radius: 24px;
+				padding: 1rem;
+			}
+
+			.section-card h3 {
+				font-size: 1.05rem;
+				margin: 0 0 0.55rem;
+			}
+
+			.section-card p,
+			.project-card p,
+			.pipeline li,
+			.cta-panel p {
+				margin: 0;
+				color: var(--muted-text);
+				line-height: 1.6;
+			}
+
+			.project-card {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+				transition:
+					transform 220ms var(--ease-apple),
+					box-shadow 220ms var(--ease-apple),
+					background 220ms var(--ease-apple);
+			}
+
+			.project-card:hover {
+				transform: translateY(-4px);
+				background: var(--glass-surface-hover);
+				box-shadow: 0 22px 56px rgba(30, 41, 59, 0.12);
+			}
+
+			.project-meta {
+				color: var(--muted-text);
+				font-size: 0.9rem;
+				font-weight: 700;
+			}
+
+			.stack-list {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.45rem;
+			}
+
+			.stack-list span {
+				padding: 0.32rem 0.6rem;
+				border-radius: 999px;
+				background: rgba(120, 124, 132, 0.14);
+				color: var(--heading-color);
+				font-size: 0.78rem;
+				font-weight: 700;
+			}
+
+			.text-link {
+				display: inline-flex;
+				align-items: center;
+				min-height: 36px;
+				color: var(--heading-color);
+				font-weight: 800;
+				text-decoration: none;
+			}
+
+			.text-link:hover,
+			.text-link:focus-visible {
+				text-decoration: underline;
+				text-underline-offset: 4px;
+			}
+
+			.pipeline ul {
+				display: grid;
+				gap: 0.75rem;
+				padding: 0;
+				margin: 0;
+			}
+
+			.pipeline li {
+				padding-left: 1rem;
+				border-left: 3px solid rgba(120, 124, 132, 0.3);
+			}
+
+			.cta-panel {
+				display: grid;
+				gap: 1rem;
+				margin-top: 3rem;
+				background: var(--chrome-dark-gradient);
+				color: #fff;
+			}
+
+			.cta-panel h2 {
+				margin: 0;
+				color: #fff;
+				letter-spacing: 0;
+			}
+
+			.cta-panel p {
+				color: rgba(255, 255, 255, 0.74);
+			}
+
+			.cta-panel .button.secondary {
+				background: rgba(255, 255, 255, 0.1);
+				color: #fff;
+				border-color: rgba(255, 255, 255, 0.18);
+			}
+
+			@media (min-width: 640px) {
+				main.case-study-page {
+					padding-inline: 1.5rem;
+				}
+
+				.trust-strip,
+				.metric-grid {
+					grid-template-columns: repeat(2, minmax(0, 1fr));
+				}
+
+				.article-grid,
+				.research-summary-grid,
+				.research-gallery,
+				.cost-grid,
+				.benchmark-grid,
+				.technique-grid,
+				.gap-grid,
+				.architecture-system {
+					grid-template-columns: repeat(2, minmax(0, 1fr));
+				}
+			}
+
+			@media (min-width: 900px) {
+				main.case-study-page {
+					padding-top: 9rem;
+				}
+
+				.hero {
+					gap: 1.5rem;
+					padding-bottom: 3rem;
+				}
+
+				.trust-strip {
+					grid-template-columns: repeat(4, minmax(0, 1fr));
+				}
+
+				.featured-header {
+					grid-template-columns: minmax(0, 1fr) 320px;
+					align-items: end;
+				}
+
+				.metric-grid,
+				.research-summary-grid,
+				.project-grid {
+					grid-template-columns: repeat(3, minmax(0, 1fr));
+				}
+
+				.research-gallery {
+					grid-template-columns: repeat(3, minmax(0, 1fr));
+				}
+
+				.cost-grid {
+					grid-template-columns: repeat(3, minmax(0, 1fr));
+				}
+
+				.benchmark-grid {
+					grid-template-columns: repeat(4, minmax(0, 1fr));
+				}
+
+				.technique-grid,
+				.gap-grid {
+					grid-template-columns: repeat(3, minmax(0, 1fr));
+				}
+
+				.architecture-system {
+					grid-template-columns: repeat(5, minmax(0, 1fr));
+				}
+
+				.template-grid {
+					grid-template-columns: repeat(2, minmax(0, 1fr));
+				}
+
+				.cta-panel {
+					grid-template-columns: minmax(0, 1fr) auto;
+					align-items: center;
+					padding: 2rem;
+				}
+			}
+
+			@media (min-width: 1100px) {
+				.template-grid {
+					grid-template-columns: repeat(3, minmax(0, 1fr));
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				* {
+					transition-duration: 0.01ms !important;
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+				}
+
+				.button:hover,
+				.button:focus-visible,
+				.project-card:hover,
+				.article-card:hover,
+				.research-card:hover,
+				.media-card:hover {
+					transform: none;
+				}
+			}
+		</style>
+	</head>
+	<body data-theme="clean">
+		<Header />
+		<main class="case-study-page">
+			<section class="hero">
+				<span class="eyebrow">Complete case study</span>
+				<h1>PromptTriage Case Study</h1>
+				<p>
+					A structured, evidence-backed page for the PromptTriage app, research studies,
+					architecture, deployment history, Azure ML costs, tradeoffs, and remaining proof gaps.
+				</p>
+				<div class="hero-actions">
+					<a class="button primary" href="#prompttriage">Read the case study</a>
+					<a class="button secondary" href="/case-studies">Back to case studies</a>
+				</div>
+			</section>
+
+			<section class="trust-strip" aria-label="Evidence categories">
+				<div class="trust-item">
+					<strong>Systems</strong>
+					<span>Working software, demos, and repositories.</span>
+				</div>
+				<div class="trust-item">
+					<strong>Research</strong>
+					<span>Benchmarks, evaluation notes, and costs.</span>
+				</div>
+				<div class="trust-item">
+					<strong>Operations</strong>
+					<span>Deployment, logging, runbooks, and failure modes.</span>
+				</div>
+				<div class="trust-item">
+					<strong>Hiring signal</strong>
+					<span>Fast summaries with links to deeper evidence.</span>
+				</div>
+			</section>
+
+			<section id="prompttriage" class="featured">
+				<div class="featured-header">
+					<div>
+						<span class="status">Complete case study</span>
+						<h2>PromptTriage</h2>
+						<p class="featured-summary">
+							RAG-powered prompt engineering platform with a documented research trail,
+							modality-specific optimization, and a public demo.
+						</p>
+					</div>
+					<div class="card-actions">
+						<a class="button primary" href="https://prompttriage.kaelux.dev" target="_blank" rel="noopener noreferrer">Live demo</a>
+						<a class="button secondary" href="https://github.com/Ker102/PromptTriage" target="_blank" rel="noopener noreferrer">Repository</a>
+					</div>
+				</div>
+
+				<div class="metric-grid" aria-label="PromptTriage evidence metrics">
+					<div class="metric">
+						<strong>28K+</strong>
+						<span>Prompt corpus referenced in local project evidence.</span>
+					</div>
+					<div class="metric">
+						<strong>4</strong>
+						<span>Prompt modalities: text, image, video, and system prompts.</span>
+					</div>
+					<div class="metric">
+						<strong>L1</strong>
+						<span>Naive RAG was the strongest documented retrieval strategy.</span>
+					</div>
+					<div class="metric">
+						<strong>5+</strong>
+						<span>Completed research studies covering model, RAG, format, and judge behavior.</span>
+					</div>
+				</div>
+
+				<section class="research-program" aria-label="PromptTriage research program summary">
+					<div class="section-subhead">
+						<h3>Research program summary</h3>
+						<p>
+							PromptTriage was built around several connected studies, not a single benchmark.
+							The public articles cover the most readable findings, while the local research
+							logs preserve model, RAG, judge-bias, and stopped/resumed run details.
+						</p>
+					</div>
+					<div class="research-summary-grid">
+						{researchProgram.map((study) => (
+							<article class="research-study-card">
+								<div class="research-study-top">
+									<span>{study.kicker}</span>
+									<strong>{study.metric}</strong>
+								</div>
+								<h3>{study.title}</h3>
+								<p>{study.detail}</p>
+								<small class="research-evidence">{study.evidence}</small>
+							</article>
+						))}
+					</div>
+					<aside class="research-source-note">
+						<h3>Judge count note</h3>
+						<p>
+							The Hashnode Format Wars article currently names a three-judge LLM panel:
+							Llama 4 Maverick, Claude Opus 4.6, and Atla Selene Mini. If the fourth
+							referee model came from a later unpublished evaluation pass, it should be
+							added once that artifact is attached so the public case study stays verifiable.
+						</p>
+					</aside>
+				</section>
+
+				<div class="section-subhead">
+					<h3>Canonical articles</h3>
+					<p>
+						The full research writeups currently live on Hashnode. This page treats them
+						as source evidence and connects them to the structured case-study template.
+					</p>
+				</div>
+				<div class="article-grid">
+					{promptTriageArticles.map((article) => (
+						<article class="article-card">
+							<span class="article-date">{article.date}</span>
+							<h3>{article.title}</h3>
+							<p>{article.description}</p>
+							<a class="text-link" href={article.href} target="_blank" rel="noopener noreferrer">
+								Read on Hashnode &rarr;
+							</a>
+						</article>
+					))}
+				</div>
+
+				<div class="section-subhead">
+					<h3>Research evidence gallery</h3>
+					<p>
+						Release assets from the PromptTriage repository are shown directly here so the
+						case study has visible evidence instead of only outbound article links.
+					</p>
+				</div>
+				<div class="research-gallery" aria-label="PromptTriage research chart assets">
+					{researchAssets.map((asset) => (
+						<article class="research-card">
+							<button
+								class="image-open"
+								type="button"
+								data-full-src={asset.src}
+								data-full-alt={asset.alt}
+								data-full-title={asset.title}
+							>
+								<img src={asset.src} alt={asset.alt} loading="lazy" />
+								<span class="asset-label">{asset.label}</span>
+								<h3>{asset.title}</h3>
+							</button>
+						</article>
+					))}
+				</div>
+
+				<dialog class="image-modal" data-image-modal aria-label="Full-size PromptTriage research evidence image">
+					<div class="modal-shell">
+						<div class="modal-bar">
+							<h3 data-modal-title>Research evidence</h3>
+							<button class="modal-close" type="button" data-close-modal>Close</button>
+						</div>
+						<img class="modal-image" src="" alt="" data-modal-image />
+					</div>
+				</dialog>
+
+				<p class="media-note">
+					The app showcase is now available as a GitHub release asset. Because it is about
+					121 MB and marketing-heavy, this portfolio links to it deliberately instead of
+					autoplaying or treating it as primary benchmark evidence.
+				</p>
+
+				<article class="media-card">
+					<span class="asset-label">App showcase</span>
+					<h3>Marketing-oriented PromptTriage product video</h3>
+					<p>
+						The release video is useful as a product walkthrough, but the case study treats
+						it as supporting demo evidence. The main technical proof remains the benchmark
+						logs, Azure ML runs, research charts, and implementation source.
+					</p>
+					<a class="text-link" href="https://github.com/Ker102/PromptTriage/releases/download/Research-chart/prompttriagsgortened.mp4" target="_blank" rel="noopener noreferrer">
+						Open release video &rarr;
+					</a>
+				</article>
+
+				<div class="section-subhead">
+					<h3>Cost and runtime evidence</h3>
+					<p>
+						Azure cost evidence now includes the EUR 178.12 credit spend screenshot plus
+						CLI-reviewed Azure ML job metadata for the highest-signal benchmark runs.
+					</p>
+				</div>
+				<div class="cost-grid" aria-label="PromptTriage cost evidence">
+					{costEvidence.map((item) => (
+						<article class="cost-card">
+							<span class="cost-value">{item.value}</span>
+							<h3>{item.label}</h3>
+							<p>{item.detail}</p>
+						</article>
+					))}
+				</div>
+
+				<section class="cost-breakdown" aria-label="Azure Cost Management meter itemization">
+					<h4>Azure cost itemization from CLI/REST query</h4>
+					<p>
+						The cost API can break the research-period VM spend into meters, but it does
+						not directly attach billed euros to each Azure ML run ID. For reviewer accuracy,
+						this page shows meter-level cost plus job runtime evidence instead of pretending
+						the portal gives clean per-job billing.
+					</p>
+					{costBreakdown.map((item) => (
+						<div class="cost-row" style={`--bar-width: ${item.width};`}>
+							<div class="cost-row-top">
+								<span>{item.meter}</span>
+								<span>{item.amount} · {item.share}</span>
+							</div>
+							<div class="cost-row-track" aria-hidden="true">
+								<div class="cost-row-fill"></div>
+							</div>
+							<p>{item.detail}</p>
+						</div>
+					))}
+				</section>
+
+				<div class="benchmark-grid" aria-label="Azure ML benchmark runtime evidence">
+					{benchmarkRuns.map((run) => (
+						<article class="benchmark-card">
+							<h3>{run.title}</h3>
+							<div class="benchmark-meta">
+								<span>{run.status}</span>
+								<span>{run.compute}</span>
+								<span>{run.duration}</span>
+							</div>
+							<p>{run.detail}</p>
+						</article>
+					))}
+				</div>
+
+				<div class="section-subhead">
+					<h3>ML techniques used</h3>
+					<p>
+						This is the technical layer behind the case study: not just an app wrapper,
+						but a research workflow using fine-tuning, retrieval, benchmarks, and judged
+						evaluation.
+					</p>
+				</div>
+				<div class="technique-grid" aria-label="PromptTriage machine learning techniques">
+					{mlTechniques.map((item) => (
+						<article class="technique-card">
+							<h3>{item.name}</h3>
+							<p>{item.detail}</p>
+						</article>
+					))}
+				</div>
+
+				<div class="section-subhead">
+					<h3>Platform history</h3>
+					<p>
+						This separates benchmark infrastructure from app hosting so reviewers do not
+						confuse the research environment with the product runtime.
+					</p>
+				</div>
+				<ol class="deployment-steps">
+					{platformHistory.map((step) => <li>{step}</li>)}
+				</ol>
+
+				<div class="section-subhead">
+					<h3>Architecture diagram</h3>
+					<p>
+						Current-build view based on the local PromptTriage source: Supabase Auth and
+						Stripe sit in the app layer, FastAPI handles retrieval, Pinecone stores prompt
+						vectors, and GitHub Actions deploys containers to Azure.
+					</p>
+				</div>
+				<figure class="architecture-export">
+					<img
+						src="/images/case-studies/prompttriage/prompttriage-architecture.svg"
+						alt="Exportable PromptTriage architecture diagram showing browser UI, Next.js app, Supabase Auth, Stripe, FastAPI RAG, Pinecone, model providers, research jobs, GitHub Actions, Azure Container Registry, Azure Container Apps, and Google Cloud Run history"
+						loading="lazy"
+					/>
+					<figcaption>
+						Exportable SVG architecture visual based on the current PromptTriage build,
+						with deployment history kept separate from Azure ML research infrastructure.
+					</figcaption>
+					<div class="hero-actions">
+						<a class="button secondary" href="/images/case-studies/prompttriage/prompttriage-architecture.svg" target="_blank" rel="noopener noreferrer">
+							Open architecture SVG
+						</a>
+					</div>
+				</figure>
+				<div class="PromptTriageArchitecture architecture-system" aria-label="PromptTriage current architecture diagram">
+					{architectureNodes.map((lane) => (
+						<section class="architecture-lane">
+							<h3>{lane.group}</h3>
+							<div class="architecture-list">
+								{lane.items.map((item) => <div class="architecture-node">{item}</div>)}
+							</div>
+						</section>
+					))}
+				</div>
+
+				<div class="section-subhead">
+					<h3>Security model evidence</h3>
+					<p>
+						The table follows the case-study template and separates risks, implemented
+						controls, and current evidence sources.
+					</p>
+				</div>
+				<section class="security-panel" aria-label="PromptTriage security model">
+					<div class="security-table-wrap">
+						<table class="security-table">
+							<thead>
+								<tr>
+									<th>Risk</th>
+									<th>Control</th>
+									<th>Evidence</th>
+								</tr>
+							</thead>
+							<tbody>
+								{securityControls.map((row) => (
+									<tr>
+										<td>{row.risk}</td>
+										<td>{row.control}</td>
+										<td>{row.evidence}</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</section>
+
+				<div class="section-subhead">
+					<h3>Deployment path</h3>
+					<p>
+						The implementation evidence now points to Azure Container Apps rather than the
+						older deployment notes.
+					</p>
+				</div>
+				<ol class="deployment-steps">
+					{deploymentSteps.map((step) => <li>{step}</li>)}
+				</ol>
+
+				<details class="evidence-needed" open>
+					<summary>Evidence still needed</summary>
+					<ul>
+						{evidenceNeeded.map((item) => <li>{item}</li>)}
+					</ul>
+				</details>
+
+				<div class="section-subhead">
+					<h3>Remaining template gaps</h3>
+					<p>
+						These are the items from the professional case-study template that still need
+						more source material before the PromptTriage page becomes fully audit-ready.
+					</p>
+				</div>
+				<div class="gap-grid" aria-label="Remaining PromptTriage case study template gaps">
+					{remainingTemplateGaps.map((gap) => (
+						<article class="gap-card">
+							<h3>{gap.section}</h3>
+							<p>{gap.need}</p>
+						</article>
+					))}
+				</div>
+
+				<div class="template-grid">
+					{templateSections.map((section) => (
+						<article class="section-card">
+							<h3>{section.title}</h3>
+							<p>{section.body}</p>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section class="cta-panel">
+				<div>
+					<h2>Need the project index?</h2>
+					<p>
+						The main case-studies page separates PromptTriage from Kaelux.dev, ViperMesh,
+						and n8n Automation Atlas so each project can grow into its own structured page.
+					</p>
+				</div>
+				<div class="hero-actions">
+					<a class="button secondary" href="/case-studies">Back to case studies</a>
+					<a class="button secondary" href="https://github.com/ker102" target="_blank" rel="noopener noreferrer">GitHub</a>
+				</div>
+			</section>
+		</main>
+		<Footer />
+		<script is:inline>
+			(() => {
+				const modal = document.querySelector('[data-image-modal]');
+				const modalImage = document.querySelector('[data-modal-image]');
+				const modalTitle = document.querySelector('[data-modal-title]');
+				const openButtons = document.querySelectorAll('[data-full-src]');
+				const closeButtons = document.querySelectorAll('[data-close-modal]');
+
+				const openImageModal = (button) => {
+					if (!modal || !modalImage || !modalTitle) return;
+					modalImage.setAttribute('src', button.dataset.fullSrc || '');
+					modalImage.setAttribute('alt', button.dataset.fullAlt || '');
+					modalTitle.textContent = button.dataset.fullTitle || 'Research evidence';
+					if (typeof modal.showModal === 'function') {
+						modal.showModal();
+					}
+				};
+
+				openButtons.forEach((button) => {
+					button.addEventListener('click', () => openImageModal(button));
+				});
+
+				closeButtons.forEach((button) => {
+					button.addEventListener('click', () => modal?.close());
+				});
+
+				modal?.addEventListener('click', (event) => {
+					if (event.target === modal) modal.close();
+				});
+
+				window.openImageModal = openImageModal;
+			})();
+		</script>
+	</body>
+</html>

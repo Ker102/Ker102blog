@@ -66,15 +66,13 @@ import Footer from '../components/Footer.astro';
 			}
 
 			h1, h2, h3, h4, .gradient-text {
-				background: linear-gradient(to top, #999 0%, #000 100%);
-				-webkit-background-clip: text;
-				background-clip: text;
-				color: transparent; /* Essential for gradient to show */
+				background: none;
+				color: #111111;
 				width: fit-content; /* Helps with gradient rendering on some browsers */
 			}
 			h1 { 
 				font-size: 3.5rem; 
-				letter-spacing: -0.03em; 
+				letter-spacing: 0; 
 				margin: 0 0 0.75rem 0; 
 				font-weight: 700; 
 				line-height: 1.2;
@@ -93,12 +91,10 @@ import Footer from '../components/Footer.astro';
 				margin-top: 5rem;
 				margin-bottom: 3rem;
 				font-weight: 600;
-				background: linear-gradient(to top, #aaa 0%, #333 100%);
-				-webkit-background-clip: text;
-				background-clip: text;
-				color: transparent;
+				background: none;
+				color: #111111;
 			}
-			h3 { font-size: 1.5rem; font-weight: 600; margin: 0; letter-spacing: -0.02em; }
+			h3 { font-size: 1.5rem; font-weight: 600; margin: 0; letter-spacing: 0; }
 			
 			a { color: var(--link-color); text-decoration: none; transition: all 0.2s; }
 			a:hover { color: #000; }
@@ -310,7 +306,7 @@ import Footer from '../components/Footer.astro';
 	</head>
 	<body>
 		<header class="portfolio-header">
-			<div class="gradient-text" style="font-weight: 700; font-size: 1.1rem; letter-spacing: -0.02em;">Minimal Technical Portfolio</div>
+			<div class="gradient-text" style="font-weight: 700; font-size: 1.1rem; letter-spacing: 0;">Minimal Technical Portfolio</div>
 			<nav class="portfolio-nav">
 				<a href="/">Home</a>
 				<a href="/blog">Blog</a>
