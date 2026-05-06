@@ -10,291 +10,704 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
-			/* Page-specific overrides */
 			body {
-				/* Force Clean Theme on this page overrides default from global */
-				background-color: #f5f5f7; 
-				color: #1d1d1f;
-			}
-			
-			.hero-section {
-				min-height: 80vh;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-				text-align: center;
-				padding: 7rem 1rem 7rem; /* Account for fixed header and mobile nav */
-			}
-
-			.hero-title {
-				font-size: clamp(3rem, 6vw, 5rem);
-				font-weight: 800;
-				letter-spacing: 0;
-				line-height: 1.05;
+				background: #f7f8f8;
 				color: #050505;
-				margin-bottom: 1.5rem;
-				opacity: 0; /* Animation start state */
-				transform: translateY(20px);
 			}
 
-			.hero-subtitle {
-				font-size: clamp(1.1rem, 2vw, 1.35rem);
-				color: #666;
-				max-width: 640px;
-				margin: 0 auto 3rem;
-				line-height: 1.5;
-				font-weight: 450;
-				opacity: 0;
-				transform: translateY(20px);
-			}
-
-			/* iOS 28 Glass Cards Grid */
-			.glass-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-				gap: 1rem;
-				width: 100%;
-				max-width: 1200px;
-				margin: 0 auto;
-			}
-
-			.glass-card {
+			.landing-page {
 				position: relative;
-				padding: clamp(1.4rem, 5vw, 2.5rem);
-				border-radius: 28px;
-				background: rgba(255, 255, 255, 0.65);
-				backdrop-filter: blur(40px);
-				-webkit-backdrop-filter: blur(40px);
-				border: 1px solid rgba(255, 255, 255, 0.6);
-				box-shadow: 
-					0 10px 30px -10px rgba(0,0,0,0.05),
-					inset 0 0 0 1px rgba(255,255,255,0.5);
-				transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+				width: 100%;
+				max-width: none;
+				min-height: 100vh;
+				margin: 0;
+				padding: 0;
 				overflow: hidden;
-				display: flex;
-				flex-direction: column;
-				opacity: 0;
-				transform: translateY(30px);
-				text-decoration: none;
-				color: inherit;
-				outline: none;
+				background:
+					linear-gradient(180deg, rgba(247, 248, 248, 0.72) 0%, rgba(247, 248, 248, 0.1) 44%, rgba(247, 248, 248, 0.86) 100%),
+					url('/images/home/landing-grid.jpeg') center top / cover no-repeat;
 			}
 
-			.glass-card::after {
+			.landing-page::before {
 				content: '';
 				position: absolute;
 				inset: 0;
 				pointer-events: none;
-				background: linear-gradient(135deg, rgba(255,255,255,0.55), transparent 38%);
+				background:
+					radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.34), transparent 31rem),
+					linear-gradient(90deg, rgba(247, 248, 248, 0.54), transparent 22%, transparent 78%, rgba(247, 248, 248, 0.54));
+				z-index: 0;
+			}
+
+			.home-hero {
+				position: relative;
+				z-index: 1;
+				display: flex;
+				min-height: 100vh;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-start;
+				padding: clamp(5.35rem, 8vw, 6.8rem) 1rem calc(5rem + env(safe-area-inset-bottom));
+				text-align: center;
+			}
+
+			.hero-kicker {
+				margin: 0 0 0.85rem;
+				font-size: 0.74rem;
+				font-weight: 800;
+				letter-spacing: 0.16em;
+				text-transform: uppercase;
+				color: rgba(5, 5, 5, 0.58);
 				opacity: 0;
-				transition: opacity 0.35s var(--ease-apple);
+				transform: translateY(12px);
+				animation: heroIn 0.7s var(--ease-apple) forwards;
 			}
 
-			.glass-card:hover,
-			.glass-card:focus-visible {
-				transform: translateY(-8px) scale(1.01);
-				background: rgba(255, 255, 255, 0.85);
-				box-shadow: 0 20px 40px -10px rgba(0,0,0,0.12);
+			.hero-title {
+				max-width: 15ch;
+				margin: 0 auto 0.95rem;
+				font-size: clamp(3.05rem, 7.3vw, 5.15rem);
+				font-weight: 850;
+				letter-spacing: 0;
+				line-height: 0.92;
+				color: #050505;
+				text-wrap: balance;
+				opacity: 0;
+				transform: translateY(16px);
+				animation: heroIn 0.85s var(--ease-apple) 0.08s forwards;
 			}
 
-			.glass-card:hover::after,
-			.glass-card:focus-visible::after {
+			.hero-subtitle {
+				max-width: 44rem;
+				margin: 0 auto;
+				color: rgba(5, 5, 5, 0.76);
+				font-size: clamp(1rem, 3.8vw, 1.28rem);
+				font-weight: 500;
+				line-height: 1.45;
+				text-wrap: balance;
+				opacity: 0;
+				transform: translateY(16px);
+				animation: heroIn 0.85s var(--ease-apple) 0.16s forwards;
+			}
+
+			.terminal-shell {
+				position: relative;
+				width: min(100%, 46rem);
+				margin: clamp(1.2rem, 3vw, 1.65rem) auto clamp(1.6rem, 3.5vw, 2rem);
+				text-align: left;
+				opacity: 0;
+				transform: translateY(20px) scale(0.98);
+				animation: terminalIn 0.9s var(--ease-apple) 0.28s forwards;
+			}
+
+			.terminal-shell::before {
+				content: '';
+				position: absolute;
+				inset: -2.4rem -3rem -3rem;
+				z-index: -2;
+				background:
+					radial-gradient(ellipse at 48% 58%, rgba(94, 86, 255, 0.22), transparent 58%),
+					radial-gradient(ellipse at 54% 42%, rgba(255, 255, 255, 0.72), transparent 52%);
+				filter: blur(18px);
+				opacity: 0.88;
+			}
+
+			.terminal-shell::after {
+				content: '';
+				position: absolute;
+				inset: -1px;
+				z-index: -1;
+				border-radius: 1.35rem;
+				background: linear-gradient(145deg, rgba(255, 255, 255, 0.48), rgba(0, 0, 0, 0.28));
+				filter: blur(0.4px);
+			}
+
+			.terminal {
+				min-height: clamp(19rem, 34vw, 23rem);
+				overflow: hidden;
+				border: 1px solid rgba(255, 255, 255, 0.16);
+				border-radius: 1.25rem;
+				background:
+					linear-gradient(180deg, rgba(19, 19, 21, 0.92), rgba(0, 0, 0, 0.96)),
+					#050505;
+				box-shadow:
+					0 1.5rem 4.5rem rgba(0, 0, 0, 0.22),
+					0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+				color: #e9ecef;
+				font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+			}
+
+			.terminal-bar {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1rem;
+				padding: 0.85rem 1rem;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+				background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+			}
+
+			.window-controls {
+				display: flex;
+				gap: 0.48rem;
+			}
+
+			.window-controls span {
+				width: 0.72rem;
+				height: 0.72rem;
+				border-radius: 50%;
+				background: rgba(255, 255, 255, 0.42);
+				box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2) inset;
+			}
+
+			.window-controls span:nth-child(1) {
+				background: #ff5f57;
+			}
+
+			.window-controls span:nth-child(2) {
+				background: #febc2e;
+			}
+
+			.window-controls span:nth-child(3) {
+				background: #28c840;
+			}
+
+			.terminal-title {
+				font-size: 0.76rem;
+				font-weight: 700;
+				letter-spacing: 0;
+				color: rgba(255, 255, 255, 0.68);
+			}
+
+			.terminal-status {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4rem;
+				font-size: 0.7rem;
+				font-weight: 700;
+				color: rgba(255, 255, 255, 0.68);
+				white-space: nowrap;
+			}
+
+			.terminal-status::before {
+				content: '';
+				width: 0.5rem;
+				height: 0.5rem;
+				border-radius: 50%;
+				background: #28c840;
+				box-shadow: 0 0 1rem rgba(40, 200, 64, 0.7);
+			}
+
+			.terminal-body {
+				display: flex;
+				min-height: calc(clamp(19rem, 34vw, 23rem) - 3.2rem);
+				flex-direction: column;
+				justify-content: space-between;
+				gap: 1.1rem;
+				padding: clamp(1rem, 3.5vw, 1.35rem);
+			}
+
+			.terminal-lines {
+				display: grid;
+				gap: 0.42rem;
+				min-height: 12.4rem;
+			}
+
+			:global(.terminal-line) {
+				display: block;
+				min-height: 1.28rem;
+				color: rgba(233, 236, 239, 0.86);
+				font-size: clamp(0.76rem, 2.4vw, 0.92rem);
+				line-height: 1.45;
+				white-space: pre-wrap;
+				word-break: break-word;
+			}
+
+			:global(.terminal-line.command) {
+				color: #ffffff;
+			}
+
+			:global(.terminal-line.command)::before {
+				content: 'kristofer@studio ~ % ';
+				color: #8ff4a6;
+				font-weight: 700;
+			}
+
+			:global(.terminal-line.success) {
+				color: #a7f3b7;
+			}
+
+			:global(.terminal-line.note) {
+				color: rgba(255, 255, 255, 0.64);
+			}
+
+			:global(.terminal-line.dim) {
+				color: rgba(255, 255, 255, 0.48);
+			}
+
+			:global(.terminal-cursor) {
+				display: inline-block;
+				width: 0.58rem;
+				height: 1em;
+				margin-left: 0.2rem;
+				vertical-align: -0.12em;
+				background: #f7f7f7;
+				animation: blink 1s steps(2, start) infinite;
+			}
+
+			.terminal-actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.55rem;
+				padding-top: 1rem;
+				border-top: 1px solid rgba(255, 255, 255, 0.08);
+			}
+
+			.terminal-action {
+				border: 1px solid rgba(255, 255, 255, 0.14);
+				border-radius: 999px;
+				background: rgba(255, 255, 255, 0.08);
+				color: rgba(255, 255, 255, 0.86);
+				cursor: pointer;
+				font: inherit;
+				font-size: 0.74rem;
+				font-weight: 800;
+				letter-spacing: 0.02em;
+				padding: 0.58rem 0.76rem;
+				transition:
+					background 0.25s var(--ease-apple),
+					border-color 0.25s var(--ease-apple),
+					color 0.25s var(--ease-apple),
+					transform 0.25s var(--ease-apple);
+			}
+
+			.terminal-action:hover,
+			.terminal-action:focus-visible {
+				transform: translateY(-2px);
+				border-color: rgba(255, 255, 255, 0.34);
+				background: rgba(255, 255, 255, 0.16);
+				color: #ffffff;
+			}
+
+			.quick-links {
+				display: grid;
+				width: min(100%, 58rem);
+				grid-template-columns: 1fr;
+				gap: 0.85rem;
+				opacity: 0;
+				transform: translateY(20px);
+				animation: heroIn 0.85s var(--ease-apple) 0.42s forwards;
+			}
+
+			.quick-card {
+				position: relative;
+				display: grid;
+				min-height: 11.5rem;
+				align-content: start;
+				gap: 0.9rem;
+				overflow: hidden;
+				border: 1px solid rgba(255, 255, 255, 0.72);
+				border-radius: 1.55rem;
+				background: rgba(255, 255, 255, 0.74);
+				box-shadow:
+					0 1.2rem 3rem rgba(15, 23, 42, 0.08),
+					0 1px 0 rgba(255, 255, 255, 0.9) inset;
+				backdrop-filter: blur(22px);
+				-webkit-backdrop-filter: blur(22px);
+				color: #050505;
+				padding: 1.35rem;
+				text-align: left;
+				transition:
+					transform 0.28s var(--ease-apple),
+					background 0.28s var(--ease-apple),
+					border-color 0.28s var(--ease-apple),
+					box-shadow 0.28s var(--ease-apple);
+			}
+
+			.quick-card::after {
+				content: '';
+				position: absolute;
+				inset: 0;
+				pointer-events: none;
+				background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), transparent 42%);
+				opacity: 0;
+				transition: opacity 0.28s var(--ease-apple);
+			}
+
+			.quick-card:hover,
+			.quick-card:focus-visible {
+				transform: translateY(-6px);
+				border-color: rgba(5, 5, 5, 0.14);
+				background: rgba(255, 255, 255, 0.88);
+				box-shadow:
+					0 1.5rem 3.6rem rgba(15, 23, 42, 0.14),
+					0 1px 0 rgba(255, 255, 255, 0.92) inset;
+			}
+
+			.quick-card:hover::after,
+			.quick-card:focus-visible::after {
 				opacity: 1;
 			}
 
-			.card-icon {
-				width: 56px;
-				height: 56px;
-				background: #fff;
-				border-radius: 18px;
+			.quick-icon {
+				position: relative;
+				z-index: 1;
 				display: grid;
+				width: 2.7rem;
+				height: 2.7rem;
 				place-items: center;
-				font-size: 1.5rem;
-				margin-bottom: 1.5rem;
-				box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-				color: #000;
+				border: 1px solid rgba(0, 0, 0, 0.08);
+				border-radius: 0.9rem;
+				background: rgba(255, 255, 255, 0.9);
+				box-shadow: 0 0.7rem 1.5rem rgba(15, 23, 42, 0.08);
+				color: #050505;
 			}
 
-			.card-title {
-				font-size: 1.5rem;
-				font-weight: 700;
-				margin-bottom: 0.75rem;
+			.quick-card h2 {
+				position: relative;
+				z-index: 1;
+				margin: 0;
+				font-size: 1.18rem;
 				letter-spacing: 0;
+				color: #050505;
 			}
 
-			.card-desc {
-				font-size: 1rem;
-				color: #666;
-				line-height: 1.5;
-				margin-bottom: 1.5rem;
+			.quick-card p {
+				position: relative;
+				z-index: 1;
+				margin: 0;
+				color: rgba(5, 5, 5, 0.76);
+				font-size: 0.94rem;
+				line-height: 1.42;
 			}
 
-			.card-arrow {
+			.quick-card span {
+				position: relative;
+				z-index: 1;
 				margin-top: auto;
-				display: flex;
-				align-items: center;
-				gap: 0.5rem;
-				font-weight: 600;
-				font-size: 0.95rem;
-				color: #0071e3; /* Apple Blue */
+				color: rgba(5, 5, 5, 0.72);
+				font-size: 0.83rem;
+				font-weight: 850;
 			}
 
-			.card-arrow span {
+			.quick-card span::after {
+				content: ' ->';
 				display: inline-block;
-				transition: transform 0.25s var(--ease-apple);
+				transition: transform 0.22s var(--ease-apple);
 			}
 
-			.glass-card:hover .card-arrow span,
-			.glass-card:focus-visible .card-arrow span {
+			.quick-card:hover span::after,
+			.quick-card:focus-visible span::after {
 				transform: translateX(4px);
 			}
 
-			/* Decorative background blobs */
-			.bg-blob {
-				position: fixed;
-				width: 600px;
-				height: 600px;
-				border-radius: 50%;
-				filter: blur(100px);
-				z-index: -1;
-				opacity: 0.4;
-				animation: float 20s infinite ease-in-out;
-			}
-			.blob-1 { background: #e0f2fe; top: -10%; left: -10%; }
-			.blob-2 { background: #f0fdf4; bottom: -10%; right: -10%; animation-delay: -10s; }
-
-			@keyframes float {
-				0%, 100% { transform: translate(0, 0); }
-				50% { transform: translate(30px, -30px); }
+			[data-mode="dark"] body {
+				background: #050505;
+				color: #ffffff;
 			}
 
-			@media (min-width: 760px) {
-				.hero-section {
-					padding-top: 8rem;
-					padding-bottom: 5rem;
+			[data-mode="dark"] .landing-page {
+				background:
+					linear-gradient(180deg, rgba(5, 5, 5, 0.66) 0%, rgba(5, 5, 5, 0.48) 46%, rgba(5, 5, 5, 0.88) 100%),
+					url('/images/home/landing-grid.jpeg') center top / cover no-repeat;
+			}
+
+			[data-mode="dark"] .landing-page::before {
+				background:
+					radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.12), transparent 30rem),
+					linear-gradient(90deg, rgba(5, 5, 5, 0.68), transparent 20%, transparent 80%, rgba(5, 5, 5, 0.68));
+			}
+
+			[data-mode="dark"] .hero-title {
+				color: #ffffff;
+			}
+
+			[data-mode="dark"] .hero-kicker,
+			[data-mode="dark"] .hero-subtitle {
+				color: rgba(255, 255, 255, 0.78);
+			}
+
+			[data-mode="dark"] .quick-card {
+				border-color: rgba(255, 255, 255, 0.12);
+				background: rgba(12, 12, 13, 0.72);
+				box-shadow:
+					0 1.4rem 3.5rem rgba(0, 0, 0, 0.42),
+					0 1px 0 rgba(255, 255, 255, 0.08) inset;
+				color: #ffffff;
+			}
+
+			[data-mode="dark"] .quick-card:hover,
+			[data-mode="dark"] .quick-card:focus-visible {
+				border-color: rgba(255, 255, 255, 0.22);
+				background: rgba(18, 18, 20, 0.84);
+			}
+
+			[data-mode="dark"] .quick-icon {
+				border-color: rgba(255, 255, 255, 0.12);
+				background: rgba(255, 255, 255, 0.08);
+				color: #ffffff;
+			}
+
+			[data-mode="dark"] .quick-card h2 {
+				color: #ffffff;
+			}
+
+			[data-mode="dark"] .quick-card p,
+			[data-mode="dark"] .quick-card span {
+				color: rgba(255, 255, 255, 0.76);
+			}
+
+			@keyframes heroIn {
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			@keyframes terminalIn {
+				to {
+					opacity: 1;
+					transform: translateY(0) scale(1);
+				}
+			}
+
+			@keyframes blink {
+				0%,
+				42% {
+					opacity: 1;
+				}
+				43%,
+				100% {
+					opacity: 0;
+				}
+			}
+
+			@media (min-width: 720px) {
+				.home-hero {
+					padding-inline: 1.5rem;
 				}
 
-				.glass-grid {
-					gap: 1.5rem;
+				.quick-links {
+					grid-template-columns: repeat(2, minmax(0, 1fr));
+					gap: 1rem;
 				}
 			}
 
-			@media (max-width: 640px) {
-				.bg-blob {
-					width: 320px;
-					height: 320px;
-					filter: blur(72px);
+			@media (min-width: 1080px) {
+				.home-hero {
+					padding-top: 6.35rem;
+				}
+
+				.quick-links {
+					grid-template-columns: repeat(4, minmax(0, 1fr));
+				}
+			}
+
+			@media (max-width: 520px) {
+				.home-hero {
+					padding-top: 5.45rem;
+				}
+
+				.hero-title {
+					max-width: 10.5ch;
+				}
+
+				.terminal-bar {
+					align-items: flex-start;
+				}
+
+				.terminal-title {
+					display: none;
+				}
+
+				.terminal-actions {
+					display: grid;
+					grid-template-columns: repeat(2, minmax(0, 1fr));
+				}
+
+				.terminal-action {
+					width: 100%;
 				}
 			}
 
 			@media (prefers-reduced-motion: reduce) {
-				.bg-blob {
+				.hero-kicker,
+				.hero-title,
+				.hero-subtitle,
+				.terminal-shell,
+				.quick-links {
+					opacity: 1;
+					transform: none;
 					animation: none;
 				}
 
-				.glass-card,
-				.card-arrow span {
-					transition-duration: 0.01ms !important;
-				}
-
-				.glass-card:hover,
-				.glass-card:focus-visible,
-				.glass-card:hover .card-arrow span,
-				.glass-card:focus-visible .card-arrow span {
-					transform: none;
+				:global(.terminal-cursor) {
+					animation: none;
 				}
 			}
 		</style>
 	</head>
 	<body data-theme="clean">
 		<Header />
-		
-		<!-- Background Elements -->
-		<div class="bg-blob blob-1"></div>
-		<div class="bg-blob blob-2"></div>
 
-		<main class="hero-section">
-			<h1 class="hero-title">Technical Product<br />Studio & Blog</h1>
-			<p class="hero-subtitle">
-				Building agentic systems, robust automation, and minimalistic software. 
-				<br/>Documenting the engineering journey from zero to scale.
-			</p>
-			
-			<div class="glass-grid">
-				<!-- Blog Card -->
-				<a href="/blog" class="glass-card">
-					<div class="card-icon">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-					</div>
-					<div class="card-title">Technical Blog</div>
-					<div class="card-desc">Deep dives into AI Engineering, DevOps pipelines, and modern web infrastructure. Coding without fluff.</div>
-					<div class="card-arrow">Read Articles <span>&rarr;</span></div>
-				</a>
+		<main class="landing-page">
+			<section class="home-hero" aria-labelledby="home-title">
+				<p class="hero-kicker">Kristofer Jussmann</p>
+				<h1 id="home-title" class="hero-title">Technical Product Studio & Blog</h1>
+				<p class="hero-subtitle">
+					Building agentic systems, robust automation, and minimal software. Documenting the engineering path from
+					research prototypes to deployable products.
+				</p>
 
-				<!-- Portfolio Card -->
-				<a href="/portfolio" class="glass-card">
-					<div class="card-icon">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+				<div class="terminal-shell" aria-label="Interactive site terminal">
+					<div class="terminal">
+						<div class="terminal-bar">
+							<div class="window-controls" aria-hidden="true"><span></span><span></span><span></span></div>
+							<div class="terminal-title">portfolio-session</div>
+							<div class="terminal-status">online</div>
+						</div>
+						<div class="terminal-body">
+							<div class="terminal-lines" aria-live="polite" data-terminal-lines></div>
+							<div class="terminal-actions" aria-label="Terminal shortcuts">
+								<button class="terminal-action" type="button" data-command="work">work --current</button>
+								<button class="terminal-action" type="button" data-command="case-studies">case-studies --evidence</button>
+								<button class="terminal-action" type="button" data-command="stack">stack --systems</button>
+								<button class="terminal-action" type="button" data-command="contact">contact --signals</button>
+							</div>
+						</div>
 					</div>
-					<div class="card-title">Minimal Portfolio</div>
-					<div class="card-desc">Showcase of production-grade projects. Focusing on impact, technical complexity, and clean architecture.</div>
-					<div class="card-arrow">View Work <span>&rarr;</span></div>
-				</a>
+				</div>
 
-				<!-- Case Studies Card -->
-				<a href="/case-studies" class="glass-card">
-					<div class="card-icon">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M8 7h8"/><path d="M8 11h8"/><path d="M8 15h5"/></svg>
-					</div>
-					<div class="card-title">Case Studies</div>
-					<div class="card-desc">Structured project evidence for PromptTriage, Kaelux.dev, ViperMesh, and n8n automation work.</div>
-					<div class="card-arrow">Review Evidence <span>&rarr;</span></div>
-				</a>
+				<nav class="quick-links" aria-label="Primary sections">
+					<a class="quick-card" href="/blog">
+						<div class="quick-icon" aria-hidden="true">
+							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+						</div>
+						<h2>Technical Blog</h2>
+						<p>Research notes, AI engineering, DevOps pipelines, and production lessons without filler.</p>
+						<span>Read articles</span>
+					</a>
 
-				<!-- Open Source Card -->
-				<a href="https://github.com/ker102" target="_blank" class="glass-card">
-					<div class="card-icon">
-						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-					</div>
-					<div class="card-title">Open Source</div>
-					<div class="card-desc">Active improvements to the developer ecosystem. Contributing tools, libraries, and resources.</div>
-					<div class="card-arrow">GitHub Profile <span>&rarr;</span></div>
-				</a>
-			</div>
+					<a class="quick-card" href="/portfolio">
+						<div class="quick-icon" aria-hidden="true">
+							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+						</div>
+						<h2>Portfolio</h2>
+						<p>Production-grade systems, product experiments, and infrastructure with clear technical context.</p>
+						<span>View work</span>
+					</a>
+
+					<a class="quick-card" href="/case-studies">
+						<div class="quick-icon" aria-hidden="true">
+							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/><path d="M8 7h8"/><path d="M8 11h8"/><path d="M8 15h5"/></svg>
+						</div>
+						<h2>Case Studies</h2>
+						<p>Evidence-backed project pages for PromptTriage, Kaelux.dev, ViperMesh, and automation work.</p>
+						<span>Review evidence</span>
+					</a>
+
+					<a class="quick-card" href="https://github.com/ker102" target="_blank" rel="noreferrer">
+						<div class="quick-icon" aria-hidden="true">
+							<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+						</div>
+						<h2>Open Source</h2>
+						<p>Developer tooling, public repositories, and shared work across automation and AI systems.</p>
+						<span>GitHub profile</span>
+					</a>
+				</nav>
+			</section>
 		</main>
-		
+
 		<Footer />
 
 		<script>
-			import { animate, stagger } from "motion";
-			
-			// Set clean theme on body immediately
-			document.body.setAttribute('data-theme', 'clean');
-			
-			// Animate Hero Elements
-			animate(
-				".hero-title",
-				{ opacity: 1, transform: "translateY(0)" },
-				{ duration: 0.8, easing: [0.17, 0.55, 0.55, 1] }
-			);
-			
-			animate(
-				".hero-subtitle",
-				{ opacity: 1, transform: "translateY(0)" },
-				{ duration: 0.8, delay: 0.2, easing: [0.17, 0.55, 0.55, 1] }
-			);
-			
-			// Stagger Cards
-			animate(
-				".glass-card",
-				{ opacity: 1, transform: "translateY(0)" },
-				{ 
-					delay: stagger(0.15, { start: 0.4 }),
-					duration: 0.8,
-					easing: [0.17, 0.55, 0.55, 1]
+			const terminalLines = document.querySelector('[data-terminal-lines]');
+			const buttons = document.querySelectorAll('[data-command]');
+
+			const commandSets = {
+				intro: [
+					{ type: 'command', text: 'whoami --brief' },
+					{ type: 'success', text: '[OK] Kristofer Jussmann: technical product builder, AI systems engineer, and documentation-focused operator.' },
+					{ type: 'command', text: 'status --active-projects' },
+					{ type: 'note', text: '[INFO] PromptTriage, Kaelux.dev, ViperMesh, n8n workflows, and lab projects are being organized into reviewer-friendly evidence.' },
+					{ type: 'command', text: 'open ./case-studies/prompttriage' },
+					{ type: 'success', text: '[READY] Research trail, architecture, benchmarks, deployment notes, and remaining evidence list available.' },
+				],
+				work: [
+					{ type: 'command', text: 'work --current' },
+					{ type: 'success', text: '[FOCUS] Secure AI infrastructure, agent workflows, production automation, and clean technical storytelling.' },
+					{ type: 'note', text: '[NOTE] The site is structured for hiring managers who need fast context and deeper evidence when they want it.' },
+				],
+				'case-studies': [
+					{ type: 'command', text: 'case-studies --evidence' },
+					{ type: 'success', text: '[FOUND] PromptTriage complete page: 28K prompt corpus, format evals, cloud costs, architecture, tradeoffs.' },
+					{ type: 'note', text: '[NEXT] Kaelux.dev, ViperMesh, and n8n-workflows will receive structured studies as evidence is assembled.' },
+				],
+				stack: [
+					{ type: 'command', text: 'stack --systems' },
+					{ type: 'success', text: '[STACK] Astro, React, Supabase, Stripe, FastAPI, RAG pipelines, Azure ML, container deployments, automation systems.' },
+					{ type: 'dim', text: '[TRACE] Production notes and failure modes are kept visible instead of hidden behind polished summaries.' },
+				],
+				contact: [
+					{ type: 'command', text: 'contact --signals' },
+					{ type: 'success', text: '[LINKS] GitHub @Ker102, LinkedIn Kristofer Jussmann, Kaelux.dev company page.' },
+					{ type: 'note', text: '[READY] Use the navbar or cards to move from summary to evidence.' },
+				],
+			};
+
+			const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			let activeRun = 0;
+
+			const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+			function addLine(type) {
+				const line = document.createElement('span');
+				line.className = `terminal-line ${type}`;
+				terminalLines?.appendChild(line);
+				return line;
+			}
+
+			async function typeText(line, text, runId) {
+				if (reducedMotion) {
+					line.textContent = text;
+					return;
 				}
-			);
+
+				for (let index = 0; index <= text.length; index += 1) {
+					if (runId !== activeRun) return;
+					line.textContent = text.slice(0, index);
+					await sleep(index < 16 ? 18 : 10);
+				}
+			}
+
+			async function playTerminal(key = 'intro') {
+				if (!terminalLines) return;
+				activeRun += 1;
+				const runId = activeRun;
+				terminalLines.innerHTML = '';
+
+				const lines = commandSets[key] || commandSets.intro;
+				for (const item of lines) {
+					if (runId !== activeRun) return;
+					const line = addLine(item.type);
+					await typeText(line, item.text, runId);
+					await sleep(reducedMotion ? 0 : item.type === 'command' ? 230 : 430);
+				}
+
+				if (runId === activeRun) {
+					const prompt = addLine('command');
+					prompt.innerHTML = '<span class="terminal-cursor" aria-hidden="true"></span>';
+				}
+			}
+
+			buttons.forEach((button) => {
+				button.addEventListener('click', () => {
+					const key = button.getAttribute('data-command') || 'intro';
+					playTerminal(key);
+				});
+			});
+
+			playTerminal('intro');
 		</script>
 	</body>
 </html>
