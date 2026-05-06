@@ -123,17 +123,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			}
 
 			.terminal {
-				min-height: clamp(19rem, 34vw, 23rem);
+				height: clamp(25rem, 38vw, 29rem);
 				overflow: hidden;
 				border: 1px solid rgba(255, 255, 255, 0.16);
 				border-radius: 1.25rem;
-				background:
-					linear-gradient(180deg, rgba(19, 19, 21, 0.92), rgba(0, 0, 0, 0.96)),
-					#050505;
+				background: #000000;
 				box-shadow:
 					0 1.5rem 4.5rem rgba(0, 0, 0, 0.22),
 					0 0 0 1px rgba(255, 255, 255, 0.06) inset;
-				color: #e9ecef;
+				color: #f2f2f2;
 				font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
 			}
 
@@ -183,22 +181,24 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 			.terminal-body {
 				display: flex;
-				min-height: calc(clamp(19rem, 34vw, 23rem) - 3.2rem);
+				height: calc(100% - 3.2rem);
 				flex-direction: column;
-				justify-content: space-between;
-				gap: 1.1rem;
+				justify-content: flex-start;
+				gap: 0.55rem;
 				padding: clamp(1rem, 3.5vw, 1.35rem);
 			}
 
 			.terminal-lines {
-				display: grid;
+				display: flex;
+				flex-direction: column;
 				gap: 0.42rem;
-				min-height: 12.4rem;
+				min-height: 0;
+				overflow: hidden;
 			}
 
 			:global(.terminal-line) {
 				display: block;
-				min-height: 1.28rem;
+				min-height: 0;
 				color: rgba(233, 236, 239, 0.86);
 				font-size: clamp(0.76rem, 2.4vw, 0.92rem);
 				line-height: 1.45;
@@ -210,26 +210,35 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				color: #ffffff;
 			}
 
-			:global(.terminal-line.command)::before {
-				content: 'kristofer@portfolio:~$ ';
-				color: #77d787;
+			:global(.terminal-prompt-user) {
+				color: #00ff41;
 				font-weight: 700;
 			}
 
+			:global(.terminal-prompt-path) {
+				color: #4f7dff;
+				font-weight: 700;
+			}
+
+			:global(.terminal-prompt-dollar),
+			:global(.terminal-command-text) {
+				color: #f2f2f2;
+			}
+
 			:global(.terminal-line.success) {
-				color: #77d787;
+				color: #00ff41;
 			}
 
 			:global(.terminal-line.note) {
-				color: #d6d6d6;
+				color: #f2f2f2;
 			}
 
 			:global(.terminal-line.dim) {
-				color: #8d98a3;
+				color: #9ca3af;
 			}
 
 			:global(.terminal-line.warn) {
-				color: #e5c07b;
+				color: #ffff66;
 			}
 
 			:global(.terminal-cursor) {
@@ -244,9 +253,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 			.terminal-menu {
 				display: grid;
-				gap: 0.24rem;
-				padding-top: 1rem;
-				border-top: 1px solid rgba(255, 255, 255, 0.08);
+				width: min(100%, 36rem);
+				gap: 0;
+				margin-top: 0.15rem;
+				padding-top: 0;
+				border-top: 0;
 				outline: none;
 			}
 
@@ -256,8 +267,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 			:global(.terminal-menu-help) {
 				display: block;
-				margin-bottom: 0.3rem;
-				color: #8d98a3;
+				margin: 0 0 0.26rem;
+				color: #f2f2f2;
 				font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
 				font-size: clamp(0.72rem, 2.2vw, 0.82rem);
 				line-height: 1.4;
@@ -266,18 +277,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			:global(.terminal-option) {
 				display: grid;
 				width: 100%;
-				grid-template-columns: 1.1rem 1fr;
-				gap: 0.5rem;
+				grid-template-columns: 1.35rem 1fr;
+				gap: 0.28rem;
 				align-items: baseline;
 				border: 0;
 				border-radius: 0.35rem;
 				background: transparent;
-				color: #d6d6d6;
+				color: #f2f2f2;
 				cursor: pointer;
 				font: inherit;
 				font-size: clamp(0.76rem, 2.3vw, 0.9rem);
 				line-height: 1.35;
-				padding: 0.18rem 0.25rem;
+				padding: 0.1rem 0.25rem;
 				text-align: left;
 				transition:
 					background 0.16s ease,
@@ -286,28 +297,33 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 			:global(.terminal-option:hover),
 			:global(.terminal-option.is-selected) {
-				background: rgba(119, 215, 135, 0.12);
+				background: #5f8f65;
 				color: #ffffff;
 			}
 
 			:global(.terminal-option:focus-visible) {
-				outline: 1px solid rgba(119, 215, 135, 0.55);
+				outline: 1px solid #00ff41;
 				outline-offset: 2px;
 			}
 
 			:global(.terminal-option-marker) {
-				color: #77d787;
+				color: #f2f2f2;
 				font-weight: 800;
 			}
 
 			:global(.terminal-option-command) {
-				color: #f3f4f6;
+				color: #f2f2f2;
 				font-weight: 700;
 			}
 
 			:global(.terminal-option-desc) {
-				color: #8d98a3;
+				color: #d9d9d9;
 				font-weight: 500;
+			}
+
+			:global(.terminal-option.is-selected .terminal-option-desc),
+			:global(.terminal-option:hover .terminal-option-desc) {
+				color: #ffffff;
 			}
 
 			.quick-links {
@@ -537,6 +553,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					align-items: flex-start;
 				}
 
+				.terminal {
+					height: 31.5rem;
+				}
+
 				.terminal-title {
 					display: none;
 				}
@@ -590,7 +610,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 								aria-label="Terminal command menu"
 								data-terminal-menu
 							>
-								<span class="terminal-menu-help">Use Up/Down and Enter. Tap an option on mobile.</span>
+								<span class="terminal-menu-help">Select a section:</span>
 							</div>
 						</div>
 					</div>
@@ -688,6 +708,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			function addLine(type) {
 				const line = document.createElement('span');
 				line.className = `terminal-line ${type}`;
+
+				if (type === 'command') {
+					line.innerHTML =
+						'<span class="terminal-prompt-user">kristo@LAPTOP-4AC8HF3L</span><span class="terminal-prompt-path">:~</span><span class="terminal-prompt-dollar">$</span> ';
+					const commandText = document.createElement('span');
+					commandText.className = 'terminal-command-text';
+					line.appendChild(commandText);
+					terminalLines?.appendChild(line);
+					return commandText;
+				}
+
 				terminalLines?.appendChild(line);
 				return line;
 			}
@@ -695,7 +726,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			function renderMenu() {
 				if (!terminalMenu) return;
 
-				terminalMenu.innerHTML = '<span class="terminal-menu-help">Use Up/Down and Enter. Tap an option on mobile.</span>';
+				terminalMenu.innerHTML = '<span class="terminal-menu-help">Select a section:</span>';
 				menuOptions.forEach((option, index) => {
 					const row = document.createElement('button');
 					row.type = 'button';
@@ -704,9 +735,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					row.setAttribute('aria-selected', index === selectedOption ? 'true' : 'false');
 					row.dataset.command = option.key;
 					row.innerHTML = `
-						<span class="terminal-option-marker">${index === selectedOption ? '>' : ' '}</span>
+						<span class="terminal-option-marker">${index === selectedOption ? '▸' : ' '}</span>
 						<span>
-							<span class="terminal-option-command">${option.command}</span>
+							<span class="terminal-option-command">${index + 1}. ${option.command}</span>
 							<span class="terminal-option-desc"> - ${option.label}</span>
 						</span>
 					`;
