@@ -124,7 +124,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			}
 
 			.terminal {
-				height: clamp(30rem, 44vw, 34rem);
+				height: clamp(23rem, 30vw, 25.5rem);
 				overflow: hidden;
 				border: 1px solid rgba(255, 255, 255, 0.16);
 				border-radius: 1.25rem;
@@ -281,7 +281,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 			:global(.terminal-menu-hint) {
 				display: block;
-				margin-top: 0.38rem;
+				margin-top: 0.48rem;
 				color: #9ca3af;
 				font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
 				font-size: clamp(0.72rem, 2.2vw, 0.82rem);
@@ -336,18 +336,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				font-weight: 500;
 			}
 
-			:global(.terminal-option-detail) {
-				display: block;
-				color: #b7bcc4;
-				font-weight: 500;
-				line-height: 1.35;
-				padding-top: 0.08rem;
-			}
-
 			:global(.terminal-option.is-selected .terminal-option-desc),
-			:global(.terminal-option:hover .terminal-option-desc),
-			:global(.terminal-option.is-selected .terminal-option-detail),
-			:global(.terminal-option:hover .terminal-option-detail) {
+			:global(.terminal-option:hover .terminal-option-desc) {
 				color: #ffffff;
 			}
 
@@ -579,7 +569,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				}
 
 				.terminal {
-					height: 42rem;
+					height: 27rem;
 				}
 
 				.terminal-title {
@@ -656,26 +646,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				{
 					key: 'work',
 					command: 'work --current',
-					label: 'Current work and direction',
-					detail: 'AI products, automation systems, infrastructure, and portfolio evidence organized for fast review.',
+					label: 'Current work',
 				},
 				{
 					key: 'case-studies',
-					command: 'case-studies --evidence',
-					label: 'Structured project evidence',
-					detail: 'PromptTriage is the complete study; Kaelux.dev, ViperMesh, and n8n workflows are being structured next.',
+					command: 'cases --evidence',
+					label: 'Studies',
 				},
 				{
 					key: 'stack',
 					command: 'stack --systems',
-					label: 'Systems, tools, and infrastructure',
-					detail: 'Astro, React, Supabase, Stripe, FastAPI, RAG, Azure ML, containers, and workflow automation.',
+					label: 'Systems stack',
 				},
 				{
 					key: 'contact',
 					command: 'contact --signals',
-					label: 'Public links and collaboration signals',
-					detail: 'GitHub, LinkedIn, Kaelux.dev, articles, and project pages for deeper technical context.',
+					label: 'Public links',
 				},
 			];
 
@@ -749,7 +735,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 						<span>
 							<span class="terminal-option-command">${index + 1}. ${option.command}</span>
 							<span class="terminal-option-desc"> - ${option.label}</span>
-							<span class="terminal-option-detail">${option.detail}</span>
 						</span>
 					`;
 					row.addEventListener('mouseenter', () => {
