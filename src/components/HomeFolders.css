@@ -8,7 +8,7 @@
 
 .home-folder-link {
 	display: grid;
-	min-height: 13.25rem;
+	min-height: 12rem;
 	grid-template-rows: 8.3rem auto;
 	align-items: end;
 	justify-items: center;
@@ -65,14 +65,7 @@
 
 .home-folder-copy {
 	display: grid;
-	gap: 0.48rem;
-}
-
-.home-folder-copy h2 {
-	margin: 0;
-	color: #050505;
-	font-size: 1.1rem;
-	letter-spacing: 0;
+	max-width: 12rem;
 }
 
 .home-folder-copy p {
@@ -98,10 +91,6 @@
 	background: rgba(18, 18, 20, 0.84);
 }
 
-[data-mode='dark'] .home-folder-copy h2 {
-	color: #ffffff;
-}
-
 [data-mode='dark'] .home-folder-copy p {
 	color: rgba(255, 255, 255, 0.72);
 }
@@ -121,7 +110,7 @@
 
 @media (max-width: 520px) {
 	.home-folder-link {
-		min-height: 12.5rem;
+		min-height: 11.75rem;
 	}
 }
 

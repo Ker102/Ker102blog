@@ -54,7 +54,6 @@ export default function HomeFolders() {
 						/>
 					</div>
 					<div className="home-folder-copy">
-						<h2>{link.title}</h2>
 						<p>{link.description}</p>
 					</div>
 				</a>
