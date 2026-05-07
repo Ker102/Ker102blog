@@ -43,6 +43,7 @@ const { title, description, pubDate, updatedDate, heroImage, externalUrl, source
 				width: calc(100% - 2em);
 				max-width: 100%;
 				margin: 0;
+				padding-top: 6rem;
 			}
 			.hero-image {
 				width: 100%;
@@ -68,6 +69,8 @@ const { title, description, pubDate, updatedDate, heroImage, externalUrl, source
 			}
 			.title h1 {
 				margin: 0 0 0.5em 0;
+				font-size: clamp(2rem, 8vw, 3.5rem);
+				line-height: 1.05;
 			}
 			.date {
 				margin-bottom: 0.5em;
@@ -111,6 +114,72 @@ const { title, description, pubDate, updatedDate, heroImage, externalUrl, source
 			.external-banner a:hover {
 				color: #6366f1;
 				text-decoration: underline;
+			}
+
+			.prose :global(pre) {
+				max-width: 100%;
+				overflow-x: auto;
+			}
+
+			.prose :global(code) {
+				overflow-wrap: anywhere;
+				word-break: break-word;
+			}
+
+			@media (max-width: 720px) {
+				main {
+					width: 100%;
+					padding-top: 5.75rem;
+				}
+
+				.prose {
+					width: 100%;
+					max-width: 100%;
+					padding: 1rem;
+				}
+
+				.title {
+					padding: 0.75rem 0 1rem;
+					text-align: left;
+				}
+
+				.title h1 {
+					font-size: clamp(2rem, 10vw, 2.75rem);
+				}
+
+				.hero-image {
+					padding: 0 1rem;
+				}
+
+				.external-banner {
+					align-items: flex-start;
+					flex-direction: column;
+					padding: 0.9rem;
+				}
+
+				.external-banner .source-badge {
+					white-space: normal;
+				}
+
+				.prose :global(pre),
+				.prose :global(pre code),
+				.prose :global(pre span) {
+					white-space: pre-wrap !important;
+					word-break: break-all;
+				}
+
+				.prose :global(pre span.line) {
+					display: block;
+					max-width: 100%;
+				}
+
+				.prose :global(pre span.line span) {
+					display: inline;
+				}
+
+				.prose :global(:not(pre) > code) {
+					white-space: normal;
+				}
 			}
 		</style>
 	</head>

@@ -23,3 +23,10 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# local brainstorming companion output
+.superpowers/
+
+# local browser/dev verification output
+.playwright-cli/
+astro-dev.log

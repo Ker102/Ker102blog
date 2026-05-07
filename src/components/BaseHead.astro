@@ -30,9 +30,25 @@ const { title, description, image = FallbackImage } = Astro.props;
 />
 <meta name="generator" content={Astro.generator} />
 
-<!-- Font preloads -->
-<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+<script is:inline>
+	(() => {
+		const storageKey = 'site-theme';
+		const root = document.documentElement;
+		const applyThemeMode = (mode) => {
+			root.dataset.mode = mode;
+			localStorage.setItem(storageKey, mode);
+			document.querySelectorAll('[data-theme-toggle]').forEach((toggle) => {
+				toggle.setAttribute('aria-pressed', String(mode === 'dark'));
+				toggle.setAttribute('aria-label', mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+			});
+		};
+		const stored = localStorage.getItem(storageKey);
+		const preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		window.setSiteThemeMode = applyThemeMode;
+		window.toggleSiteTheme = () => applyThemeMode(root.dataset.mode === 'dark' ? 'light' : 'dark');
+		root.dataset.mode = stored || preferred;
+	})();
+</script>
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />

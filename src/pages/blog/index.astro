@@ -28,25 +28,42 @@ const postsWithContent = await Promise.all(
 				gap: 3rem;
 				width: min(1200px, 100%);
 				margin: 0 auto;
-				padding: clamp(1.5rem, 4vw, 3rem);
+				padding: 7rem clamp(1rem, 4vw, 3rem) 3rem;
 				align-items: flex-start;
 			}
 			aside {
 				width: 280px;
 				flex-shrink: 0;
 				position: sticky;
-				top: 2rem;
+				top: 7rem;
+				max-height: calc(100vh - 8.5rem);
+				overflow-y: auto;
+				overscroll-behavior: contain;
 				background: rgba(var(--paper), 0.8);
 				padding: 1.5rem;
 				border-radius: 16px;
 				border: 1px solid rgba(var(--gray), 0.1);
 				backdrop-filter: blur(10px);
+				scrollbar-width: thin;
+				scrollbar-color: rgba(0, 0, 0, 0.32) transparent;
+			}
+			aside::-webkit-scrollbar {
+				width: 8px;
+			}
+			aside::-webkit-scrollbar-thumb {
+				background: rgba(0, 0, 0, 0.26);
+				border-radius: 999px;
+			}
+			:global([data-mode="dark"]) aside {
+				background: rgba(18, 18, 20, 0.78);
+				border-color: rgba(255, 255, 255, 0.12);
+				scrollbar-color: rgba(255, 255, 255, 0.36) transparent;
 			}
 			aside h3 {
 				margin-top: 0;
 				font-size: 1.2rem;
 				margin-bottom: 1rem;
-				border-bottom: 2px solid var(--accent);
+				border-bottom: 2px solid var(--heading-color);
 				padding-bottom: 0.5rem;
 				display: inline-block;
 			}
@@ -56,18 +73,78 @@ const postsWithContent = await Promise.all(
 				margin: 0;
 			}
 			aside li {
-				margin-bottom: 0.75rem;
+				position: relative;
+				margin: 0;
+				border-top: 1px solid rgba(0, 0, 0, 0.08);
+			}
+			aside li:first-child {
+				border-top: 0;
+			}
+			:global([data-mode="dark"]) aside li {
+				border-top-color: rgba(255, 255, 255, 0.12);
 			}
 			aside a {
-				color: var(--gray-dark);
+				position: relative;
+				color: rgb(var(--gray-dark));
 				text-decoration: none;
 				font-size: 0.95rem;
-				transition: color 0.2s;
-				display: block;
+				transition:
+					color 0.22s var(--ease-apple),
+					background 0.22s var(--ease-apple),
+					transform 0.22s var(--ease-apple);
+				display: grid;
+				gap: 0.32rem;
 				line-height: 1.4;
+				padding: 0.78rem 0.45rem 0.78rem 0.85rem;
+				border-radius: 12px;
 			}
-			aside a:hover {
-				color: var(--accent);
+			aside a::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: 0.85rem;
+				bottom: 0.85rem;
+				width: 3px;
+				border-radius: 999px;
+				background: var(--heading-color);
+				opacity: 0;
+				transform: scaleY(0.45);
+				transition:
+					opacity 0.22s var(--ease-apple),
+					transform 0.22s var(--ease-apple);
+			}
+			.recent-title {
+				font-weight: 720;
+			}
+			.recent-date {
+				color: rgba(var(--gray-dark), 0.62);
+				font-size: 0.76rem;
+				font-weight: 700;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+			}
+			aside a:hover,
+			aside a:focus-visible,
+			aside a.is-active {
+				color: rgb(var(--black));
+				background: rgba(0, 0, 0, 0.045);
+				transform: translateX(4px);
+				outline: none;
+			}
+			aside a:hover::before,
+			aside a:focus-visible::before,
+			aside a.is-active::before {
+				opacity: 1;
+				transform: scaleY(1);
+			}
+			aside a.is-active .recent-date {
+				color: rgba(var(--gray-dark), 0.84);
+			}
+			:global([data-mode="dark"]) aside a:hover,
+			:global([data-mode="dark"]) aside a:focus-visible,
+			:global([data-mode="dark"]) aside a.is-active {
+				color: rgb(var(--black));
+				background: rgba(255, 255, 255, 0.075);
 			}
 			main {
 				flex-grow: 1;
@@ -121,21 +198,122 @@ const postsWithContent = await Promise.all(
 			article :global(a:hover) {
 				text-decoration: underline;
 			}
+			article :global(pre) {
+				max-width: 100%;
+				overflow-x: auto;
+			}
+			article :global(code) {
+				overflow-wrap: anywhere;
+				word-break: break-word;
+			}
 			@media (max-width: 900px) {
 				.layout-container {
 					flex-direction: column-reverse; /* Content first on mobile */
-					padding: 1rem;
+					padding: 6rem 1rem 2rem;
+					gap: 1.5rem;
 				}
 				aside {
 					width: 100%;
 					position: static;
+					max-height: 20rem;
 					margin-bottom: 2rem;
+					padding: 1rem;
 				}
 				article {
 					padding: clamp(1.5rem, 8vw, 2.5rem);
 				}
 			}
+
+			@media (max-width: 560px) {
+				.posts {
+					gap: 1.25rem;
+				}
+
+				article {
+					border-radius: 22px;
+					padding: 1.1rem;
+				}
+
+				article h2 {
+					font-size: clamp(1.55rem, 9vw, 2.1rem);
+				}
+
+				.meta {
+					font-size: 0.76rem;
+					letter-spacing: 0.04em;
+				}
+
+				aside a {
+					padding: 0.7rem 0.45rem 0.7rem 0.8rem;
+				}
+
+				article :global(pre),
+				article :global(pre code),
+				article :global(pre span) {
+					white-space: pre-wrap !important;
+					word-break: break-all;
+				}
+
+				article :global(pre span.line) {
+					display: block;
+					max-width: 100%;
+				}
+
+				article :global(pre span.line span) {
+					display: inline;
+				}
+
+				article :global(:not(pre) > code) {
+					white-space: normal;
+				}
+			}
 		</style>
+		<script is:inline>
+			(() => {
+				const initRecentPostNav = () => {
+					const links = Array.from(document.querySelectorAll('[data-post-link]'));
+					const articles = Array.from(document.querySelectorAll('article[id]'));
+					if (!links.length || !articles.length) return;
+
+					const byId = new Map(links.map((link) => [link.getAttribute('href')?.slice(1), link]));
+					const setActive = (id) => {
+						for (const link of links) {
+							const active = link.getAttribute('href') === `#${id}`;
+							link.classList.toggle('is-active', active);
+							if (active) {
+								link.setAttribute('aria-current', 'true');
+								link.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+							} else {
+								link.removeAttribute('aria-current');
+							}
+						}
+					};
+
+					const observer = new IntersectionObserver(
+						(entries) => {
+							const visible = entries
+								.filter((entry) => entry.isIntersecting)
+								.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+							if (visible?.target?.id && byId.has(visible.target.id)) setActive(visible.target.id);
+						},
+						{ rootMargin: '-22% 0px -58% 0px', threshold: [0.12, 0.35, 0.6] },
+					);
+
+					articles.forEach((article) => observer.observe(article));
+					if (location.hash && byId.has(location.hash.slice(1))) {
+						setActive(location.hash.slice(1));
+					} else {
+						setActive(articles[0].id);
+					}
+				};
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', initRecentPostNav, { once: true });
+				} else {
+					initRecentPostNav();
+				}
+			})();
+		</script>
 	</head>
 	<body>
 		<Header />
@@ -145,7 +323,10 @@ const postsWithContent = await Promise.all(
 				<ul>
 					{posts.map((post) => (
 						<li>
-							<a href={`#${post.slug}`}>{post.data.title}</a>
+							<a href={`#${post.slug}`} data-post-link>
+								<span class="recent-title">{post.data.title}</span>
+								<span class="recent-date"><FormattedDate date={post.data.pubDate} /></span>
+							</a>
 						</li>
 					))}
 				</ul>

@@ -42,14 +42,18 @@ const isActive =
 		text-decoration: none;
 		color: inherit;
 		border-radius: 999px;
-		transition: background 150ms ease, color 150ms ease;
+		transition: background 180ms ease, color 180ms ease, box-shadow 180ms ease;
 	}
 	a.active {
 		font-weight: 700;
-		background: rgba(var(--accent-rgb), 0.12);
-		color: var(--accent-dark);
+		background: rgba(0, 0, 0, 0.08);
+		color: #111;
 	}
 	a:hover {
-		background: rgba(var(--accent-rgb), 0.08);
+		background: rgba(0, 0, 0, 0.06);
+	}
+	a:focus-visible {
+		outline: 2px solid rgba(156, 163, 175, 0.72);
+		outline-offset: 3px;
 	}
 </style>

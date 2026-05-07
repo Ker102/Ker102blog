@@ -1,0 +1,146 @@
+# PromptTriage Case Study Remaining Evidence
+
+Last updated: 2026-05-06
+
+This file tracks what still needs to be added or verified for the PromptTriage case study before treating it as fully evidence-complete for hiring managers and technical reviewers.
+
+## Already represented on the site
+
+- Structured case-study page based on the professional template.
+- Executive summary, problem, constraints, requirements, architecture, security model, deployment, operations, cost, results, tradeoffs, failures, improvements, links, interview explanation, and resume bullets.
+- Current architecture notes: Next.js, Supabase Auth, Stripe, FastAPI RAG, Pinecone, model providers, GitHub Actions, Azure Container Apps, Azure Container Registry history, and Google Cloud Run history.
+- Exportable architecture diagram at `public/images/case-studies/prompttriage/prompttriage-architecture.svg`.
+- Research gallery using the GitHub release diagrams/images.
+- App showcase video link from the GitHub release.
+- Azure credit spend summary: EUR 178.12.
+- Meter-level cost itemization from the available Azure Cost Management evidence:
+  - `NC24ads_A100_v4`: EUR 177.97.
+  - `E4ds v4`: EUR 0.14.
+- Azure ML runtime evidence for high-signal jobs, including the long A100/MoE benchmark.
+- Explicit note that some failed/stopped runs were intentional stop/resume continuation points, not always broken experiments.
+- Unsloth and QLoRA research context.
+- Canonical Hashnode article links for the 28K prompt analysis and 1,080-eval format study.
+
+## Still needed
+
+### 1. Azure ML job-level cost allocation
+
+- Export or screenshot a clean table of the most important Azure ML jobs.
+- Map each high-signal run ID to:
+  - study name
+  - compute target
+  - VM SKU
+  - start and end time
+  - runtime
+  - status
+  - stopped/resumed/failure reason
+  - approximate cost if available
+- Keep the current caveat if Azure only exposes meter-level VM cost and cannot cleanly attach every euro to a job ID.
+
+### 2. Public-safe Azure ML run evidence
+
+- Redacted screenshots or exports from Azure ML Studio for the benchmark/training runs.
+- Include at least:
+  - Study A baseline run
+  - Study B long MoE run
+  - Qwen/Unsloth fine-tuning or QLoRA run
+  - stopped/resumed continuation chain
+  - failed run that produced a useful lesson
+- Remove subscription IDs, tenant IDs, private paths, tokens, and private dataset identifiers.
+
+### 3. Benchmark summary table
+
+- Create a compact public table for each study:
+  - study name
+  - sample size
+  - model set
+  - evaluation method
+  - core finding
+  - artifact link
+  - confidence/limitation
+- Cover:
+  - 28K production prompt analysis
+  - 1,080-eval format study
+  - RAG ablation study
+  - model/provider benchmark work
+  - judge-bias or evaluator-behavior notes
+  - any null results that should not be overstated
+- Add source evidence for the fourth referee/judge model if it was part of a later or private Study E evaluation pass. The public Hashnode article currently names three judge models, so the site keeps that caveat until the fourth-referee artifact is attached.
+
+### 4. Deployment pipeline evidence
+
+- Add visual proof or logs for:
+  - GitHub Actions build/deploy workflow
+  - Azure Container Registry image push
+  - Azure Container Apps deployment history
+  - Google Cloud Run deployment history, if recoverable
+  - image scanning or dependency scanning
+  - rollback or redeploy process
+- If the Azure resources were deleted, include the incident note and any surviving workflow/log evidence.
+
+### 5. Security model proof
+
+- Add redacted evidence for:
+  - Supabase Auth configuration
+  - Stripe webhook verification path
+  - server-side subscription checks
+  - environment-based secrets
+  - GitHub Actions to Azure OIDC, if still documented in workflows
+  - any Supabase RLS policies, if used
+  - API rate limiting or abuse protection, if implemented
+- If a control is planned but not implemented, label it as planned instead of implying it exists.
+
+### 6. Operations evidence
+
+- Add or write:
+  - public runbook
+  - health-check endpoint proof
+  - example sanitized logs
+  - alert thresholds
+  - incident response notes
+  - backup/restore notes for any database/vector data
+  - cost monitoring process
+  - failure-handling behavior for provider/model outages
+
+### 7. Results numbers
+
+- Add stronger outcome metrics where available:
+  - number of benchmark runs
+  - number of models/providers tested
+  - dataset sizes
+  - successful deployments
+  - generation latency ranges
+  - failure/retry rates
+  - judge agreement or disagreement metrics
+  - prompt-quality score deltas, only where defensible
+  - demo or usage metrics, if public-safe
+
+### 8. Architecture diagram maintenance
+
+- Recheck the architecture diagram against the current PromptTriage code before publishing.
+- Update the diagram if the live/current system differs from the old Azure Container Apps or Google Cloud Run setup.
+- Keep deployment history visually separate from the current production architecture so reviewers do not confuse historical hosting with current runtime.
+
+### 9. Article and release alignment
+
+- Make sure the Hashnode articles, GitHub releases, README, and portfolio case study all point to the same canonical evidence.
+- Add missing release assets if needed:
+  - app showcase video
+  - architecture diagram export
+  - benchmark charts
+  - benchmark summary CSV/JSON
+  - sanitized cost report
+
+### 10. Final reviewer polish
+
+- Add a short "how to verify this project" section for hiring managers.
+- Add a one-page evidence index with links to:
+  - repo
+  - demo
+  - case study
+  - architecture diagram
+  - benchmark artifacts
+  - cost evidence
+  - deployment evidence
+  - security/operations notes
+- Review every claim and remove anything that is not backed by repo evidence, screenshots, logs, releases, or public articles.

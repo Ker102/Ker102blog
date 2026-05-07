@@ -5,7 +5,7 @@ const today = new Date();
 <footer>
 	<div class="footer-shell">
 		<div class="footer-brand">
-			<span class="footer-logo">KJ</span>
+			<span class="footer-logo">Kristofer Jussmann</span>
 			<p>&copy; {today.getFullYear()} Kristofer Jussmann. All rights reserved.</p>
 		</div>
 		<div class="social-links">
@@ -34,8 +34,8 @@ const today = new Date();
 <style>
 	footer {
 		padding: 3rem 1.5rem;
-		background: rgba(var(--gray-50), 0.8);
-		border-top: 1px solid rgba(var(--gray-200), 0.6);
+		background: rgba(255, 255, 255, 0.58);
+		border-top: 1px solid rgba(0, 0, 0, 0.06);
 		margin-top: 4rem;
 	}
 	
@@ -57,14 +57,14 @@ const today = new Date();
 	.footer-logo {
 		font-size: 1.25rem;
 		font-weight: 700;
-		letter-spacing: -0.03em;
-		color: rgb(var(--gray-400));
+		letter-spacing: 0;
+		color: rgba(var(--gray-dark), 0.7);
 	}
 	
 	.footer-brand p {
 		margin: 0;
 		font-size: 0.85rem;
-		color: rgb(var(--gray-500));
+		color: rgba(var(--gray-dark), 0.72);
 	}
 	
 	.social-links {
@@ -78,17 +78,20 @@ const today = new Date();
 		justify-content: center;
 		width: 38px;
 		height: 38px;
-		color: rgb(var(--gray-400));
+		color: rgba(var(--gray-dark), 0.7);
 		border-radius: var(--radius-full);
 		transition: all var(--transition-fast);
 		background: transparent;
 		border: 1px solid transparent;
 	}
 	
-	.social-links a:hover {
-		color: rgb(var(--gray-700));
-		background: rgba(var(--gray-200), 0.6);
-		border-color: rgba(var(--gray-300), 0.5);
+	.social-links a:hover,
+	.social-links a:focus-visible {
+		color: rgb(var(--gray-dark));
+		background: rgba(0, 0, 0, 0.05);
+		border-color: rgba(0, 0, 0, 0.08);
+		outline: none;
+		transform: translateY(-1px);
 	}
 	
 	@media (max-width: 720px) {
@@ -105,6 +108,22 @@ const today = new Date();
 		.footer-brand {
 			flex-direction: column;
 			gap: 0.5rem;
+		}
+
+		.social-links a {
+			width: 44px;
+			height: 44px;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.social-links a {
+			transition-duration: 0.01ms !important;
+		}
+
+		.social-links a:hover,
+		.social-links a:focus-visible {
+			transform: none;
 		}
 	}
 </style>

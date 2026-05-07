@@ -1,0 +1,531 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+
+const title = 'Case Studies - Kristofer Jussmann';
+const description =
+	'Professional case-study index for PromptTriage, Kaelux.dev, ViperMesh, and automation infrastructure work.';
+
+const upcomingStudies = [
+	{
+		name: 'Kaelux.dev',
+		status: 'Source verified',
+		type: 'AI engineering agency platform',
+		summary:
+			'Service site and technical platform for AI engineering work, including a diagnostic agent, project hub, wiki strategy, SEO/GEO content, and deployment documentation.',
+		evidence: ['Live platform', 'Repository', 'Diagnostic UX', 'Deployment notes'],
+		links: [
+			{ label: 'Live site', href: 'https://kaelux.dev' },
+			{ label: 'Repository', href: 'https://github.com/Ker102/Kaelux-DevPortfolio' },
+		],
+	},
+	{
+		name: 'ViperMesh',
+		status: 'Case study in progress',
+		type: 'AI-powered Blender and neural 3D workflow product',
+		summary:
+			'Formerly ModelForge. Evidence points to an Electron and Blender Python workflow with agentic tooling, RAG-backed generation, addon awareness, and local-to-cloud product planning.',
+		evidence: ['Electron shell', 'Blender Python API', 'Agent tool model', 'Neural 3D roadmap'],
+		links: [{ label: 'Repository', href: 'https://github.com/Ker102/ViperMesh' }],
+	},
+	{
+		name: 'n8n Automation Atlas',
+		status: 'Source verified',
+		type: 'Workflow library and automation evidence base',
+		summary:
+			'Curated automation library with ready-to-import n8n JSON exports, license preservation, and an explorer path for builders who need practical workflow examples.',
+		evidence: ['Workflow curation', 'Import UX', 'JSON corpus', 'License notes'],
+		links: [
+			{ label: 'Atlas repository', href: 'https://github.com/Ker102/n8n-ai-automation-workflow-atlas' },
+			{ label: 'Workflow corpus', href: 'https://github.com/Ker102/n8n-workflows-36k' },
+		],
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<style>
+			body {
+				background:
+					radial-gradient(circle at 14% 0%, rgba(255, 255, 255, 0.78), transparent 30rem),
+					radial-gradient(circle at 88% 8%, rgba(0, 0, 0, 0.06), transparent 28rem),
+					var(--theme-bg);
+				color: var(--theme-text);
+			}
+
+			:global([data-mode="dark"]) body {
+				background:
+					radial-gradient(circle at 16% 0%, rgba(255, 255, 255, 0.1), transparent 34rem),
+					radial-gradient(circle at 92% 12%, rgba(255, 255, 255, 0.06), transparent 28rem),
+					#030303;
+			}
+
+			main.case-index {
+				width: min(100%, 1180px);
+				max-width: none;
+				padding: 7.5rem 1rem 7rem;
+			}
+
+			.hero {
+				display: grid;
+				gap: 1rem;
+				margin-bottom: 1.5rem;
+			}
+
+			.eyebrow,
+			.status {
+				display: inline-flex;
+				width: fit-content;
+				align-items: center;
+				border-radius: 999px;
+				border: 1px solid var(--theme-border);
+				background: rgba(255, 255, 255, 0.7);
+				color: var(--heading-color);
+				font-size: 0.75rem;
+				font-weight: 800;
+				letter-spacing: 0;
+				text-transform: uppercase;
+			}
+
+			.eyebrow {
+				padding: 0.38rem 0.7rem;
+			}
+
+			.status {
+				padding: 0.35rem 0.68rem;
+			}
+
+			:global([data-mode="dark"]) .eyebrow,
+			:global([data-mode="dark"]) .status {
+				background: rgba(255, 255, 255, 0.08);
+				border-color: rgba(255, 255, 255, 0.16);
+				color: #f5f5f5;
+			}
+
+			.hero h1 {
+				max-width: 850px;
+				margin: 0;
+				color: var(--heading-color);
+				font-size: clamp(2.45rem, 12vw, 5.4rem);
+				line-height: 0.98;
+				letter-spacing: 0;
+			}
+
+			.hero p {
+				max-width: 760px;
+				margin: 0;
+				color: var(--muted-text);
+				font-size: clamp(1rem, 4.2vw, 1.22rem);
+				line-height: 1.62;
+			}
+
+			.button {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 44px;
+				padding: 0.74rem 1rem;
+				border-radius: 999px;
+				border: 1px solid var(--theme-border);
+				background: var(--glass-surface);
+				color: var(--heading-color);
+				font-size: 0.95rem;
+				font-weight: 800;
+				text-decoration: none;
+				transition:
+					transform 220ms var(--ease-apple),
+					box-shadow 220ms var(--ease-apple),
+					background 220ms var(--ease-apple);
+			}
+
+			.button.primary {
+				background: var(--chrome-ink);
+				color: var(--chrome-paper);
+				box-shadow: 0 18px 38px rgba(0, 0, 0, 0.16);
+			}
+
+			.button:hover,
+			.button:focus-visible {
+				transform: translateY(-2px);
+				background: var(--glass-surface-hover);
+				box-shadow: 0 22px 52px rgba(0, 0, 0, 0.14);
+			}
+
+			:global([data-mode="dark"]) .button.primary {
+				background: #f5f5f5;
+				color: #050505;
+			}
+
+			.hero-actions,
+			.card-actions {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.7rem;
+			}
+
+			.signal-strip {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 0.75rem;
+				margin: 1.75rem 0 2rem;
+			}
+
+			.signal-card,
+			.case-card,
+			.pipeline-panel {
+				border: 1px solid var(--glass-border);
+				background:
+					linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.46)),
+					var(--glass-surface);
+				box-shadow:
+					0 18px 50px rgba(0, 0, 0, 0.07),
+					inset 0 1px 0 rgba(255, 255, 255, 0.72);
+				backdrop-filter: blur(28px);
+				-webkit-backdrop-filter: blur(28px);
+			}
+
+			:global([data-mode="dark"]) .signal-card,
+			:global([data-mode="dark"]) .case-card,
+			:global([data-mode="dark"]) .pipeline-panel {
+				background:
+					linear-gradient(145deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.035)),
+					#090909;
+				border-color: rgba(255, 255, 255, 0.16);
+				box-shadow:
+					0 24px 70px rgba(0, 0, 0, 0.46),
+					inset 0 1px 0 rgba(255, 255, 255, 0.08);
+			}
+
+			.signal-card {
+				min-height: 112px;
+				border-radius: 22px;
+				padding: 1rem;
+			}
+
+			.signal-card strong {
+				display: block;
+				color: var(--heading-color);
+				font-size: 1rem;
+			}
+
+			.signal-card span {
+				display: block;
+				margin-top: 0.28rem;
+				color: var(--muted-text);
+				font-size: 0.92rem;
+				line-height: 1.5;
+			}
+
+			.section-heading {
+				display: grid;
+				gap: 0.4rem;
+				margin: 3rem 0 1rem;
+			}
+
+			.section-heading h2 {
+				margin: 0;
+				color: var(--heading-color);
+				font-size: clamp(1.75rem, 8vw, 3rem);
+				line-height: 1.08;
+				letter-spacing: 0;
+			}
+
+			.section-heading p {
+				max-width: 740px;
+				margin: 0;
+				color: var(--muted-text);
+				line-height: 1.6;
+			}
+
+			.case-grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 0.9rem;
+			}
+
+			.case-card {
+				position: relative;
+				display: grid;
+				gap: 1rem;
+				min-height: 100%;
+				padding: 1rem;
+				border-radius: 28px;
+				overflow: hidden;
+				transition:
+					transform 220ms var(--ease-apple),
+					box-shadow 220ms var(--ease-apple),
+					border-color 220ms var(--ease-apple);
+			}
+
+			.case-card::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				pointer-events: none;
+				background:
+					radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.7), transparent 18rem),
+					linear-gradient(135deg, transparent 42%, rgba(0, 0, 0, 0.045));
+				opacity: 0.72;
+			}
+
+			:global([data-mode="dark"]) .case-card::before {
+				background:
+					radial-gradient(circle at 18% 0%, rgba(255, 255, 255, 0.11), transparent 20rem),
+					linear-gradient(135deg, transparent 42%, rgba(255, 255, 255, 0.055));
+			}
+
+			.case-card > * {
+				position: relative;
+			}
+
+			.case-card:hover,
+			.case-card:focus-within {
+				transform: translateY(-4px);
+				border-color: rgba(150, 154, 164, 0.42);
+				box-shadow: 0 26px 70px rgba(0, 0, 0, 0.14);
+			}
+
+			.case-card h3 {
+				margin: 0;
+				color: var(--heading-color);
+				font-size: clamp(1.55rem, 8vw, 2.5rem);
+				line-height: 1;
+				letter-spacing: 0;
+			}
+
+			.case-type {
+				color: var(--muted-text);
+				font-size: 0.92rem;
+				font-weight: 800;
+				line-height: 1.4;
+			}
+
+			.case-card p {
+				margin: 0;
+				color: var(--muted-text);
+				line-height: 1.62;
+			}
+
+			.case-metrics,
+			.evidence-list {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 0.58rem;
+			}
+
+			.case-metrics span,
+			.evidence-list span {
+				min-height: 40px;
+				padding: 0.62rem 0.72rem;
+				border-radius: 16px;
+				border: 1px solid var(--theme-border);
+				background: rgba(255, 255, 255, 0.56);
+				color: var(--heading-color);
+				font-size: 0.84rem;
+				font-weight: 800;
+				line-height: 1.25;
+			}
+
+			:global([data-mode="dark"]) .case-metrics span,
+			:global([data-mode="dark"]) .evidence-list span {
+				background: rgba(255, 255, 255, 0.07);
+				border-color: rgba(255, 255, 255, 0.12);
+				color: #f2f2f2;
+			}
+
+			.case-card.featured {
+				min-height: 460px;
+			}
+
+			.pipeline-panel {
+				display: grid;
+				gap: 1rem;
+				margin-top: 3rem;
+				padding: 1rem;
+				border-radius: 28px;
+			}
+
+			.pipeline-panel h2 {
+				margin: 0;
+				font-size: clamp(1.55rem, 7vw, 2.5rem);
+				letter-spacing: 0;
+			}
+
+			.pipeline-panel p {
+				margin: 0;
+				color: var(--muted-text);
+				line-height: 1.62;
+			}
+
+			@media (min-width: 640px) {
+				main.case-index {
+					padding-inline: 1.5rem;
+				}
+
+				.signal-strip,
+				.case-metrics,
+				.evidence-list {
+					grid-template-columns: repeat(2, minmax(0, 1fr));
+				}
+			}
+
+			@media (min-width: 900px) {
+				main.case-index {
+					padding-top: 9rem;
+				}
+
+				.signal-strip {
+					grid-template-columns: repeat(4, minmax(0, 1fr));
+				}
+
+				.case-grid {
+					grid-template-columns: repeat(3, minmax(0, 1fr));
+				}
+
+				.case-card.featured {
+					grid-column: span 2;
+					padding: 1.4rem;
+				}
+
+				.pipeline-panel {
+					grid-template-columns: minmax(0, 1fr) auto;
+					align-items: center;
+					padding: 1.4rem;
+				}
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				* {
+					transition-duration: 0.01ms !important;
+					animation-duration: 0.01ms !important;
+					animation-iteration-count: 1 !important;
+				}
+
+				.button:hover,
+				.button:focus-visible,
+				.case-card:hover,
+				.case-card:focus-within {
+					transform: none;
+				}
+			}
+		</style>
+	</head>
+	<body data-theme="clean">
+		<Header />
+		<main class="case-index">
+			<section class="hero">
+				<span class="eyebrow">Project evidence for reviewers</span>
+				<h1>Case Studies & Project Evidence</h1>
+				<p>
+					A hiring-manager friendly index of the systems, research work, deployment
+					choices, costs, and tradeoffs behind the projects I want reviewers to inspect.
+				</p>
+				<div class="hero-actions">
+					<a class="button primary" href="/case-studies/prompttriage">Read PromptTriage</a>
+					<a class="button" href="#case-study-list">Browse all studies</a>
+				</div>
+			</section>
+
+			<section class="signal-strip" aria-label="Case study evidence categories">
+				<article class="signal-card">
+					<strong>Systems</strong>
+					<span>Working software, demos, repositories, and source-backed implementation notes.</span>
+				</article>
+				<article class="signal-card">
+					<strong>Research</strong>
+					<span>Benchmark runs, evaluation summaries, charts, cost data, and limitations.</span>
+				</article>
+				<article class="signal-card">
+					<strong>Operations</strong>
+					<span>Deployment history, logs, incident lessons, health checks, and rollback plans.</span>
+				</article>
+				<article class="signal-card">
+					<strong>Hiring signal</strong>
+					<span>Fast summaries that lead to deeper proof without making reviewers hunt.</span>
+				</article>
+			</section>
+
+			<section id="case-study-list">
+				<div class="section-heading">
+					<span class="eyebrow">Case study library</span>
+					<h2>Separate pages, separate evidence trails</h2>
+					<p>
+						PromptTriage has the complete structured page now. The other projects are
+						listed as dedicated units so they can become full template-backed studies
+						without changing the navigation model later.
+					</p>
+				</div>
+
+				<div class="case-grid">
+					<article class="case-card featured">
+						<span class="status">Complete case study</span>
+						<div>
+							<h3>PromptTriage</h3>
+							<div class="case-type">RAG-powered prompt engineering platform and Azure ML research study</div>
+						</div>
+						<p>
+							Full case study with current architecture, Supabase Auth, Stripe billing,
+							Pinecone retrieval, Azure ML benchmark evidence, release diagrams, cost
+							notes, failure modes, and remaining evidence gaps.
+						</p>
+						<div class="case-metrics" aria-label="PromptTriage evidence highlights">
+							<span>28K+ prompt corpus</span>
+							<span>8 release diagrams</span>
+							<span>EUR 178.12 Azure VM spend</span>
+							<span>38.19h longest benchmark</span>
+						</div>
+						<div class="card-actions">
+							<a class="button primary" href="/case-studies/prompttriage">Open case study</a>
+							<a class="button" href="https://github.com/Ker102/PromptTriage" target="_blank" rel="noopener noreferrer">
+								Repository
+							</a>
+						</div>
+					</article>
+
+					{upcomingStudies.map((study) => (
+						<article class="case-card">
+							<span class="status">{study.status}</span>
+							<div>
+								<h3>{study.name}</h3>
+								<div class="case-type">{study.type}</div>
+							</div>
+							<p>{study.summary}</p>
+							<div class="evidence-list" aria-label={`${study.name} evidence`}>
+								{study.evidence.map((item) => <span>{item}</span>)}
+							</div>
+							<div class="card-actions">
+								{study.links.map((link) => (
+									<a class="button" href={link.href} target="_blank" rel="noopener noreferrer">
+										{link.label}
+									</a>
+								))}
+							</div>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section class="pipeline-panel">
+				<div>
+					<span class="eyebrow">Documentation standard</span>
+					<h2>Next pages will follow the same case-study template</h2>
+					<p>
+						Each future page should cover executive summary, problem, constraints,
+						requirements, architecture, security, deployment, operations, cost, results,
+						tradeoffs, failure modes, improvements, repo/demo links, interview explanation,
+						and resume bullets.
+					</p>
+				</div>
+				<div class="hero-actions">
+					<a class="button primary" href="/portfolio">View portfolio</a>
+					<a class="button" href="https://github.com/ker102" target="_blank" rel="noopener noreferrer">GitHub</a>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
