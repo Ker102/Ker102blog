@@ -93,6 +93,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 			.terminal-shell {
 				position: relative;
+				isolation: isolate;
 				width: min(100%, 54rem);
 				margin: clamp(1.2rem, 3vw, 1.65rem) auto clamp(1.6rem, 3.5vw, 2rem);
 				text-align: left;
@@ -104,13 +105,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			.terminal-shell::before {
 				content: '';
 				position: absolute;
-				inset: -2.4rem -3rem -3rem;
+				inset: -2.8rem -4rem -3.4rem;
 				z-index: -2;
 				background:
-					radial-gradient(ellipse at 48% 58%, rgba(94, 86, 255, 0.22), transparent 58%),
-					radial-gradient(ellipse at 54% 42%, rgba(255, 255, 255, 0.72), transparent 52%);
-				filter: blur(18px);
-				opacity: 0.88;
+					radial-gradient(ellipse at 28% 68%, rgba(175, 157, 255, 0.24), transparent 48%),
+					radial-gradient(ellipse at 70% 64%, rgba(203, 225, 255, 0.22), transparent 52%),
+					radial-gradient(ellipse at 50% 38%, rgba(255, 255, 255, 0.72), transparent 56%);
+				filter: blur(20px);
+				opacity: 0.78;
+				pointer-events: none;
+				transform: translate3d(-1.2rem, 0.25rem, 0) scale(0.98);
+				animation: terminalGlow 9s ease-in-out infinite alternate;
 			}
 
 			.terminal-shell::after {
@@ -523,6 +528,23 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				}
 			}
 
+			@keyframes terminalGlow {
+				0% {
+					opacity: 0.58;
+					transform: translate3d(-1.4rem, 0.45rem, 0) scale(0.98);
+				}
+
+				48% {
+					opacity: 0.84;
+					transform: translate3d(0.9rem, -0.2rem, 0) scale(1.02);
+				}
+
+				100% {
+					opacity: 0.68;
+					transform: translate3d(1.25rem, 0.35rem, 0) scale(1);
+				}
+			}
+
 			@keyframes blink {
 				0%,
 				42% {
@@ -590,6 +612,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					opacity: 1;
 					transform: none;
 					animation: none;
+				}
+
+				.terminal-shell::before {
+					animation: none;
+					transform: none;
 				}
 
 				:global(.terminal-cursor) {
